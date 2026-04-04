@@ -1,0 +1,51 @@
+\ifdefined\sourcedir\else
+  \def\local{}
+  \input{preamble.tex}
+  \begin{document}
+  \def\propertitle{The Major Prophets }
+  \frontmatter
+  \input{title.tex}
+  \input{copyright.tex}
+  \input{intro.tex}
+  \mainmatter
+\fi
+\input{\sourcedir/024-Isaiah_parallel.tex}
+\fancyhead[LE]{}
+{
+\renewcommand{\BookHeading}[1]{%
+  \cleardoublepage
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \fancyhead[LE]{#1}
+\textit{
+NOTE: Because of the significant differences between the structure of
+Jeremiah in the Hebrew and Greek sources, it is presented here in the
+order of the \textbf{Greek Septuagint} rather than the order it is
+found in most English Bibles and with chapter divisions following the
+LXX rather than the WEB English.
+}
+}
+\input{\sourcedir/025-Jeremiah_parallel.tex}
+}
+{
+\renewcommand{\BookHeading}[1]{%
+  \cleardoublepage
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \fancyhead[LE]{#1}
+\textit{
+NOTE: Lamentations takes the form of a Hebrew acrostic poem. Brenton
+labels each verse (or group of verses for chapter 3) with the
+name of the Hebrew letter. These are presented here with Brenton's
+spelling. (These labels are not present in the Greek text.)
+}
+}
+\input{\sourcedir/026-Lamentations_parallel.tex}
+}
+\input{\sourcedir/027-Ezekiel_parallel.tex}
+\fancyhead[LE]{Daniel}
+\input{daniel}
+
+\ifdefined\local
+  \end{document}
+\fi

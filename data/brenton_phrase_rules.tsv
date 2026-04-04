@@ -1,0 +1,51 @@
+# Joel specific		
+"\bthe leavings of the ([^,]+) has the ([^ ]+) eaten\b"	the \2 has eaten the leavings of the \1	
+\bThe leavings of the\b	The locust has eaten the leavings of the	
+\bcaterpillar has the locust eaten\b	caterpillar	
+# 		
+\ban h	a h	Words that begin with h no longer get 'an' as the article
+\bcompassed (\w+) about\b	surrounded \1	
+\bthat they may\b	so they may
+\bNow shall (.+) be completely hedged\b	Now \1 will be completely hedged	
+\bBut do ye receive\b	"But you, receive"	
+\b(angel|man|men|Ye|ye|God|he|He|mother|You|you|Thou|thou) that\b	\1 who	Person that -> person who
+\b(T|t)hem that\b	\1hose who	Them that -> those who
+\b(m|M)ine (\\add |\\add\*)?([aeiouyh])	\1y \2\3	'Mine'+vowel
+\bthine (\\add |\\add\*)?([aeiouyh])	your \1\2	'thine'+vowel
+\bThine (\\add |\\add\*)?([aeiouyh])	Your \1\2	'Thine'+vowel
+\bfear not me\b	don't fear me	
+\bdid \\add it\\add\* not\b	didn't do \\add it\\add*	
+\bknew \\add it\\add\* not\b	didn't know \\add it\\add*	
+\bwill \\add have\\add\*	desire	
+"\bhe shall carry with a body of captives into Egypt their gods with their molten \\add images, and\\add\* all their precious vessels of silver and gold;"	"he shall carry their gods with their molten \\add images, and\\add* all their precious vessels of silver and gold into Egypt with a body of captives;"	
+\bThen came near \\add certain\\add\* Chaldeans\b	Then \\add certain\\add* Chaldeans came near	
+"\banswered Sedrach, Misach, \\add and\\add\* Abdenago\b"	"Shadrach, Meshach, \\add and\\add* Abednego answered"	
+\bWherefore I am as a panther to Ephraim\b	So I am like a panther to Ephraim	
+\bshall the iniquity of Ephraim\b	the iniquity of Ephraim will	
+\bwho dwell in Sion my holy\b	who dwells in Zion my holy	
+\bshall I([^?]+\.)	I will\1	
+\bwherefore([^.]*)\?	why\1?	
+\bWherefore([^.]*)\?	Why\1?	
+\bwherewithal shall\b	how will	
+\bshalt thou judge\b	you will judge	
+\bwill I give\b	I will give	
+\bTake yet to thee\b	Take again for yourself	
+\bAnd I in the first year of Cyrus\b	In the first year of Cyrus I	
+\bWherefore I publish\b	Therefore I publish	
+\bI Daniel only saw\b	Only I Daniel saw	
+\bno more the Chananite\b	no more Canaanite	
+\bshall I accept ([^.]+\?)	will I accept \1	
+\buntil he be even cast\b	until he is cast	
+\\add is it\\add\* meet\b	\\add is it\\add* fitting	
+\bThen shall ye return\b	Then you will return	
+\bye be not willing\b	you are unwilling	
+"\bWash you,"	"Wash yourselves,"	
+\bWherefore now ([^?]+\.)	So now \1	
+\bYet deliver us not up wholly\b	But don't wholly deliver us up	
+"\bKnowest thou, why I am come to thee\b"	Do you know why I have come to you	runs after the wherefore->why substitution
+\bshall he\b([^.?]+\.)	he will \1	
+^(\\v\s+[0-9a-z]+)\s+And (\w)	\1 ^(\2)	'And' at the beginning of a verse: delete and capitalise next word
+\bfear not ye their fear\b	don't you fear what they fear	
+\bwhen ye shall be\b	when you are
+\bthe rod of my wrath, and anger are\b	the rod of my wrath and anger is
+\bto destroy nations not a few\b	to destroy many nations

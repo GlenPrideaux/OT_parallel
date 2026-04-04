@@ -1,0 +1,189 @@
+\documentclass[9pt]{extbook}
+
+\usepackage[margin=18mm]{geometry}
+\usepackage{paracol}
+\usepackage{microtype}
+\usepackage[hidelinks, linktoc=all, colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{needspace}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{alphalph}
+\usepackage{multicol}
+\usepackage{tocloft}
+
+\pagestyle{fancy}
+
+\fancyhf{}                 % clear all header and footer fields
+\fancyhead[LE,RO]{\thepage}   % page numbers outer edge
+\fancyhead[LO]{\leftmark}     % left page, inner header
+\fancyhead[RE]{\rightmark}    % right page, inner header
+
+\fancyhead[LE]{}
+\fancyhead[RO]{\rightmark}
+\fancyhead[LO,RE]{\thepage}
+
+\renewcommand{\thefootnote}{\alphalph{\value{footnote}}}
+
+\setlength{\columnsep}{10mm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\setlength{\belowfootnoteskip}{14pt}
+% Width reserved for verse numbers (tune)
+
+\newlength{\verselabelwidth}
+\newlength{\verselabelgap}
+
+% Measure width from the widest label you expect (Jeremiah: "52:34")
+\settowidth{\verselabelwidth}{\scriptsize 52:34}
+
+% Half-hanging label: half in margin, half in text
+\newcommand{\verselabel}[1]{%
+    \hspace*{-0.5\verselabelwidth}%
+    {\textsuperscript{\scriptsize #1}}%
+}
+\newcommand{\emptyverselabel}[1]{%
+  \if\relax\detokenize{#1}\relax
+    \hspace*{-0.5\verselabelwidth}%
+    {\textsuperscript{\scriptsize\textcolor{gray}{---}}}%
+  \else
+    \hspace*{-0.5\verselabelwidth}%
+    {\textsuperscript{\scriptsize\textcolor{gray}{#1}}}%
+  \fi
+}
+\newcommand{\smartverse}[2]{%
+\noindent
+\if\relax\detokenize{#2}\relax
+\emptyverselabel{#1}
+\else
+\verselabel{#1}
+\fi
+\,#2\par
+}
+
+\newcommand{\VersePair}[4]{%
+  \smartverse{#1}{#2}
+  \switchcolumn[1]
+  \smartverse{#3}{#4}
+  \switchcolumn[0]*
+}
+\newcommand{\VerseTriple}[6]{%
+  \smartverse{#1}{#2}
+  \switchcolumn[1]
+  \smartverse{#3}{#4}
+  \switchcolumn[2]
+  \smartverse{#5}{#6}
+  \switchcolumn[0]*
+}
+
+
+\newcommand{\poemindent}[1]{\hspace*{#1em}}
+% Start a new line iff we're currently mid-paragraph,
+% then typeset one poetry line.
+\newcommand{\poemline}[2]{%
+  \ifhmode\unskip\par\fi%
+  \ifnum#1>1 \penalty5000 \fi
+  {\setlength{\parskip}{0pt}%
+   \setlength{\parindent}{0pt}%
+%   \fontsize{9pt}{10.2pt}\selectfont%
+   \noindent\poemindent{#1}#2\par}%
+}
+
+\newcommand{\BookHeading}[1]{%
+  \cleardoublepage
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \fancyhead[LE]{#1}
+}
+\newcommand{\ChapterHeading}[1]{%
+  \vspace{1.5em}%
+  \Needspace{7\baselineskip}%
+  \begin{center}
+    \large\bfseries Chapter #1
+  \end{center}
+  \vspace{0.75em}
+  \markboth{Chapter #1}{Chapter #1}
+}
+\newcommand{\columnAHead}{%
+    \hspace*{-0.5\verselabelwidth}%
+    \small (WEB)\par
+  \setcounter{footnote}{0}
+}
+\newcommand{\columnBHead}{%
+    \hspace*{-0.5\verselabelwidth}%
+    \small (LXX)\par
+  \setcounter{footnote}{0}
+}
+
+\newcommand{\columnCHead}{%
+    \hspace*{-0.5\verselabelwidth}%
+    \small (AT)\par
+}
+
+\newcommand{\ColumnHeadings}[1][2]{
+  \columnAHead\switchcolumn[1]\columnBHead
+  \ifnum#1=3
+  \switchcolumn[2]\columnCHead
+  \fi
+  \switchcolumn[0]*
+}
+\newcommand{\DescriptiveHeading}[1]{%
+\raggedright\par\vspace{-0.3\baselineskip}{\large\textbf{#1}}\par\vspace{0.6\baselineskip}
+}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainfont{Libertinus Serif} % missing character
+\setmainfont{TeX Gyre Pagella} % best overall, I think. Good x height
+   % makes it appear bigger and more readable
+%\setmainfont{Junicode} % x height too small
+%\setmainfont{EB Garamond} % x height too small; no sc variant
+
+% tighten spacing a bit
+\addfontfeatures{LetterSpace=-1}
+\linespread{0.98}
+
+\setmainlanguage{english}
+\setotherlanguage{hebrew}
+\newfontfamily\hebrewfont[
+  BoldFont       = {Ezra SIL},
+  ItalicFont     = {Ezra SIL},
+  BoldItalicFont = {Ezra SIL}
+  ]{Ezra SIL}
+\setotherlanguage{greek}
+\newfontfamily\greekfont[
+  BoldFont       = {SBL Greek},
+  ItalicFont     = {SBL Greek},
+  BoldItalicFont = {SBL Greek}
+]{SBL Greek}
+
+\tolerance=1000
+\emergencystretch=2em
+\hbadness=5000
+
+\widowpenalty=6000
+\clubpenalty=3000
+
+\newif\ifbritish
+
+\ifdefined\usebritish
+\britishtrue
+\else
+\britishfalse
+\fi
+
+\def\sourcedir{\ifbritish BE\else US\fi}
+
+% Dot leaders for chapters
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+
+\makeatletter
+\newcommand{\TOCwithouttitle}{%
+  \@starttoc{toc}%
+}
+\makeatother
+
+\tolerance=1500
+\emergencystretch=1em
+
+\typeout{USEBRITISH DEFINED: \ifdefined\usebritish YES\else NO\fi}
+\typeout{SOURCEDIR = [\sourcedir]}

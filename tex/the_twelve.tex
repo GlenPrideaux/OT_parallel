@@ -1,0 +1,27 @@
+\ifdefined\sourcedir\else
+  \def\local{}
+  \input{preamble.tex}
+  \begin{document}
+  \def\propertitle{The Twelve (or, Minor Prophets) }
+  \frontmatter
+  \input{title.tex}
+  \input{copyright.tex}
+  \input{intro.tex}
+  \mainmatter
+\fi
+\input{\sourcedir/029-Hosea_parallel}
+\input{\sourcedir/030-Joel_parallel}
+\input{\sourcedir/031-Amos_parallel}
+\input{\sourcedir/032-Obadiah_parallel}
+\input{\sourcedir/033-Jonah_parallel}
+\input{\sourcedir/034-Micah_parallel}
+\input{\sourcedir/035-Nahum_parallel}
+\input{\sourcedir/036-Habakkuk_parallel}
+\input{\sourcedir/037-Zephaniah_parallel}
+\input{\sourcedir/038-Haggai_parallel}
+\input{\sourcedir/039-Zechariah_parallel}
+\input{\sourcedir/040-Malachi_parallel}
+
+\ifdefined\local
+  \end{document}
+\fi

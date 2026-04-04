@@ -1,0 +1,28 @@
+\input{\sourcedir/019-Job_parallel.tex}
+{
+\renewcommand{\ChapterHeading}[1]{%
+  \Needspace{6\baselineskip}%
+  \vspace{1.5em}
+  \begin{center}
+    \large\bfseries Psalm #1
+  \end{center}
+  \vspace{0.75em}
+  \markboth{Psalm #1}{Psalm #1}
+  \setcounter{footnote}{0}
+}
+\renewcommand{\BookHeading}[1]{%
+  \cleardoublepage
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \fancyhead[LE]{#1}
+\textit{
+NOTE: Many psalms have a heading that is not traditionally assigned a
+verse number in English Bibles. In this edition these headings appear
+as verse 0.
+}
+}
+\input{\sourcedir/020-Psalms_parallel.tex}
+}
+\input{\sourcedir/021-Proverbs_parallel.tex}
+\input{\sourcedir/022-Ecclesiastes_parallel.tex}
+\input{\sourcedir/023-Song_of_Solomon_parallel.tex}

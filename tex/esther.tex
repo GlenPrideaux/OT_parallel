@@ -1,0 +1,20 @@
+% probably need to bracket this with some renewcommands
+{
+\renewcommand{\BookHeading}[1]{%
+  \cleardoublepage
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \fancyhead[LE]{#1}
+  \textit{The short book of Esther is different and substantially
+  longer in the Greek Septuagint (LXX) compared with the Hebrew
+  Masoretic Text (MT). The differences, although not great, are significant. The Hebrew text is remarkable in that God is nowhere explicitly mentioned, and although his action is everywhere evident it is left to the reader to understand this. The additions in the Greek text, on the other hand, are very explicit about the hand of God.
+As well as the ``Old Greek'' of the LXX, there is another significant
+variant of the text of Esther called the Alpha Text (or AT) that is
+found four medieval Greek manuscripts. This appears to have been
+translated from a Hebrew original that is somewhat different to the
+surviving MT. This is presented here in the third column labelled (AT).
+ }
+}
+
+\input{\sourcedir/018-Esther_parallel.tex}
+}

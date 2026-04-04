@@ -1,0 +1,37 @@
+
+% probably need to bracket this with some renewcommands
+{
+\renewcommand{\columnCHead}{%
+    \hspace*{-0.5\verselabelwidth}%
+    \small (P)\par
+}
+\renewcommand{\BookHeading}[1]{%
+  \cleardoublepage
+  \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+  \fancyhead[LE]{#1}
+  \textit{The books of 1 and 2 Samuel and the first chapter and a bit
+  of 1 Kings are notoriously problematic in the Masoretic Text (MT) that
+  English Bibles are mostly translated from. The Old Greek that forms
+  the text for the Septuatint (LXX) fixes some of the MT's errors, but
+  has its own problems. There exists a
+family of Hebrew and Greek copies that are sometimes called the
+``Palestinian'' copies. These copies include the ``Lucianic'' Greek copies and 
+Hebrew Dead Sea Scrolls of Samuel, particularly that called 4Q51, also
+called 4QSam\textsuperscript{a}. For the more obvious errors or
+omissions, many English translations will fill the gap with the
+reading from the Palestinian copies, but many remain uncorrected. In
+  this edition we present a translation of the Palestinian text
+  labelled (P) in a third column beside the World English Bible and
+  an English translation of the Septuagint. This third column extends
+  from the beginning of 1 Samuel to the second chapter of 1
+  Kings. (The (P) text does not stop there, but after that point the
+  MT is no longer unreliable.) }
+}
+
+\input{\sourcedir/010-1_Samuel_parallel.tex}
+\input{\sourcedir/011-2_Samuel_parallel.tex}
+\input{\sourcedir/012-1_Kings_parallel.tex}
+}
+\input{\sourcedir/013-2_Kings_parallel.tex}
+
