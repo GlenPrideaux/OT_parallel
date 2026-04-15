@@ -10,6 +10,11 @@
 \usepackage{alphalph}
 \usepackage{multicol}
 \usepackage{tocloft}
+\usepackage{xfootnotes}
+%\let\xref\footnote
+
+
+\microtypesetup{nopatch=footnote}
 
 \pagestyle{fancy}
 
@@ -51,7 +56,7 @@
   \fi
 }
 \newcommand{\smartverse}[2]{%
-\noindent
+\noindent%
 \if\relax\detokenize{#2}\relax
 \emptyverselabel{#1}
 \else
@@ -75,17 +80,20 @@
   \switchcolumn[0]*
 }
 
-
+\newcommand{\ensurepar}{
+\ifhmode\unskip\par\fi
+}
 \newcommand{\poemindent}[1]{\hspace*{#1em}}
 % Start a new line iff we're currently mid-paragraph,
 % then typeset one poetry line.
 \newcommand{\poemline}[2]{%
-  \ifhmode\unskip\par\fi%
   \ifnum#1>1 \penalty5000 \fi
   {\setlength{\parskip}{0pt}%
-   \setlength{\parindent}{0pt}%
-%   \fontsize{9pt}{10.2pt}\selectfont%
-   \noindent\poemindent{#1}#2\par}%
+    \raggedright
+    \hangindent=2em%
+    \hangafter=1%
+    \leftskip=#1em%
+   \noindent#2\par}%
 }
 
 \newcommand{\BookHeading}[1]{%
@@ -98,20 +106,22 @@
   \vspace{1.5em}%
   \Needspace{7\baselineskip}%
   \begin{center}
-    \large\bfseries Chapter #1
+    \large\bfseries Chapter #1\par
   \end{center}
   \vspace{0.75em}
-  \markboth{Chapter #1}{Chapter #1}
+  \fancyhead[RO]{Chapter #1}
 }
 \newcommand{\columnAHead}{%
     \hspace*{-0.5\verselabelwidth}%
     \small (WEB)\par
   \setcounter{footnote}{0}
+%  \setcounter{xfootnote}{0}
 }
 \newcommand{\columnBHead}{%
     \hspace*{-0.5\verselabelwidth}%
     \small (LXX)\par
   \setcounter{footnote}{0}
+%  \setcounter{xfootnote}{0}
 }
 
 \newcommand{\columnCHead}{%
@@ -127,7 +137,7 @@
   \switchcolumn[0]*
 }
 \newcommand{\DescriptiveHeading}[1]{%
-\raggedright\par\vspace{-0.3\baselineskip}{\large\textbf{#1}}\par\vspace{0.6\baselineskip}
+{\raggedright\par\vspace{-0.3\baselineskip}{\fontsize{9.5}{11.5}\selectfont\textbf{#1}}\par\vspace{0.6\baselineskip}}
 }
 \usepackage{fontspec}
 \usepackage{polyglossia}
@@ -187,3 +197,4 @@
 
 \typeout{USEBRITISH DEFINED: \ifdefined\usebritish YES\else NO\fi}
 \typeout{SOURCEDIR = [\sourcedir]}
+

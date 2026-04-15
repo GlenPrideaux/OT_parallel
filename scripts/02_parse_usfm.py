@@ -7,7 +7,7 @@ Parse USFM sources into verse-indexed JSON, preserving:
 - Verse boundaries (\\c, \\v)
 - USFM footnotes (\\f ... \\f*) extracted from \ft, optionally prefixed by \fr
 - Poetry structure (\\q, \\q1, \\q2, \\m, \\p) encoded into the verse text using STRUCT_DELIM markers
-
+- USFM xrefs look like this: \\x + \\xo 1:27 \\xt Mat. 19. 4.\\x*. Parse them similarly to \\f
 Output:
   build/json/sourcefilename.json
 
@@ -16,10 +16,17 @@ Notes:
 """
 
 import json, argparse
-import re
+import re, csv
 from pathlib import Path
 
 from definitions import *
+
+quiet = False
+
+YAWEH_FN=[
+    re.compile(re.escape(r'\f + \fr ')+r'\d+:\d+ '+re.escape(r'\ft When rendered in ALL CAPITAL LETTERS, “LORD” or “GOD” is the translation of God’s Proper Name (Hebrew “\+wh יהוה\+wh*”, usually pronounced Yahweh).\f*')),
+    re.compile(re.escape(r'\f + \fr ')+r'\d+:\d+ '+re.escape(r'\ft LORD or GOD in all caps is from the Hebrew יהוה Yahweh except when otherwise noted as being from the short form יה Yah.\f*')),
+    ]
 
 # ----------------------------
 # Paths
@@ -30,44 +37,140 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 quiet = 0
 
-def extract_usfm_footnotes(raw: str) -> str:
+def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[tuple[str, str], tuple[str, set[str]]]) -> list[str, dict[tuple[str, str], tuple[str, set[str]]]]:
     """
     Return text with USFM footnote blocks replaced inline by FOOTNOTE_DELIM markers.
 
     Turns:  ... \\f + \\fr 1:2 \\ft Note text...\\f* ...
     Into:   ... ␞FOOTNOTE␞1:2: Note text...␞FOOTNOTE␞ ...
+    In the text we just put a chapter numbered marker and the FN text ␞FOOTNOTE␞1␞FOOTNOTE␞text␞FOOTNOTE␞full␞FOOTNOTE␞ that will later
+    be replaced by the text including ref that is saved in the footnote dict keyed by chapter number and text and where full is 1
+    if we are putting in the full footnote, or 0 if it is a repeat and we are only putting in the footnote reference (which will end up with
+    FOOTNOTE_REPEAT marker in the text).
 
     - Extracts \\ft content (concatenates multiple \\ft pieces)
-    - If \\fr exists, prefixes note with 'ref: ' (your current behaviour)
+    - If \\fr exists, trust it, otherwise create it from chater and verse
     - Removes \\+xx / \\+xx* inline markers inside the footnote so \\ft capture isn't truncated
     """
 
     def repl(match):
+        def verse_key(v: str):
+            import re
+            m = re.match(r"(\d+)([a-z]?)", v)
+            num = int(m.group(1))
+            suffix = m.group(2)
+            return (num, suffix)
         block = match.group(0)
+        # Remove the Yaweh footnotes
+        for fn in YAWEH_FN:
+            block = fn.sub("", block)
+        # remove problematic \fl ... we don't check but should only be in footnotes
+        block = FL_RE.sub(f"{FL_OPEN}\\1{FL_CLOSE} \\\\", block)
+        block = FQ_RE.sub(f"{FQ_OPEN}\\1{FQ_CLOSE} \\\\", block)
+        block = XT_RE.sub(f"{FX_OPEN}\\1{FX_CLOSE}", block)
 
         # Remove inline character-style markers (e.g., \+wh ... \+wh*, \xt, etc. )
         block = PLUS_MARK_RE.sub("", block)
-        block = X_MARK_RE.sub("", block)
-        # remove problematic \fl ... we don't check but should only be in footnotes
-        block = FL_RE.sub(f"{FL_OPEN}\\1{FL_CLOSE}", block)
-        block = FQ_RE.sub(f"{FQ_OPEN}\\1{FQ_CLOSE}", block)
+        #block = X_MARK_RE.sub("", block)
 
         fr_m = FR_RE.search(block)
-        fr = fr_m.group(1).strip() if fr_m else ""
-
-        fts = [m.group(1).strip() for m in FT_RE.finditer(block)]
+        fr = fr_m.group(1).strip() if fr_m else f"{chapter}:{verse}"
+        m = FT_RE.search(block)
+        preft=(block[fr_m.end() if fr_m else 4:m.start()]) if m else block[fr_m.end() if fr_m else 4:]
+        preft = preft.replace(r"\f*","").strip()
+        fts = [preft] + [m.group(1).strip() for m in FT_RE.finditer(block)]
         ft = " ".join(fts).strip()
 
         if not ft:
             # Delete empty footnote blocks
             return " "
 
-        note = f"{fr}: {ft}" if fr else ft
+        if (ft, chapter) in footnotes:
+            ref, verselist = footnotes[(ft, chapter)]
+            verselist.add(verse)
+            ref = f"{chapter}:" + ", ".join(sorted(verselist, key=verse_key))
+            footnotes[(ft, chapter)] = [f"{ref} ", verselist]
+            if not quiet:
+                print(f"Merging footnotes in chapter {chapter} verse(s) {sorted(verselist, key=verse_key)}")
+            full = 0
+        else:
+            footnotes[(ft, chapter)] = [f"{fr} ", {verse}]
+            full = 1
+        # Inline footnote marker at the exact position
+        return f"{FOOTNOTE_DELIM}BEGIN{chapter}{FOOTNOTE_DELIM}{ft}{FOOTNOTE_DELIM}{full}END{FOOTNOTE_DELIM}"
+
+    return FOOTNOTE_BLOCK_RE.sub(repl, raw), footnotes
+
+def insert_footnotes(verses: dict, footnotes: dict) -> dict:
+    def build_from_groups(m):
+        full = m.group(3)
+        if full == "1":
+            chapter = m.group(1)
+            ft = m.group(2)
+            note = footnotes[(ft, chapter)]
+            footnote = FOOTNOTE_DELIM + note[0]+ft + FOOTNOTE_DELIM
+        else:
+            footnote = FOOTNOTE_REPEAT
+        return footnote
+
+    def process(s):
+        pat = re.compile(FOOTNOTE_DELIM + r"BEGIN(\d+)" + FOOTNOTE_DELIM + r"(.+?)" + FOOTNOTE_DELIM + r"([01])END" + FOOTNOTE_DELIM)
+        result = []
+        last = 0
+
+        for m in pat.finditer(s):
+            # text before match
+            result.append(s[last:m.start()])
+
+            # replacement
+            replacement = build_from_groups(m)
+            result.append(replacement)
+
+            last = m.end()
+
+        # tail
+        result.append(s[last:])
+
+        return ''.join(result)
+
+    for verse in verses:
+        verses[verse] = process(verses[verse])
+    return verses
+
+def extract_usfm_xrefs(raw: str) -> str:
+    """
+    Return text with USFM xref blocks replaced inline by XREF_DELIM markers.
+
+    Turns:  ... \\x + \\xo 1:2 \\xt Note text...\\x* ...
+    Into:   ... ␞XREF␞1:2: Note text...␞XREF␞ ...
+
+    - Extracts \\xt content (concatenates multiple \\xt pieces)
+    - If \\xo exists, prefixes note with 'ref: ' (your current behaviour)
+    - Removes \\+xx / \\+xx* inline markers inside the footnote so \\xt capture isn't truncated
+    """
+
+    def repl(match):
+        block = match.group(0)
+
+        # Remove inline character-style markers (e.g., \+wh ... \+wh*,  etc. )
+        block = PLUS_MARK_RE.sub("", block)
+
+        xo_m = XO_RE.search(block)
+        xo = xo_m.group(1).strip() if xo_m else ""
+
+        xts = [m.group(1).strip() for m in XT_RE.finditer(block)]
+        xt = " ".join(xts).strip()
+
+        if not xt:
+            # Delete empty xref blocks
+            return " "
+
+        note = f"{xo}: {xt}" if xo else xt
 
         # Inline footnote marker at the exact position
-        return f"{FOOTNOTE_DELIM}{note}{FOOTNOTE_DELIM}"
+        return f"{XREF_DELIM}{note}{XREF_DELIM}"
 
-    return FOOTNOTE_BLOCK_RE.sub(repl, raw)
+    return XREF_BLOCK_RE.sub(repl, raw)
 
 # ----------------------------
 # Inline cleanup / normalisation
@@ -97,7 +200,7 @@ def normalise_line(line: str) -> str:
     line = PIPE_ATTR_RE.sub("", line)
 
     #remove cross references
-    line = X_BLOCK_RE.sub("", line)
+    #line = X_BLOCK_RE.sub("", line)
     
     # Remove leftover star markers
     line = STAR_RE.sub("", line)
@@ -156,7 +259,7 @@ def encode_chunk(kind: str, indent: int, text: str) -> str:
 # ----------------------------
 # Core parser
 # ----------------------------
-def parse_usfm_file(path: Path):
+def parse_usfm_file(path: Path, xrefs: dict[str, str]):
     """
     Parse a USFM file into a dict of verses keyed as "CH:V".
 
@@ -168,21 +271,29 @@ def parse_usfm_file(path: Path):
     Returns: (book_id, verses_dict)
     """
     book = None
+    longbook = None
     chapter = None
+    footnotes : dict[tuple[str, str], tuple[str, set[str]]] = {} # key: [text of the fn excluding the ref part., chapter]
     verses = {}  # key: "CH:V" -> encoded verse text with FOOTNOTE_DELIM markers
 
     current_v = None
     chunks = []    # list of encoded chunks (poetry/prose)
     after_d = False
     after_p = False
+    after_q = False
     
     def flush_current():
-        nonlocal current_v, chunks
+        nonlocal current_v, chunks, book, xrefs
         if current_v is None:
             chunks = []
             return
 
         text = " ".join(chunks).strip()
+        if not xrefs is None:
+            key = f"{longbook} {current_v}"
+            if key in xrefs:
+                ref_list = xrefs[key]
+                text=f"{text[:3]}{XREF_DELIM}{current_v}: {ref_list}{XREF_DELIM}{text[3:]}"
 
         verses[current_v] = text
         chunks = []
@@ -196,6 +307,10 @@ def parse_usfm_file(path: Path):
                 parts = line.strip().split()
                 if len(parts) >= 2:
                     book = parts[1].upper()
+                continue
+            # Long Book id
+            if line.startswith("\\h "):
+                longbook = line[3:].strip()
                 continue
 
             s = line.strip()
@@ -214,8 +329,10 @@ def parse_usfm_file(path: Path):
             m = D_RE.match(s)
             if m and current_v is None:
                 current_v = f"{chapter}:0"
+                verse_only = "0"
                 after_d = False
-                raw_text = extract_usfm_footnotes(m.group(1))
+                raw_text, footnotes = extract_usfm_footnotes(m.group(1), chapter, verse_only, footnotes)
+                raw_text = extract_usfm_xrefs(raw_text)
                 t = normalise_line(raw_text)
                 if t:
                     t = STYLE_HDG + t
@@ -230,7 +347,9 @@ def parse_usfm_file(path: Path):
                 # we don't need to store \p itself for our purposes; just remember it
                 after_p = True
                 continue
-
+            if re.match(r"^\\q[1-9]?$",s):
+                after_q = True
+                continue
             # Verse marker
             m = V_RE.match(s)
             if m and chapter is not None:
@@ -239,6 +358,7 @@ def parse_usfm_file(path: Path):
                 vnum = int(m.group(1))
                 vsuf = (m.group(2) or "").lower()   # '', 'a', 'b', ...
                 current_v = f"{chapter}:{vnum}{vsuf}"
+                verse_only = f"{vnum}{vsuf}"
 
                 # start verse with any pending headings (if you still have that feature)
                 # if pending_headings:
@@ -248,6 +368,7 @@ def parse_usfm_file(path: Path):
                 raw_text = m.group(3)
                 is_heading_verse = False
                 is_para = False
+                is_poet = False
                 # If it follows \d, treat as a heading-verse
                 if after_d:
                     is_heading_verse = True
@@ -260,15 +381,21 @@ def parse_usfm_file(path: Path):
                     after_p = False  # consumed the \d context
                 else:
                     after_p = False  # \d context only applies to the immediate next verse
-
-                raw_text = extract_usfm_footnotes(raw_text)
+                if after_q:
+                    is_poet = True
+                after_q = False
+                raw_text, footnotes = extract_usfm_footnotes(raw_text, chapter, verse_only, footnotes)
+                raw_text = extract_usfm_xrefs(raw_text)
                 t = normalise_line(raw_text)
                 if t:
                     if is_heading_verse:
                         t = STYLE_HDG + t
                     if is_para:
                         t = STYLE_PARA + t
-                    chunks.append(encode_chunk("p", 0, t))
+                    if is_poet:
+                        chunks.append(encode_chunk("q", 0, t)) # verse level poetry has to be first level.
+                    else:
+                        chunks.append(encode_chunk("p", 0, t))
                 continue
             
             # Continuation lines: may contain poetry markers or prose continuation
@@ -278,17 +405,19 @@ def parse_usfm_file(path: Path):
                 if qm:
                     level = int(qm.group(1) or "1")
                     raw_text = qm.group(2)
-                    raw_text = extract_usfm_footnotes(raw_text)
+                    raw_text, footnotes = extract_usfm_footnotes(raw_text, chapter, verse_only, footnotes)
+                    raw_text = extract_usfm_xrefs(raw_text)
                     t = normalise_line(raw_text)
                     if t:
-                        chunks.append(encode_chunk("q", level, t))
+                        chunks.append(encode_chunk("q", level-1, t))
                     continue
 
                 # Poetry paragraph (flush-left)
                 mm = M_RE.match(s)
                 if mm:
                     raw_text = mm.group(1)
-                    raw_text = extract_usfm_footnotes(raw_text)
+                    raw_text, footnotes = extract_usfm_footnotes(raw_text, chapter, verse_only, footnotes)
+                    raw_text = extract_usfm_xrefs(raw_text)
                     t = normalise_line(raw_text)
                     if t:
                         chunks.append(encode_chunk("q", 1, t))
@@ -298,7 +427,8 @@ def parse_usfm_file(path: Path):
                 pm = P_RE.match(s)
                 if pm:
                     raw_text = STYLE_PARA + pm.group(1)
-                    raw_text = extract_usfm_footnotes(raw_text)
+                    raw_text, footnotes = extract_usfm_footnotes(raw_text, chapter, verse_only, footnotes)
+                    raw_text = extract_usfm_xrefs(raw_text)
                     t = normalise_line(raw_text)
                     if t:
                         chunks.append(encode_chunk("p", 0, t))
@@ -306,12 +436,14 @@ def parse_usfm_file(path: Path):
 
                 # Default continuation line (treat as prose continuation)
                 raw_text = s
-                raw_text = extract_usfm_footnotes(raw_text)
+                raw_text, footnotes = extract_usfm_footnotes(raw_text, chapter, verse_only, footnotes)
+                raw_text = extract_usfm_xrefs(raw_text)
                 t = normalise_line(raw_text)
                 if t:
                     chunks.append(encode_chunk("p", 0, t))
 
     flush_current()
+    verses = insert_footnotes(verses, footnotes)
     return book, verses
 
 def default_output_name(input_path: Path) -> Path:
@@ -324,6 +456,7 @@ def default_output_name(input_path: Path) -> Path:
 # Main
 # ----------------------------
 def main():
+    global quiet
     parser = argparse.ArgumentParser(
         description="Parse a USFM file and write as a JSON file."
     )
@@ -333,6 +466,11 @@ def main():
         default=None,
         help="output JSON file (default: input.json)"
     )
+    parser.add_argument(
+        "-x", "--xrefs",
+        default=None,
+        help="insert cross references from file"
+    )
     global quiet
     parser.add_argument(
         "-q", "--quiet",
@@ -341,12 +479,20 @@ def main():
     args = parser.parse_args()
     if args.quiet:
         quiet = True
+
+    xrefs=None
+    if args.xrefs:
+        xrefs={}
+        xrefs_path = Path(args.xrefs)
+        with open(xrefs_path, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f, delimiter="\t")
+            for row in reader:
+                xrefs[row['ref']]=row['xrefs']
         
     usfm_path = Path(args.input)
-    book, verses = parse_usfm_file(usfm_path)
+    book, verses = parse_usfm_file(usfm_path, xrefs)
 
-    out_path = Path(args.output) if args.output else default_output_name(usfm_path)
-    
+    out_path = Path(args.output) if args.output else default_output_name(usfm_path)    
     out_path.write_text(json.dumps(verses, ensure_ascii=False, indent=2), encoding="utf-8")
     if not quiet:
         print(f"Wrote {out_path} ({len(verses)} verses) from {usfm_path}")

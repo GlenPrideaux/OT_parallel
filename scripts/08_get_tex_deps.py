@@ -112,7 +112,7 @@ def main() -> None:
     parent = start_file.parent
     for name in walk_inputs(start_file, args.british, parent):
         print(name, end=" ")
-
+    print(start_file)
 
 if __name__ == "__main__":
     main()

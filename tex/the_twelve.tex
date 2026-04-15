@@ -9,6 +9,7 @@
   \input{intro.tex}
   \mainmatter
 \fi
+
 \input{\sourcedir/029-Hosea_parallel}
 \input{\sourcedir/030-Joel_parallel}
 \input{\sourcedir/031-Amos_parallel}
@@ -22,6 +23,4 @@
 \input{\sourcedir/039-Zechariah_parallel}
 \input{\sourcedir/040-Malachi_parallel}
 
-\ifdefined\local
-  \end{document}
-\fi
+\ifdefined\local\expandafter\end{document}\fi

@@ -1,0 +1,1262 @@
+Book_1	Ch_1_1	V_1_1	Ch_1_2	V_1_2	Book_2	Ch_2_1	V_2_1	Ch_2_2	V_2_2	Reverse_ref	After_phrase_word_ref_1	After_phrase_word_ref_2	Comment	Comment_2	NT_Only										
+Matthew	1	1	1	17	Luke	3	23	3	38	TRUE			Genealogy	6;18	TRUE										
+Matthew	1	1	1	17	Mark	12	35	12	37	TRUE			Genealogy		TRUE										
+Luke	3	23	3	38	Mark	12	35	12	37	TRUE			Genealogy		TRUE										
+Matthew	1	2	1	6	1 Chronicles	1	28			TRUE			Genealogy												
+Matthew	1	6	1	11	1 Chronicles	3	10	3	16	TRUE			Genealogy												
+Matthew	1	18	1	25	Luke	2	1	2	7	TRUE			Birth	7	TRUE										
+Matthew	2	1	2	12	Luke	2	8	2	20	TRUE			Adoration	8	TRUE										
+Matthew	2	22	2	23	Luke	2	39	2	40	TRUE			Childhood of Jesus in Nazareth	11	TRUE										
+Matthew	3	1	3	6	Mark	1	2	1	6	TRUE			John the Baptist	13	TRUE										
+Matthew	3	1	3	6	Luke	3	1	3	6	TRUE			John the Baptist	13	TRUE										
+Matthew	3	1	3	6	John	1	19	1	23	TRUE			John the Baptist	13	TRUE										
+Mark	1	2	1	6	Luke	3	1	3	6	TRUE			John the Baptist	13	TRUE										
+Mark	1	2	1	6	John	1	19	1	23	TRUE			John the Baptist	13	TRUE										
+Luke	3	1	3	6	John	1	19	1	23	TRUE			John the Baptist	13	TRUE										
+Matthew	3	7	3	10	Luke	3	7	3	9	TRUE			Repentance	14	TRUE										
+Matthew	3	11	3	12	Mark	1	7	1	8	TRUE			John’s Messianic Preaching	16	TRUE										
+Matthew	3	11	3	12	Luke	3	15	3	18	TRUE			John’s Messianic Preaching	16	TRUE										
+Matthew	3	11	3	12	John	1	24	1	28	TRUE			John’s Messianic Preaching	16	TRUE										
+Mark	1	7	1	8	Luke	3	15	3	18	TRUE			John’s Messianic Preaching	16	TRUE										
+Mark	1	7	1	8	John	1	24	1	28	TRUE			John’s Messianic Preaching	16	TRUE										
+Luke	3	15	3	18	John	1	24	1	28	TRUE			John’s Messianic Preaching	16	TRUE										
+Matthew	14	3	14	12	Mark	6	17	6	29	TRUE			Death of John the Baptist	17;144	TRUE										
+Matthew	14	3	14	12	Luke	3	19	3	20	TRUE			Death of John the Baptist	17;144	TRUE										
+Mark	6	17	6	29	Luke	3	19	3	20	TRUE			Death of John the Baptist	17;144	TRUE										
+Matthew	3	13	3	17	Mark	1	9	1	11	TRUE			Baptism of Jesus	18	TRUE										
+Matthew	3	13	3	17	Luke	3	21	3	22	TRUE			Baptism of Jesus	18	TRUE										
+Matthew	3	13	3	17	John	1	29	1	34	TRUE			Baptism of Jesus	18	TRUE										
+Mark	1	9	1	11	Luke	3	21	3	22	TRUE			Baptism of Jesus	18	TRUE										
+Mark	1	9	1	11	John	1	29	1	34	TRUE			Baptism of Jesus	18	TRUE										
+Luke	3	21	3	22	John	1	29	1	34	TRUE			Baptism of Jesus	18	TRUE										
+Matthew	4	1	4	11	Mark	1	12	1	13	TRUE			Temptation	20	TRUE										
+Matthew	4	1	4	11	Luke	4	1	4	13	TRUE			Temptation	20	TRUE										
+Mark	1	12	1	13	Luke	4	1	4	13	TRUE			Temptation	20	TRUE										
+Matthew	21	12	21	13	Mark	11	15	11	17	TRUE			Cleansing of the temple	25;273	TRUE										
+Matthew	21	12	21	13	Luke	19	45	19	46	TRUE			Cleansing of the temple	25;273	TRUE										
+Matthew	21	12	21	13	John	2	14	2	22	TRUE			Cleansing of the temple	25;273	TRUE										
+Mark	11	15	11	17	Luke	19	45	19	46	TRUE			Cleansing of the temple	25;273	TRUE										
+Mark	11	15	11	17	John	2	14	2	22	TRUE			Cleansing of the temple	25;273	TRUE										
+Luke	19	45	19	46	John	2	14	2	22	TRUE			Cleansing of the temple	25;273	TRUE										
+Matthew	4	13	4	17	Mark	1	14	1	15	TRUE			Galilee	30;32	TRUE										
+Matthew	4	13	4	17	Luke	4	14	4	15	TRUE			Galilee	30;32	TRUE										
+Matthew	4	13	4	17	John	4	43	4	46	TRUE		wine.	Galilee	30;32	TRUE										
+Mark	1	14	1	15	Luke	4	14	4	15	TRUE			Galilee	30;32	TRUE										
+Mark	1	14	1	15	John	4	43	4	46	TRUE		wine.	Galilee	30;32	TRUE										
+Luke	4	14	4	15	John	4	43	4	46	TRUE		wine.	Galilee	30;32	TRUE										
+Matthew	13	53	13	58	Mark	6	1	6	6	TRUE			Nazareth Preaching	33;139	TRUE										
+Matthew	13	53	13	58	Luke	4	16	4	30	TRUE			Nazareth Preaching	33;139	TRUE										
+Mark	6	1	6	6	Luke	4	16	4	30	TRUE			Nazareth Preaching	33;139	TRUE										
+Luke	4	25	4	26	1 Kings	17	8	17	9	TRUE			Jesus refers to Elijah and the widow of Sidon												
+Luke	4	27			2 Kings	5	1	5	15	TRUE			Jesus refers to Elisha and Naaman the Leper												
+Matthew	4	18	4	22	Mark	1	16	1	20	TRUE			Call of the disciples	34	TRUE										
+Mark	1	21	1	28	Luke	4	31	4	37	TRUE			Teaching and healing at synagogue	35;36	TRUE										
+Matthew	8	14	8	17	Mark	1	29	1	34	TRUE			Healing of Peter’s mother-in-law and at evening	37;38;87;88	TRUE										
+Matthew	8	14	8	17	Luke	4	38	4	41	TRUE			Healing of Peter’s mother-in-law and at evening	37;38;87;88	TRUE										
+Mark	1	29	1	34	Luke	4	38	4	41	TRUE			Healing of Peter’s mother-in-law and at evening	37;38;87;88	TRUE										
+Mark	1	35	1	38	Luke	4	42	4	43	TRUE			Jesus departs from Capernaum	39	TRUE										
+Matthew	4	23			Mark	1	39			TRUE			Preaching in Galilee	40	TRUE										
+Matthew	4	23			Luke	4	44			TRUE			Preaching in Galilee	40	TRUE										
+Mark	1	39			Luke	4	44			TRUE			Preaching in Galilee	40	TRUE										
+Luke	5	1	5	11	John	21	1	21	14	TRUE			Draught of Fish	41	TRUE										
+Matthew	8	1	8	4	Mark	1	40	1	45	TRUE			Cleansing of the leper	42;84	TRUE										
+Matthew	8	1	8	4	Luke	5	12	5	16	TRUE			Cleansing of the leper	42;84	TRUE										
+Mark	1	40	1	45	Luke	5	12	5	16	TRUE			Cleansing of the leper	42;84	TRUE										
+Matthew	9	1	9	8	Mark	2	1	2	12	TRUE			Healing of the paralytic	43;92	TRUE										
+Matthew	9	1	9	8	Luke	5	17	5	26	TRUE			Healing of the paralytic	43;92	TRUE										
+Matthew	9	1	9	8	John	5	5	5	15	TRUE			Healing of the paralytic	43;92	TRUE										
+Mark	2	1	2	12	Luke	5	17	5	26	TRUE			Healing of the paralytic	43;92	TRUE										
+Mark	2	1	2	12	John	5	5	5	15	TRUE			Healing of the paralytic	43;92	TRUE										
+Luke	5	17	5	26	John	5	5	5	15	TRUE			Healing of the paralytic	43;92	TRUE										
+Matthew	9	9	9	13	Mark	2	13	2	17	TRUE			Call of Levi (Matthew)	44;93	TRUE										
+Matthew	9	9	9	13	Luke	5	27	5	32	TRUE			Call of Levi (Matthew)	44;93	TRUE										
+Mark	2	13	2	17	Luke	5	27	5	32	TRUE			Call of Levi (Matthew)	44;93	TRUE										
+Matthew	9	14	9	17	Mark	2	18	2	22	TRUE			Fasting	45;94	TRUE										
+Matthew	9	14	9	17	Luke	5	33	5	39	TRUE			Fasting	45;94	TRUE										
+Mark	2	18	2	22	Luke	5	33	5	39	TRUE			Fasting	45;94	TRUE										
+Matthew	12	1	12	8	Mark	2	23	2	28	TRUE			Plucking grain on the Sabbath	46;111	TRUE										
+Matthew	12	1	12	8	Luke	6	1	6	5	TRUE			Plucking grain on the Sabbath	46;111	TRUE										
+Mark	2	23	2	28	Luke	6	1	6	5	TRUE			Plucking grain on the Sabbath	46;111	TRUE										
+Matthew	12	9	12	14	Mark	3	1	3	6	TRUE			Withered hand	47;112	TRUE										
+Matthew	12	9	12	14	Luke	6	6	6	11	TRUE			Withered hand	47;112	TRUE										
+Mark	3	1	3	6	Luke	6	6	6	11	TRUE			Withered hand	47;112	TRUE										
+Matthew	10	1	10	4	Mark	3	13	3	19	TRUE			Choosing the twelve	49;99a	TRUE										
+Matthew	10	1	10	4	Luke	6	12	6	16	TRUE			Choosing the twelve	49;99a	TRUE										
+Mark	3	13	3	19	Luke	6	12	6	16	TRUE			Choosing the twelve	49;99a	TRUE										
+Isaiah	7	14			Isaiah	8	3			TRUE			Virgin birth												
+Isaiah	7	14			Isaiah	8	18			TRUE			Virgin birth												
+Matthew	4	24	5	2	Mark	3	7	3	13	TRUE			Sermon	48;50;77;113	TRUE										
+Matthew	4	24	5	2	Luke	6	17	6	20	TRUE			Sermon	48;50;77;113	TRUE										
+Matthew	4	24	5	2	Matthew	12	15	12	21	TRUE			Sermon	48;50;77;113	TRUE										
+Mark	3	7	3	13	Luke	6	17	6	20	TRUE			Sermon	48;50;77;113	TRUE										
+Mark	3	7	3	13	Matthew	12	15	12	21	TRUE			Sermon	48;50;77;113	TRUE										
+Luke	6	17	6	20	Matthew	12	15	12	21	TRUE			Sermon	48;50;77;113	TRUE										
+Matthew	5	3	5	12	Luke	6	20	6	23	TRUE			Beatitudes	51;78	TRUE										
+Matthew	5	13			Mark	9	49	9	50	TRUE			Salt of the Earth	52;168a;218	TRUE										
+Matthew	5	13			Luke	14	34	14	35	TRUE			Salt of the Earth	52;168a;218	TRUE										
+Mark	9	49	9	50	Luke	14	34	14	35	TRUE			Salt of the Earth	52;168a;218	TRUE										
+Matthew	5	17	5	20	Luke	16	16	16	17	TRUE			Law and Prophets	54	TRUE										
+Matthew	5	21	5	26	Luke	12	57	12	59	TRUE			Murder & wrath	55;206	TRUE										
+Matthew	5	27	5	32	Mark	9	43	9	48	TRUE			Adultery and divorce	56	TRUE										
+Matthew	5	27	5	32	Luke	16	18			TRUE			Adultery and divorce	56	TRUE										
+Mark	9	43	9	48	Luke	16	18			TRUE			Adultery and divorce	56	TRUE										
+Matthew	5	38	5	42	Luke	6	29	6	30	TRUE			Retaliation	58	TRUE										
+Matthew	5	43	5	48	Luke	6	27	6	36	TRUE			Love of enemies	59;80	TRUE										
+Matthew	6	7	6	15	Mark	11	25			TRUE			Lord’s prayer	62;185	TRUE										
+Matthew	6	7	6	15	Luke	11	1	11	4	TRUE			Lord’s prayer	62;185	TRUE										
+Mark	11	25			Luke	11	1	11	4	TRUE			Lord’s prayer	62;185	TRUE										
+Matthew	6	19	6	21	Luke	12	33	12	34	TRUE			On Treasures	64;202	TRUE										
+Matthew	6	22	6	23	Luke	11	34	11	36	TRUE			The Sound Eye	65;193	TRUE										
+Matthew	6	24			Luke	16	13			TRUE			Serving two masters	66;224	TRUE										
+Matthew	6	25	6	34	Luke	12	22	12	32	TRUE			Anxiety	67;201	TRUE										
+Matthew	7	1	7	5	Mark	4	24	4	25	TRUE			On Judging	68;81	TRUE										
+Matthew	7	1	7	5	Luke	6	37	6	42	TRUE			On Judging	68;81	TRUE										
+Mark	4	24	4	25	Luke	6	37	6	42	TRUE			On Judging	68;81	TRUE										
+Matthew	7	7	7	11	Luke	11	9	11	13	TRUE			Answering prayer	70;187	TRUE										
+Matthew	7	12			Luke	6	31			TRUE			Golden rule	71	TRUE										
+Matthew	7	13	7	14	Luke	13	23	13	24	TRUE			The Two Ways	72;211	TRUE										
+Matthew	12	33	12	37	Luke	6	43	6	45	TRUE			Good tree bares good fruit	73;82;118b	TRUE										
+Matthew	12	33	12	37	Matthew	7	16	7	20	TRUE			Good tree bares good fruit	73;82;118b	TRUE										
+Luke	6	43	6	45	Matthew	7	16	7	20	TRUE			Good tree bares good fruit	73;82;118b	TRUE										
+Matthew	7	21	7	23	Luke	6	46			TRUE			"Lord, Lord"	74	TRUE										
+Matthew	7	21	7	23	Luke	13	25	13	27	TRUE			"Lord, Lord"	74	TRUE										
+Luke	6	46			Luke	13	25	13	27	TRUE			"Lord, Lord"	74	TRUE										
+Matthew	7	24	7	27	Luke	6	47	6	49	TRUE			House upon the rock	75;83	TRUE										
+Matthew	7	28	7	29	Mark	1	21	1	22	TRUE			Effect of the sermon	76	TRUE										
+Matthew	8	5	8	13	John	4	46	4	54	TRUE			Centurion of Capernaum	85	TRUE										
+Matthew	8	5	8	13	Luke	7	1	7	10	TRUE			Centurion of Capernaum	85	TRUE										
+John	4	46	4	54	Luke	7	1	7	10	TRUE			Centurion of Capernaum	85	TRUE										
+Matthew	8	18	8	22	Luke	9	57	9	62	TRUE			Following Jesus	89;176	TRUE										
+Matthew	8	23	8	27	Mark	4	35	4	41	TRUE			Stilling the storm	90;136	TRUE										
+Matthew	8	23	8	27	Luke	8	22	8	25	TRUE			Stilling the storm	90;136	TRUE										
+Mark	4	35	4	41	Luke	8	22	8	25	TRUE			Stilling the storm	90;136	TRUE										
+Matthew	8	28	8	34	Mark	5	1	5	20	TRUE			Gadarene demoniacs	91;137	TRUE										
+Matthew	8	28	8	34	Luke	8	26	8	39	TRUE			Gadarene demoniacs	91;137	TRUE										
+Mark	5	1	5	20	Luke	8	26	8	39	TRUE			Gadarene demoniacs	91;137	TRUE										
+Matthew	9	18	9	26	Mark	5	21	5	43	TRUE			Jairus’ Daughter	95;138	TRUE										
+Matthew	9	18	9	26	Luke	8	40	8	56	TRUE			Jairus’ Daughter	95;138	TRUE										
+Mark	5	21	5	43	Luke	8	40	8	56	TRUE			Jairus’ Daughter	95;138	TRUE										
+Matthew	9	27	9	31	Mark	10	46	10	52	TRUE			Two blind men	96;264	TRUE										
+Matthew	9	27	9	31	Luke	18	35	18	43	TRUE			Two blind men	96;264	TRUE										
+Matthew	9	27	9	31	Matthew	20	29	20	34	TRUE			Two blind men	96;264	TRUE										
+Mark	10	46	10	52	Luke	18	35	18	43	TRUE			Two blind men	96;264	TRUE										
+Mark	10	46	10	52	Matthew	20	29	20	34	TRUE			Two blind men	96;264	TRUE										
+Luke	18	35	18	43	Matthew	20	29	20	34	TRUE			Two blind men	96;264	TRUE										
+Matthew	9	32	9	34	Mark	3	22	3	27	TRUE			Dumb demoniac and collusion	97;117;188	TRUE										
+Matthew	9	32	9	34	Luke	11	14	11	23	TRUE			Dumb demoniac and collusion	97;117;188	TRUE										
+Matthew	9	32	9	34	Matthew	12	22	12	24	TRUE			Dumb demoniac and collusion	97;117;188	TRUE										
+Mark	3	22	3	27	Luke	11	14	11	23	TRUE			Dumb demoniac and collusion	97;117;188	TRUE										
+Mark	3	22	3	27	Matthew	12	22	12	24	TRUE			Dumb demoniac and collusion	97;117;188	TRUE										
+Luke	11	14	11	23	Matthew	12	22	12	24	TRUE			Dumb demoniac and collusion	97;117;188	TRUE										
+Matthew	9	35	9	38	Mark	6	34			TRUE			Harvest is great	98	TRUE										
+Matthew	9	35	9	38	Luke	8	1			TRUE			Harvest is great	98	TRUE										
+Matthew	9	35	9	38	Luke	10	2			TRUE			Harvest is great	98	TRUE										
+Mark	6	34			Luke	8	1			TRUE			Harvest is great	98	TRUE										
+Mark	6	34			Luke	10	2			TRUE			Harvest is great	98	TRUE										
+Luke	8	1			Luke	10	2			TRUE			Harvest is great	98	TRUE										
+Matthew	10	5	10	16	Mark	6	7	6	13	TRUE			Sending the 12	99b	TRUE										
+Matthew	10	5	10	16	Luke	9	1	9	5	TRUE			Sending the 12	99b	TRUE										
+Mark	6	7	6	13	Luke	9	1	9	5	TRUE			Sending the 12	99b	TRUE										
+Matthew	10	24	10	25	Luke	6	40			TRUE			Servant not great than master	100a;309a	TRUE										
+Matthew	10	24	10	25	John	13	16			TRUE			Servant not great than master	100a;309a	TRUE										
+Luke	6	40	0	0	John	13	16	0	0	TRUE			Servant not great than master	100a;309a	TRUE										
+Matthew	10	17	10	23	Matthew	24	9	24	14	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	10	17	10	23	Mark	13	9	13	13	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	10	17	10	23	Luke	12	11	12	12	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	10	17	10	23	Luke	21	12	21	19	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	24	9	24	14	Mark	13	9	13	13	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	24	9	24	14	Luke	12	11	12	12	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	24	9	24	14	Luke	21	12	21	19	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Mark	13	9	13	13	Luke	12	11	12	12	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Mark	13	9	13	13	Luke	21	12	21	19	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Luke	12	11	12	12	Luke	21	12	21	19	TRUE			Fate of the disciples	100b;198;298	TRUE										
+Matthew	10	26	10	33	Luke	12	2	12	9	TRUE			Fearless confession	101;196	TRUE										
+Matthew	10	34	10	36	Luke	12	49	12	53	TRUE			Division within household	102;204	TRUE										
+Matthew	10	39			Luke	17	33			TRUE			Find life loses it	103a	TRUE										
+Matthew	10	39			John	12	25			TRUE			Find life loses it	103a	TRUE										
+Luke	17	33			John	12	25			TRUE			Find life loses it	103a	TRUE										
+Matthew	10	37	10	38	Luke	14	25	14	27	TRUE			Hate father and mother	103b;217	TRUE										
+Matthew	10	40	10	41	Luke	10	16			TRUE			Receive you receive me	104a;179;309b	TRUE										
+Matthew	10	40	10	41	John	13	20			TRUE			Receive you receive me	104a;179;309b	TRUE										
+Luke	10	16			John	13	20			TRUE			Receive you receive me	104a;179;309b	TRUE										
+Matthew	11	2	11	6	Luke	7	18	7	23	TRUE			John the Baptist’s question and Jesus’s answer	106	TRUE										
+Matthew	11	7	11	19	Luke	7	24	7	35	TRUE			Jesus’s witness on John	107	TRUE										
+Matthew	11	20	11	24	Luke	10	12	10	15	TRUE			Woes on Galilean cities	108;178	TRUE										
+Matthew	11	25	11	27	Luke	10	21	10	22	TRUE			Jesus thankgiving to Father	109;181a	TRUE										
+Matthew	26	6	26	13	Mark	14	3	14	9	TRUE			Woman with ointment	114;267;306	TRUE										
+Matthew	26	6	26	13	Luke	7	36	7	50	TRUE			Woman with ointment	114;267;306	TRUE										
+Matthew	26	6	26	13	John	12	1	12	8	TRUE			Woman with ointment	114;267;306	TRUE										
+Mark	14	3	14	9	Luke	7	36	7	50	TRUE			Woman with ointment	114;267;306	TRUE										
+Mark	14	3	14	9	John	12	1	12	8	TRUE			Woman with ointment	114;267;306	TRUE										
+Luke	7	36	7	50	John	12	1	12	8	TRUE			Woman with ointment	114;267;306	TRUE										
+Luke	16	19	16	31	John	11	1	11	46	TRUE			Lazarus		TRUE										
+Matthew	12	31	12	32	Mark	3	28	3	30	TRUE			Blaspheme the Holy Spirit	118a;197	TRUE										
+Matthew	12	31	12	32	Luke	12	10			TRUE			Blaspheme the Holy Spirit	118a;197	TRUE										
+Mark	3	28	3	30	Luke	12	10			TRUE			Blaspheme the Holy Spirit	118a;197	TRUE										
+Matthew	12	38	12	42	Mark	8	11	8	12	TRUE			Sign of Jonah	119;154;191	TRUE										
+Matthew	12	38	12	42	Luke	11	29	11	32	TRUE			Sign of Jonah	119;154;191	TRUE										
+Matthew	12	38	12	42	Matthew	16	1	16	4	TRUE			Sign of Jonah	119;154;191	TRUE										
+Mark	8	11	8	12	Luke	11	29	11	32	TRUE			Sign of Jonah	119;154;191	TRUE										
+Mark	8	11	8	12	Matthew	16	1	16	4	TRUE			Sign of Jonah	119;154;191	TRUE										
+Luke	11	29	11	32	Matthew	16	1	16	4	TRUE			Sign of Jonah	119;154;191	TRUE										
+Matthew	12	43	12	45	Luke	11	24	11	26	TRUE			Return of evil spirit	120;189	TRUE										
+Matthew	12	46	12	50	Mark	3	31	3	35	TRUE			Jesus’s True Kindred	121;135	TRUE										
+Matthew	12	46	12	50	Luke	8	19	8	21	TRUE			Jesus’s True Kindred	121;135	TRUE										
+Mark	3	31	3	35	Luke	8	19	8	21	TRUE			Jesus’s True Kindred	121;135	TRUE										
+Matthew	13	1	13	23	Mark	4	1	4	20	TRUE			Parable of the sower	122;123;124	TRUE										
+Matthew	13	1	13	23	Luke	8	4	8	15	TRUE			Parable of the sower	122;123;124	TRUE										
+Mark	4	1	4	20	Luke	8	4	8	15	TRUE			Parable of the sower	122;123;124	TRUE										
+Mark	4	21	4	25	Luke	8	16	8	18	TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Mark	4	21	4	25	Matthew	5	15			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Mark	4	21	4	25	Matthew	10	26			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Mark	4	21	4	25	Matthew	7	2			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Mark	4	21	4	25	Matthew	13	12			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Luke	8	16	8	18	Matthew	5	15			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Luke	8	16	8	18	Matthew	10	26			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Luke	8	16	8	18	Matthew	7	2			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Luke	8	16	8	18	Matthew	13	12			TRUE			He who has ears to hear let him hear	53;125	TRUE										
+Matthew	13	31	13	32	Mark	4	30	4	32	TRUE			Parable of the mustard seed	128;209	TRUE										
+Matthew	13	31	13	32	Luke	13	18	13	19	TRUE			Parable of the mustard seed	128;209	TRUE										
+Mark	4	30	4	32	Luke	13	18			TRUE			Parable of the mustard seed	128;209	TRUE										
+Matthew	13	33			Luke	13	20	13	21	TRUE			Parable of the leaven	129;210	TRUE										
+Matthew	13	34	13	35	Mark	4	33	4	34	TRUE			Jesus’s Use of Parables	130	TRUE										
+Matthew	10	7	10	11	Mark	6	6	6	13	TRUE			Commissioning the Twelve	142	TRUE										
+Matthew	10	14			Mark	6	6	6	13	TRUE			Commissioning the Twelve	142	TRUE										
+Matthew	10	7	10	11	Luke	9	1	9	6	TRUE			Commissioning the Twelve	142	TRUE										
+Matthew	10	14	0	0	Luke	9	1	9	6	TRUE			Commissioning the Twelve	142	TRUE										
+Mark	6	6	6	13	Luke	9	1	9	6	TRUE			Commissioning the Twelve	142	TRUE										
+Matthew	14	1	14	2	Mark	6	14	6	16	TRUE			Opinions on Jesus	143	TRUE										
+Matthew	14	1	14	2	Luke	9	7	9	9	TRUE			Opinions on Jesus	143	TRUE										
+Mark	6	14	6	16	Luke	9	7	9	9	TRUE			Opinions on Jesus	143	TRUE										
+Mark	6	30	6	31	Luke	9	10			TRUE		done.	Return of the apostles	145	TRUE										
+Matthew	14	13	14	21	Mark	6	32	6	44	TRUE			Five thousand are fed	146	TRUE										
+Matthew	14	13	14	21	Luke	9	10	9	17	TRUE			Five thousand are fed	146	TRUE										
+Matthew	14	13	14	21	Matthew	6	1	6	15	TRUE			Five thousand are fed	146	TRUE										
+Mark	6	32	6	44	Luke	9	10	9	17	TRUE			Five thousand are fed	146	TRUE										
+Mark	6	32	6	44	Matthew	6	1	6	15	TRUE			Five thousand are fed	146	TRUE										
+Luke	9	10	9	17	Matthew	6	1	6	15	TRUE			Five thousand are fed	146	TRUE										
+Matthew	14	13	14	21	Matthew	15	32	15	29	TRUE			Feeding doublet		TRUE										
+Mark	6	32	6	44	Mark	8	1	8	10	TRUE			Feeding doublet		TRUE										
+Matthew	14	22	14	33	Mark	6	45	6	52	TRUE			Walking on the Water	147	TRUE										
+Matthew	14	22	14	33	John	6	16	6	21	TRUE			Walking on the Water	147	TRUE										
+Mark	6	45	6	52	John	6	16	6	21	TRUE			Walking on the Water	147	TRUE										
+Matthew	14	34	14	36	Mark	6	53	6	56	TRUE			Healings at Gennesaret	148	TRUE										
+Matthew	14	34	14	36	John	6	22	6	25	TRUE			Healings at Gennesaret	148	TRUE										
+Mark	6	53	6	56	John	6	22	6	25	TRUE			Healings at Gennesaret	148	TRUE										
+Matthew	15	14			Luke	6	39			TRUE			Blind lead the blind	150a	TRUE										
+Matthew	15	1	15	20	Mark	7	1	7	23	TRUE			Defilement – traditional and real	150b;194	TRUE										
+Matthew	15	1	15	20	Luke	11	37	11	41	TRUE			Defilement – traditional and real	150b;194	TRUE										
+Mark	7	1	7	23	Luke	11	37	11	41	TRUE			Defilement – traditional and real	150b;194	TRUE										
+Matthew	15	21	15	28	Mark	7	24	7	30	TRUE			Canaanite woman	151	TRUE										
+Matthew	15	29	15	31	Mark	7	31	7	37	TRUE			Jesus heals a deaf mute and others	152	TRUE										
+Matthew	15	32	15	39	Mark	8	1	8	10	TRUE			Four thousand are fed	153	TRUE										
+Matthew	16	5	16	12	Mark	8	14	8	21	TRUE			Leaven of the pharisees	155;195	TRUE										
+Matthew	16	5	16	12	Luke	12	1			TRUE			Leaven of the pharisees	155;195	TRUE										
+Mark	8	14	8	21	Luke	12	1	0	0	TRUE			Leaven of the pharisees	155;195	TRUE										
+Matthew	16	13	16	20	Mark	8	27	8	30	TRUE			Peter’s confession	158	TRUE										
+Matthew	16	13	16	20	Luke	9	18	9	21	TRUE			Peter’s confession	158	TRUE										
+Matthew	16	13	16	20	John	6	67	6	71	TRUE			Peter’s confession	158	TRUE										
+Mark	8	27	8	30	Luke	9	18	9	21	TRUE			Peter’s confession	158	TRUE										
+Mark	8	27	8	30	John	6	67	6	71	TRUE			Peter’s confession	158	TRUE										
+Luke	9	18	9	21	John	6	67	6	71	TRUE			Peter’s confession	158	TRUE										
+Matthew	16	21	16	23	Mark	8	31	8	33	TRUE			Jesus foretells his passion	159	TRUE										
+Matthew	16	21	16	23	Luke	9	22			TRUE			Jesus foretells his passion	159	TRUE										
+Mark	8	31	8	33	Luke	9	22	0	0	TRUE			Jesus foretells his passion	159	TRUE										
+Matthew	16	24	16	28	Mark	8	34	9	1	TRUE			If any man would follow me	160	TRUE										
+Matthew	16	24	16	28	Luke	9	23	9	27	TRUE			If any man would follow me	160	TRUE										
+Matthew	16	24	16	28	John	12	25			TRUE			If any man would follow me	160	TRUE										
+Mark	8	34	9	1	Luke	9	23	9	27	TRUE			If any man would follow me	160	TRUE										
+Mark	8	34	9	1	John	12	25	0	0	TRUE			If any man would follow me	160	TRUE										
+Luke	9	23	9	27	John	12	25	0	0	TRUE			If any man would follow me	160	TRUE										
+Matthew	17	1	17	9	Mark	9	2	9	10	TRUE			The Transfiguration	161	TRUE										
+Matthew	17	1	17	9	Luke	9	28	9	36	TRUE			The Transfiguration	161	TRUE										
+Mark	9	2	9	10	Luke	9	28	9	36	TRUE			The Transfiguration	161	TRUE										
+Matthew	17	10	17	13	Mark	9	11	9	13	TRUE			The coming of Elijah	162	TRUE										
+Matthew	17	20			Luke	17	6			TRUE			Mustard seed	163a	TRUE										
+Matthew	17	14	17	21	Mark	9	14	9	29	TRUE			Jesus heals a boy possessed by a spirit	163b	TRUE										
+Matthew	17	14	17	21	Luke	9	37	9	43	TRUE		God.	Jesus heals a boy possessed by a spirit	163b	TRUE										
+Mark	9	14	9	29	Luke	9	37	9	43	TRUE		God.	Jesus heals a boy possessed by a spirit	163b	TRUE										
+Matthew	17	22	17	23	Mark	9	30	9	32	TRUE			Jesus foretells his passion again	164	TRUE										
+Matthew	17	22	17	23	Luke	9	43	9	45	TRUE			Jesus foretells his passion again	164	TRUE										
+Mark	9	30	9	32	Luke	9	43	9	45	TRUE			Jesus foretells his passion again	164	TRUE										
+Matthew	18	1	18	5	Mark	9	33	9	37	TRUE			True greatness	166	TRUE										
+Matthew	18	1	18	5	Luke	9	46	9	48	TRUE			True greatness	166	TRUE										
+Matthew	18	1	18	5	John	13	20			TRUE			True greatness	166	TRUE										
+Mark	9	33	9	37	Luke	9	46	9	48	TRUE			True greatness	166	TRUE										
+Mark	9	33	9	37	John	13	20	0	0	TRUE			True greatness	166	TRUE										
+Luke	9	46	9	48	John	13	20	0	0	TRUE			True greatness	166	TRUE										
+Matthew	10	42			Mark	9	38	9	41	TRUE			The strange exorcist	167;104b	TRUE										
+Matthew	10	42	0	0	Luke	9	49	9	50	TRUE			The strange exorcist	167;104b	TRUE										
+Mark	9	38	9	41	Luke	9	49	9	50	TRUE			The strange exorcist	167;104b	TRUE										
+Matthew	18	6	18	9	Mark	9	42	9	48	TRUE			Warnings concerning temptation	168b;229	TRUE										
+Matthew	18	6	18	9	Luke	17	1	17	2	TRUE			Warnings concerning temptation	168b;229	TRUE										
+Mark	9	42	9	48	Luke	17	1	17	2	TRUE			Warnings concerning temptation	168b;229	TRUE										
+Matthew	18	10	18	14	Luke	15	3	15	7	TRUE			Lost sheep	169	TRUE										
+Matthew	18	15	18	18	Luke	17	3			TRUE			On reproving one’s brother	170;230	TRUE										
+Matthew	18	15	18	18	John	20	23			TRUE			On reproving one’s brother	170;230	TRUE										
+Luke	17	3	0	0	John	20	23	0	0	TRUE			On reproving one’s brother	170;230	TRUE										
+Matthew	18	21	18	22	Luke	17	4			TRUE			On reconciliation	172	TRUE										
+Matthew	19	1	19	2	Mark	10	1			TRUE			Decision to go to Jerusalem	174;251	TRUE										
+Matthew	19	1	19	2	Luke	9	51			TRUE			Decision to go to Jerusalem	174;251	TRUE										
+Mark	10	1	0	0	Luke	9	51	0	0	TRUE			Decision to go to Jerusalem	174;251	TRUE										
+Matthew	9	37	9	38	Luke	10	1	10	12	TRUE			Commissioning the seventy	177	TRUE										
+Matthew	10	7	10	16	Luke	10	1	10	12	TRUE			Commissioning the seventy	177	TRUE										
+Matthew	13	16	13	17	Luke	10	23	10	24	TRUE			Blessedness of disciples	181	TRUE										
+Matthew	22	34	22	40	Mark	12	28	12	34	TRUE			The great commandment	182;282	TRUE										
+Matthew	22	34	22	40	Luke	10	25	10	28	TRUE			The great commandment	182;282	TRUE										
+Mark	12	28	12	34	Luke	10	25	10	28	TRUE			The great commandment	182;282	TRUE										
+Luke	11	33			Matthew	5	15			TRUE			Concerning light	188	TRUE										
+Luke	11	33	0	0	Mark	4	21			TRUE			Concerning light	188	TRUE										
+Matthew	24	42	24	51	Luke	12	35	12	48	TRUE			Watchfulness and faithfulness	203;294	TRUE										
+Matthew	16	2	16	3	Luke	12	54	12	56	TRUE			Interpreting the times	205	TRUE										
+Matthew	19	30			Mark	10	31			TRUE			First shall be last	211a;256a	TRUE										
+Matthew	19	30	0	0	Luke	13	30			TRUE			First shall be last	211a;256a	TRUE										
+Mark	10	31	0	0	Luke	13	30	0	0	TRUE			First shall be last	211a;256a	TRUE										
+Matthew	8	11	8	12	Luke	13	29			TRUE			East and west	211b	TRUE										
+Matthew	23	37	22	39	Luke	13	34	13	35	TRUE			Lament over Jerusalem	213;285	TRUE										
+Matthew	22	1	22	14	Luke	14	15	14	24	TRUE			Parable of the great supper	216;279	TRUE										
+Matthew	18	12	18	14	Luke	15	1	15	7	TRUE			Parable of the lost sheep	219	TRUE										
+Matthew	11	12	11	13	Luke	16	16	16	17	TRUE			Concerning the law	226	TRUE										
+Matthew	5	18			Luke	16	16	16	17	TRUE			Concerning the law	226	TRUE										
+Matthew	19	9			Mark	10	11	10	12	TRUE			Concerning divorce	227	TRUE										
+Matthew	19	9	0	0	Luke	16	18			TRUE			Concerning divorce	227	TRUE										
+Mark	10	11	10	12	Luke	16	18	0	0	TRUE			Concerning divorce	227	TRUE										
+Matthew	17	19	17	21	Mark	9	28	9	29	TRUE			On faith	231	TRUE										
+Matthew	17	19	17	21	Luke	17	5	17	6	TRUE			On faith	231	TRUE										
+Mark	9	28	9	29	Luke	17	5	17	6	TRUE			On faith	231	TRUE										
+Matthew	19	3	19	12	Mark	10	2	10	12	TRUE			Divorce and celibacy	252	TRUE										
+Matthew	19	3	19	12	Luke	16	18			TRUE			Divorce and celibacy	252	TRUE										
+Mark	10	2	10	12	Luke	16	18	0	0	TRUE			Divorce and celibacy	252	TRUE										
+Matthew	19	13	19	15	Mark	10	13	10	16	TRUE			Jesus blesses the children	253	TRUE										
+Matthew	19	13	19	15	Luke	18	15	18	17	TRUE			Jesus blesses the children	253	TRUE										
+Mark	10	13	10	16	Luke	18	15	18	17	TRUE			Jesus blesses the children	253	TRUE										
+Matthew	19	16	19	22	Mark	10	17	10	22	TRUE			The rich young man	254	TRUE										
+Matthew	19	16	19	22	Luke	18	18	18	23	TRUE			The rich young man	254	TRUE										
+Mark	10	17	10	22	Luke	18	18	18	23	TRUE			The rich young man	254	TRUE										
+Matthew	19	23	19	27	Mark	10	23	10	31	TRUE			Rich man into heaven	255a	TRUE										
+Matthew	19	23	19	27	Luke	18	24	18	30	TRUE			Rich man into heaven	255a	TRUE										
+Mark	10	23	10	31	Luke	18	24	18	30	TRUE			Rich man into heaven	255a	TRUE										
+Matthew	19	28	19	30	Luke	22	28	22	30	TRUE			Twelve thrones	255b;313	TRUE										
+Matthew	20	16			Mark	10	31			TRUE			Parable of the laborers in the vineyard	256	TRUE										
+Matthew	20	16	0	0	Luke	13	30			TRUE			Parable of the laborers in the vineyard	256	TRUE										
+Matthew	20	17	20	19	Mark	10	32	10	34	TRUE			Third prediction of the passion	262	TRUE										
+Matthew	20	17	20	19	Luke	18	31	18	34	TRUE			Third prediction of the passion	262	TRUE										
+Mark	10	32	10	34	Luke	18	31	18	34	TRUE			Third prediction of the passion	262	TRUE										
+Matthew	20	20	20	28	Mark	10	35	10	45	TRUE			Sons of Zebedee	263	TRUE										
+Matthew	20	20	20	28	Luke	22	24	22	27	TRUE			Sons of Zebedee	263	TRUE										
+Mark	10	35	10	45	Luke	22	24	22	27	TRUE			Sons of Zebedee	263	TRUE										
+Matthew	18	11			Luke	19	1	19	10	TRUE			Zaccaeus	166	TRUE										
+Matthew	24	34			Mark	13	30			TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	Luke	21	32			TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	Hebrews	10	37			TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	1 Corinthians	7	29	7	31	TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	1 Thessalonians	4	15			TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	2 Thessalonians	1	6	1	7	TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	1 Peter	1	20			TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	2 Peter	3	4			TRUE			This generation shall not pass away		TRUE										
+Matthew	24	34	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	Luke	21	32	0	0	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	Hebrews	10	37	0	0	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	1 Corinthians	7	29	7	31	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	1 Thessalonians	4	15	0	0	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	2 Thessalonians	1	6	1	7	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	1 Peter	1	20	0	0	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+Mark	13	30	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	Hebrews	10	37	0	0	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	1 Corinthians	7	29	7	31	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	1 Thessalonians	4	15	0	0	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	2 Thessalonians	1	6	1	7	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	1 Peter	1	20	0	0	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+Luke	21	32	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+Hebrews	10	37	0	0	1 Corinthians	7	29	7	31	TRUE			This generation shall not pass away		TRUE										
+Hebrews	10	37	0	0	1 Thessalonians	4	15	0	0	TRUE			This generation shall not pass away		TRUE										
+Hebrews	10	37	0	0	2 Thessalonians	1	6	1	7	TRUE			This generation shall not pass away		TRUE										
+Hebrews	10	37	0	0	1 Peter	1	20	0	0	TRUE			This generation shall not pass away		TRUE										
+Hebrews	10	37	0	0	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+Hebrews	10	37	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+1 Corinthians	7	29	7	31	1 Thessalonians	4	15	0	0	TRUE			This generation shall not pass away		TRUE										
+1 Corinthians	7	29	7	31	2 Thessalonians	1	6	1	7	TRUE			This generation shall not pass away		TRUE										
+1 Corinthians	7	29	7	31	1 Peter	1	20	0	0	TRUE			This generation shall not pass away		TRUE										
+1 Corinthians	7	29	7	31	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+1 Corinthians	7	29	7	31	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+1 Thessalonians	4	15	0	0	2 Thessalonians	1	6	1	7	TRUE			This generation shall not pass away		TRUE										
+1 Thessalonians	4	15	0	0	1 Peter	1	20	0	0	TRUE			This generation shall not pass away		TRUE										
+1 Thessalonians	4	15	0	0	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+1 Thessalonians	4	15	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+2 Thessalonians	1	6	1	7	1 Peter	1	20	0	0	TRUE			This generation shall not pass away		TRUE										
+2 Thessalonians	1	6	1	7	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+2 Thessalonians	1	6	1	7	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+1 Peter	1	20	0	0	2 Peter	3	4	0	0	TRUE			This generation shall not pass away		TRUE										
+1 Peter	1	20	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+2 Peter	3	4	0	0	1 John	2	17	2	18	TRUE			This generation shall not pass away		TRUE										
+Matthew	25	14	25	30	Mark	13	34			TRUE			Parable of the pounds	266;294;299	TRUE										
+Matthew	25	14	25	30	Luke	19	11	19	27	TRUE			Parable of the pounds	266;294;299	TRUE										
+Mark	13	34	0	0	Luke	19	11	19	27	TRUE			Parable of the pounds	266;294;299	TRUE										
+Luke	24	39			1 Corinthians	15	50			TRUE			Flesh and bones		TRUE										
+Matthew	27	1	27	10	Acts	1	16	1	20	TRUE			Judas’s death		TRUE										
+Matthew	26	14	26	16	Mark	14	10	14	11	TRUE			Judas agrees to betray	307	TRUE										
+Matthew	26	14	26	16	Luke	22	1	22	6	TRUE			Judas agrees to betray	307	TRUE										
+Matthew	26	14	26	16	John	13	2			TRUE			Judas agrees to betray	307	TRUE										
+Mark	14	10	14	11	Luke	22	1	22	6	TRUE			Judas agrees to betray	307	TRUE										
+Mark	14	10	14	11	John	13	2	0	0	TRUE			Judas agrees to betray	307	TRUE										
+Luke	22	1	22	6	John	13	2	0	0	TRUE			Judas agrees to betray	307	TRUE										
+Matthew	26	17	26	20	Mark	14	12	14	17	TRUE			Preperation for the passover	308	TRUE										
+Matthew	26	17	26	20	Luke	22	7	22	14	TRUE			Preperation for the passover	308	TRUE										
+Mark	14	12	14	17	Luke	22	7	22	14	TRUE			Preperation for the passover	308	TRUE										
+Matthew	26	21	26	25	Mark	14	18	14	21	TRUE			Jesus foretells his betrayal	310	TRUE										
+Matthew	26	21	26	25	Luke	22	21	22	23	TRUE			Jesus foretells his betrayal	310	TRUE										
+Matthew	26	21	26	25	John	13	21	13	30	TRUE			Jesus foretells his betrayal	310	TRUE										
+Matthew	26	21	26	25	1 Corinthians	11	23			TRUE			Jesus foretells his betrayal	310	TRUE										
+Mark	14	18	14	21	Luke	22	21	22	23	TRUE			Jesus foretells his betrayal	310	TRUE										
+Mark	14	18	14	21	John	13	21	13	30	TRUE			Jesus foretells his betrayal	310	TRUE										
+Mark	14	18	14	21	1 Corinthians	11	23	0	0	TRUE			Jesus foretells his betrayal	310	TRUE										
+Luke	22	21	22	23	John	13	21	13	30	TRUE			Jesus foretells his betrayal	310	TRUE										
+Luke	22	21	22	23	1 Corinthians	11	23	0	0	TRUE			Jesus foretells his betrayal	310	TRUE										
+John	13	21	13	30	1 Corinthians	11	23	0	0	TRUE			Jesus foretells his betrayal	310	TRUE										
+Matthew	26	30	26	35	Mark	14	26	14	31	TRUE			Jesus predicts Peter’s denial	315	TRUE										
+Matthew	26	30	26	35	Luke	22	31	22	34	TRUE			Jesus predicts Peter’s denial	315	TRUE										
+Matthew	26	30	26	35	John	13	36	13	38	TRUE			Jesus predicts Peter’s denial	315	TRUE										
+Mark	14	26	14	31	Luke	22	31	22	34	TRUE			Jesus predicts Peter’s denial	315	TRUE										
+Mark	14	26	14	31	John	13	36	13	38	TRUE			Jesus predicts Peter’s denial	315	TRUE										
+Luke	22	31	22	34	John	13	36	13	38	TRUE			Jesus predicts Peter’s denial	315	TRUE										
+Matthew	26	36	26	46	Mark	14	32	14	42	TRUE			Prayer in Gethsemane	330	TRUE										
+Matthew	26	36	26	46	Luke	22	39	22	46	TRUE			Prayer in Gethsemane	330	TRUE										
+Matthew	26	36	26	46	John	18	1			TRUE			Prayer in Gethsemane	330	TRUE										
+Mark	14	32	14	42	Luke	22	39	22	46	TRUE			Prayer in Gethsemane	330	TRUE										
+Mark	14	32	14	42	John	18	1	0	0	TRUE			Prayer in Gethsemane	330	TRUE										
+Luke	22	39	22	46	John	18	1	0	0	TRUE			Prayer in Gethsemane	330	TRUE										
+Matthew	26	47	26	56	Mark	14	43	14	52	TRUE			Jesus’s arrest	331	TRUE										
+Matthew	26	47	26	56	Luke	22	47	22	53	TRUE			Jesus’s arrest	331	TRUE										
+Matthew	26	47	26	56	John	18	2	18	12	TRUE			Jesus’s arrest	331	TRUE										
+Mark	14	43	14	52	Luke	22	47	22	53	TRUE			Jesus’s arrest	331	TRUE										
+Mark	14	43	14	52	John	18	2	18	12	TRUE			Jesus’s arrest	331	TRUE										
+Luke	22	47	22	53	John	18	2	18	12	TRUE			Jesus’s arrest	331	TRUE										
+John	19	34			John	20	25			TRUE			Spear in Jesus’s side		TRUE										
+John	19	34			John	20	27			TRUE			Spear in Jesus’s side		TRUE										
+Matthew	26	57	26	68	Mark	14	53	14	65	TRUE			Trial by the sanhedrin	332	TRUE										
+Matthew	26	57	26	68	Luke	22	66	22	71	TRUE			Trial by the sanhedrin	332	TRUE										
+Matthew	26	57	26	68	John	18	19	18	24	TRUE			Trial by the sanhedrin	332	TRUE										
+Mark	14	53	14	65	Luke	22	66	22	71	TRUE			Trial by the sanhedrin	332	TRUE										
+Mark	14	53	14	65	John	18	19	18	24	TRUE			Trial by the sanhedrin	332	TRUE										
+Luke	22	66	22	71	John	18	19	18	24	TRUE			Trial by the sanhedrin	332	TRUE										
+Matthew	26	69	26	75	Mark	14	66	14	72	TRUE			Peter disowns Jesus	333	TRUE										
+Matthew	26	69	26	75	Luke	22	54	22	62	TRUE			Peter disowns Jesus	333	TRUE										
+Matthew	26	69	26	75	John	18	15	18	18	TRUE			Peter disowns Jesus	333	TRUE										
+Matthew	26	69	26	75	John	18	25	18	27	TRUE			Peter disowns Jesus	333	TRUE										
+Mark	14	66	14	72	Luke	22	54	22	62	TRUE			Peter disowns Jesus	333	TRUE										
+Mark	14	66	14	72	John	18	15	18	18	TRUE			Peter disowns Jesus	333	TRUE										
+Mark	14	66	14	72	John	18	25	18	27	TRUE			Peter disowns Jesus	333	TRUE										
+Luke	22	54	22	62	John	18	15	18	18	TRUE			Peter disowns Jesus	333	TRUE										
+Luke	22	54	22	62	John	18	25	18	27	TRUE			Peter disowns Jesus	333	TRUE										
+John	18	15	18	18	John	18	25	18	27	TRUE			Peter disowns Jesus	333	TRUE										
+Matthew	27	11	27	14	Mark	15	1	15	5	TRUE			Jesus’s trial with Pilate	336	TRUE										
+Matthew	27	11	27	14	Luke	23	1	23	16	TRUE			Jesus’s trial with Pilate	336	TRUE										
+Matthew	27	11	27	14	John	18	28	18	38	TRUE			Jesus’s trial with Pilate	336	TRUE										
+Mark	15	1	15	5	Luke	23	1	23	16	TRUE			Jesus’s trial with Pilate	336	TRUE										
+Mark	15	1	15	5	John	18	28	18	38	TRUE			Jesus’s trial with Pilate	336	TRUE										
+Luke	23	1	23	16	John	18	28	18	38	TRUE			Jesus’s trial with Pilate	336	TRUE										
+Matthew	27	15	27	23	Mark	15	6	15	14	TRUE			Jesus or Barabus	339	TRUE										
+Matthew	27	15	27	23	Luke	23	17	23	23	TRUE			Jesus or Barabus	339	TRUE										
+Matthew	27	15	27	23	John	18	39	18	40	TRUE			Jesus or Barabus	339	TRUE										
+Mark	15	6	15	14	Luke	23	17	23	23	TRUE			Jesus or Barabus	339	TRUE										
+Mark	15	6	15	14	John	18	39	18	40	TRUE			Jesus or Barabus	339	TRUE										
+Luke	23	17	23	23	John	18	39	18	40	TRUE			Jesus or Barabus	339	TRUE										
+Matthew	27	24	27	26	Mark	15	15			TRUE			Jesus delivered to be crucified	340;341	TRUE										
+Matthew	27	24	27	26	Luke	23	24	23	25	TRUE			Jesus delivered to be crucified	340;341	TRUE										
+Matthew	27	24	27	26	John	19	1	19	16	TRUE			Jesus delivered to be crucified	340;341	TRUE										
+Mark	15	15	0	0	Luke	23	24	23	25	TRUE			Jesus delivered to be crucified	340;341	TRUE										
+Mark	15	15	0	0	John	19	1	19	16	TRUE			Jesus delivered to be crucified	340;341	TRUE										
+Luke	23	24	23	25	John	19	1	19	16	TRUE			Jesus delivered to be crucified	340;341	TRUE										
+Matthew	26	64			Mark	14	62			TRUE			Jesus responds to the Sanhedrin	332a	TRUE										
+Matthew	26	64	0	0	Luke	22	69			TRUE			Jesus responds to the Sanhedrin	332a	TRUE										
+Matthew	26	64	0	0	John	18	20	18	23	TRUE			Jesus responds to the Sanhedrin	332a	TRUE										
+Mark	14	62	0	0	Luke	22	69	0	0	TRUE			Jesus responds to the Sanhedrin	332a	TRUE										
+Mark	14	62	0	0	John	18	20	18	23	TRUE			Jesus responds to the Sanhedrin	332a	TRUE										
+Luke	22	69	0	0	John	18	20	18	23	TRUE			Jesus responds to the Sanhedrin	332a	TRUE										
+Matthew	27	27	27	31	Mark	15	16	15	20	TRUE			Jesus mocked by the soldiers	342	TRUE										
+Matthew	27	27	27	31	Luke	22	63	22	65	TRUE			Jesus mocked by the soldiers	342	TRUE										
+Matthew	27	27	27	31	John	19	1	19	3	TRUE			Jesus mocked by the soldiers	342	TRUE										
+Mark	15	16	15	20	Luke	22	63	22	65	TRUE			Jesus mocked by the soldiers	342	TRUE										
+Mark	15	16	15	20	John	19	1	19	3	TRUE			Jesus mocked by the soldiers	342	TRUE										
+Luke	22	63	22	65	John	19	1	19	3	TRUE			Jesus mocked by the soldiers	342	TRUE										
+Matthew	27	32			Mark	15	21			TRUE			The road to Golgotha	343	TRUE										
+Matthew	27	32	0	0	Luke	23	26	23	32	TRUE			The road to Golgotha	343	TRUE										
+Matthew	27	32	0	0	John	19	17			TRUE			The road to Golgotha	343	TRUE										
+Mark	15	21	0	0	Luke	23	26	23	32	TRUE			The road to Golgotha	343	TRUE										
+Mark	15	21	0	0	John	19	17	0	0	TRUE			The road to Golgotha	343	TRUE										
+Luke	23	26	23	32	John	19	17	0	0	TRUE			The road to Golgotha	343	TRUE										
+Matthew	27	33	27	44	Mark	15	22	15	32	TRUE			Crucifixion	344;345;346	TRUE										
+Matthew	27	33	27	44	Luke	23	33	23	43	TRUE			Crucifixion	344;345;346	TRUE										
+Matthew	27	33	27	44	John	19	18	19	27	TRUE			Crucifixion	344;345;346	TRUE										
+Mark	15	22	15	32	Luke	23	33	23	43	TRUE			Crucifixion	344;345;346	TRUE										
+Mark	15	22	15	32	John	19	18	19	27	TRUE			Crucifixion	344;345;346	TRUE										
+Luke	23	33	23	43	John	19	18	19	27	TRUE			Crucifixion	344;345;346	TRUE										
+Matthew	27	45	27	56	Mark	15	33	15	41	TRUE			Death of Jesus	347;348;349	TRUE										
+Matthew	27	45	27	56	Luke	23	44	23	49	TRUE			Death of Jesus	347;348;349	TRUE										
+Matthew	27	45	27	56	John	19	28	19	37	TRUE			Death of Jesus	347;348;349	TRUE										
+Mark	15	33	15	41	Luke	23	44	23	49	TRUE			Death of Jesus	347;348;349	TRUE										
+Mark	15	33	15	41	John	19	28	19	37	TRUE			Death of Jesus	347;348;349	TRUE										
+Luke	23	44	23	49	John	19	28	19	37	TRUE			Death of Jesus	347;348;349	TRUE										
+Matthew	27	44			Mark	15	32			TRUE			Jesus and the criminals on the cross		TRUE										
+Matthew	27	44	0	0	Luke	23	39	23	43	TRUE			Jesus and the criminals on the cross		TRUE										
+Mark	15	32	0	0	Luke	23	39	23	43	TRUE			Jesus and the criminals on the cross		TRUE										
+Matthew	27	57	27	61	Mark	15	42	15	47	TRUE			Burial of Jesus	350	TRUE										
+Matthew	27	57	27	61	Luke	23	50	23	56	TRUE			Burial of Jesus	350	TRUE										
+Matthew	27	57	27	61	John	19	38	19	42	TRUE			Burial of Jesus	350	TRUE										
+Mark	15	42	15	47	Luke	23	50	23	56	TRUE			Burial of Jesus	350	TRUE										
+Mark	15	42	15	47	John	19	38	19	42	TRUE			Burial of Jesus	350	TRUE										
+Luke	23	50	23	56	John	19	38	19	42	TRUE			Burial of Jesus	350	TRUE										
+Matthew	28	1	28	10	Mark	16	1	16	8	TRUE			Women go to the tomb	352	TRUE										
+Matthew	28	1	28	10	Luke	24	1	24	12	TRUE			Women go to the tomb	352	TRUE										
+Matthew	28	1	28	10	John	20	1	20	18	TRUE			Women go to the tomb	352	TRUE										
+Mark	16	1	16	8	Luke	24	1	24	12	TRUE			Women go to the tomb	352	TRUE										
+Mark	16	1	16	8	John	20	1	20	18	TRUE			Women go to the tomb	352	TRUE										
+Luke	24	1	24	12	John	20	1	20	18	TRUE			Women go to the tomb	352	TRUE										
+Matthew	28	16	28	20	Mark	16	9	16	20	TRUE			Galilee appearances	358;359;360	TRUE										
+Matthew	28	16	28	20	John	21	1	21	25	TRUE			Galilee appearances	358;359;360	TRUE										
+Mark	16	9	16	20	John	21	1	21	25	TRUE			Galilee appearances	358;359;360	TRUE										
+Mark	16	12	16	13	Luke	24	13	24	32	TRUE			Appears on road to Emmaus	355	TRUE										
+Mark	16	19			Luke	24	50	24	53	TRUE			Ascension	365	TRUE										
+Mark	16	19	0	0	Acts	1	9	1	11	TRUE			Ascension	365	TRUE										
+Luke	24	50	24	53	Acts	1	9	1	11	TRUE			Ascension	365	TRUE										
+Luke	24	33	24	49	John	20	19	20	31	TRUE			Jerusalem appearances	356;357;366	TRUE										
+Luke	24	33	24	49	Acts	1	3	1	8	TRUE			Jerusalem appearances	356;357;366	TRUE										
+John	20	19	20	31	Acts	1	3	1	8	TRUE			Jerusalem appearances	356;357;366	TRUE										
+Matthew	28	5	28	7	Mark	16	6	16	7	TRUE			Angel’s words		TRUE										
+Matthew	28	5	28	7	Luke	24	5	24	7	TRUE			Angel’s words		TRUE										
+Matthew	28	5	28	7	John	20	13			TRUE			Angel’s words		TRUE										
+Mark	16	6	16	7	Luke	24	5	24	7	TRUE			Angel’s words		TRUE										
+Mark	16	6	16	7	John	20	13	0	0	TRUE			Angel’s words		TRUE										
+Luke	24	5	24	7	John	20	13	0	0	TRUE			Angel’s words		TRUE										
+Matthew	28	5	28	7	Acts	1	4			TRUE			Galilee vs Jerusalem		TRUE										
+Mark	16	6	16	7	Acts	1	4			TRUE			Galilee vs Jerusalem		TRUE										
+Matthew	21	1	21	9	Mark	11	1	11	10	TRUE			Triumphal Entry	269	TRUE										
+Matthew	21	1	21	9	Luke	19	28	19	40	TRUE			Triumphal Entry	269	TRUE										
+Matthew	21	1	21	9	John	12	12	12	19	TRUE			Triumphal Entry	269	TRUE										
+Mark	11	1	11	10	Luke	19	28	19	40	TRUE			Triumphal Entry	269	TRUE										
+Mark	11	1	11	10	John	12	12	12	19	TRUE			Triumphal Entry	269	TRUE										
+Luke	19	28	19	40	John	12	12	12	19	TRUE			Triumphal Entry	269	TRUE										
+Matthew	21	18	21	19	Mark	11	12	11	14	TRUE			Cursing the fig tree	272	TRUE										
+Matthew	21	18	21	19	Mark	11	20	11	26	TRUE			Cursing the fig tree	272	TRUE										
+Mark	11	12	11	14	Mark	11	20	11	26	TRUE			Cursing the fig tree	272	TRUE										
+Mark	11	18	11	19	Luke	19	47	19	48	TRUE			Chief priests and scribes conspire against Jesus	274	TRUE										
+Matthew	21	23	21	27	Mark	11	27	11	33	TRUE			The question of authority	276	TRUE										
+Matthew	21	23	21	27	Luke	20	1	20	8	TRUE			The question of authority	276	TRUE										
+Mark	11	27	11	33	Luke	20	1	20	8	TRUE			The question of authority	276	TRUE										
+Matthew	21	33	21	46	Mark	12	1	12	12	TRUE			Parable of the wicked husbandmen	276	TRUE										
+Matthew	21	33	21	46	Luke	20	9	20	19	TRUE			Parable of the wicked husbandmen	276	TRUE										
+Mark	12	1	12	12	Luke	20	9	20	19	TRUE			Parable of the wicked husbandmen	276	TRUE										
+Matthew	22	15	22	22	Mark	12	13	12	17	TRUE			Paying tribute to Caesar	280	TRUE										
+Matthew	22	15	22	22	Luke	20	20	20	26	TRUE			Paying tribute to Caesar	280	TRUE										
+Mark	12	13	12	17	Luke	20	20	20	26	TRUE			Paying tribute to Caesar	280	TRUE										
+Matthew	22	23	22	33	Mark	12	18	12	27	TRUE			Question on the resurrection	281	TRUE										
+Matthew	22	23	22	33	Luke	20	27	20	40	TRUE			Question on the resurrection	281	TRUE										
+Mark	12	18	12	27	Luke	20	27	20	40	TRUE			Question on the resurrection	281	TRUE										
+Matthew	22	41	22	46	Mark	12	35	12	37	TRUE			Question about David’s son	282	TRUE										
+Matthew	22	41	22	46	Luke	20	41	20	44	TRUE			Question about David’s son	282	TRUE										
+Matthew	22	41	22	46	John	7	42			TRUE			Question about David’s son	282	TRUE										
+Matthew	22	41	22	46	Romans	1	3			TRUE			Question about David’s son	282	TRUE										
+Mark	12	35	12	37	Luke	20	41	20	44	TRUE			Question about David’s son	282	TRUE										
+Mark	12	35	12	37	John	7	42	0	0	TRUE			Question about David’s son	282	TRUE										
+Mark	12	35	12	37	Romans	1	3	0	0	TRUE			Question about David’s son	282	TRUE										
+Luke	20	41	20	44	John	7	42	0	0	TRUE			Question about David’s son	282	TRUE										
+Luke	20	41	20	44	Romans	1	3	0	0	TRUE			Question about David’s son	282	TRUE										
+John	7	42	0	0	Romans	1	3	0	0	TRUE			Question about David’s son	282	TRUE										
+Matthew	23	1	23	36	Mark	12	38	12	40	TRUE			Question on the resurrection	281	TRUE										
+Matthew	23	1	23	36	Luke	20	45	20	47	TRUE			Question on the resurrection	281	TRUE										
+Mark	12	38	12	40	Luke	20	45	20	47	TRUE			Question on the resurrection	281	TRUE										
+Mark	12	41	12	44	Luke	21	1	21	4	TRUE			Question on the resurrection	286	TRUE										
+Matthew	24	1	24	2	Mark	13	1	13	2	TRUE			Prediction of destruction of the temple	287	TRUE										
+Matthew	24	1	24	2	Luke	21	5	21	6	TRUE			Prediction of destruction of the temple	287	TRUE										
+Mark	13	1	13	2	Luke	21	5	21	6	TRUE			Prediction of destruction of the temple	287	TRUE										
+Matthew	24	3	24	8	Mark	13	3	13	8	TRUE			Signs before the end	288	TRUE										
+Matthew	24	3	24	8	Luke	21	7	21	11	TRUE			Signs before the end	288	TRUE										
+Mark	13	3	13	8	Luke	21	7	21	11	TRUE			Signs before the end	288	TRUE										
+Matthew	24	15	24	22	Mark	13	14	13	20	TRUE			Desolating sacrilege	290	TRUE										
+Matthew	24	15	24	22	Luke	21	20	21	24	TRUE			Desolating sacrilege	290	TRUE										
+Mark	13	14	13	20	Luke	21	20	21	24	TRUE			Desolating sacrilege	290	TRUE										
+Matthew	24	23	24	27	Mark	13	21	13	23	TRUE			False christs and prophets	291	TRUE										
+Matthew	24	23	24	27	Luke	17	23	17	24	TRUE			False christs and prophets	291	TRUE										
+Mark	13	21	13	23	Luke	17	23	17	24	TRUE			False christs and prophets	291	TRUE										
+Luke	17	37			Matthew	24	28			TRUE			Vultures will come		TRUE										
+Matthew	24	29	24	31	Mark	13	24	13	27	TRUE			The coming of the son of man	292	TRUE										
+Matthew	24	29	24	31	Luke	21	25	21	28	TRUE			The coming of the son of man	292	TRUE										
+Mark	13	24	13	27	Luke	21	25	21	28	TRUE			The coming of the son of man	292	TRUE										
+Matthew	24	32	24	36	Mark	13	28	13	32	TRUE			Parable of the fig tree	293	TRUE										
+Matthew	24	32	24	36	Luke	21	29	21	33	TRUE			Parable of the fig tree	293	TRUE										
+Mark	13	28	13	32	Luke	21	29	21	33	TRUE			Parable of the fig tree	293	TRUE										
+Matthew	25	13			Mark	13	33			TRUE			"Watch, keep alert, and pray"	293	TRUE										
+Matthew	25	13	0	0	Luke	12	40			TRUE			"Watch, keep alert, and pray"	293	TRUE										
+Mark	13	33	0	0	Luke	12	40	0	0	TRUE			"Watch, keep alert, and pray"	293	TRUE										
+Matthew	24	37	24	44	Mark	13	35			TRUE			Parable of the flood	296	TRUE										
+Matthew	24	37	24	44	Luke	17	26	17	36	TRUE			Parable of the flood	296	TRUE										
+Mark	13	35	0	0	Luke	17	26	17	36	TRUE			Parable of the flood	296	TRUE										
+Matthew	24	45	24	51	Luke	12	41	12	46	TRUE			Parable of the good and wicked servants	297	TRUE										
+Matthew	25	31	25	46	John	5	29			TRUE			Last judgment	300	TRUE										
+Matthew	26	1	26	5	Mark	14	1	14	2	TRUE			Jesus’s death is premeditated	305	TRUE										
+Matthew	26	1	26	5	Luke	22	1	22	2	TRUE			Jesus’s death is premeditated	305	TRUE										
+Mark	14	1	14	2	Luke	22	1	22	2	TRUE			Jesus’s death is premeditated	305	TRUE										
+Matthew	26	26	26	29	Mark	14	22	14	25	TRUE			The last supper	311	TRUE										
+Matthew	26	26	26	29	Luke	22	15	22	20	TRUE			The last supper	311	TRUE										
+Matthew	26	26	26	29	1 Corinthians	11	23	11	28	TRUE			The last supper		TRUE										
+Mark	14	22	14	25	1 Corinthians	11	23	11	28	TRUE			The last supper		TRUE										
+Luke	22	15	22	20	1 Corinthians	11	23	11	28	TRUE			The last supper		TRUE										
+Mark	14	22	14	25	Luke	22	15	22	20	TRUE			The last supper	311	TRUE										
+Matthew	20	24	20	28	Mark	10	41	10	45	TRUE			Precedence among the disciples	311	TRUE										
+Matthew	20	24	20	28	Luke	22	24	22	27	TRUE			Precedence among the disciples	311	TRUE										
+Mark	10	41	10	45	Luke	22	24	22	27	TRUE			Precedence among the disciples	311	TRUE										
+Luke	24	34			1 Corinthians	15	3	15	8	TRUE			Jesus appears		TRUE										
+1 Chronicles	21	1			2 Samuel	24	1			TRUE			Jelbert Thesis (unpublished)												
+1 Samuel	9	2			1 Chronicles	8	33			TRUE			Petersen-Saul												
+1 Chronicles	29	29			1 Kings	1	1			TRUE			Petersen-David												
+1 Chronicles	29	29			1 Samuel	16	13			TRUE			Petersen-David												
+1 Kings	1	1			1 Samuel	16	13			TRUE			Petersen-David												
+1 Kings	1	10			2 Chronicles	1	1			TRUE			Petersen-Solomon												
+1 Kings	11	41			2 Chronicles	9	29			TRUE			Jelbert Thesis (unpublished)-Solomon												
+1 Kings	11	26			1 Kings	12	2			TRUE			Petersen-Jeroboam												
+1 Kings	11	26			2 Chronicles	10	2			TRUE			Petersen-Jeroboam												
+1 Kings	12	2			2 Chronicles	10	2			TRUE			Petersen-Jeroboam												
+1 Kings	11	43			2 Chronicles	9	31			TRUE			Petersen-Reroboam												
+1 Kings	14	29			2 Chronicles	12	15			TRUE			Jelbert Thesis (unpublished)-Rehoboam												
+1 Kings	14	31			2 Chronicles	13	2			TRUE			Petersen-Abijam												
+1 Kings	15	7			2 Chronicles	13	22			TRUE			Jelbert Thesis (unpublished)-Abijam												
+1 Kings	15	8			2 Chronicles	14	1			TRUE			Petersen-Asa												
+1 Kings	15	23			2 Chronicles	16	11			TRUE			Jelbert Thesis (unpublished)-Asa												
+1 Kings	16	29			2 Chronicles	18	1			TRUE			Petersen-Ahab												
+1 Kings	16	29			1 Kings	22	39			TRUE			Ahab												
+1 Kings	22	39			2 Chronicles	28	26			TRUE			Jelbert Thesis (unpublished)-Ahab												
+1 Kings	15	24			1 Kings	22	2			TRUE			Petersen-Jehoshaphat												
+1 Kings	15	24			2 Chronicles	17	1			TRUE			Petersen-Jehoshaphat												
+1 Kings	22	2			2 Chronicles	17	1			TRUE			Petersen-Jehoshaphat												
+1 Kings	22	45			2 Chronicles	20	34			TRUE			Jelbert Thesis (unpublished)-Jehoshaphat												
+1 Kings	22	40			2 Chronicles	20	35			TRUE			Petersen-Ahaziah-NK												
+2 Kings	1	18			1 Kings	22	40			TRUE			Jelbert Thesis (unpublished)-Ahaziah-NK	Unmatched											
+2 Kings	8	16			2 Chronicles	21	1			TRUE			Petersen-Jehoram												
+2 Kings	3	1			2 Kings	9	24			TRUE			Petersen-Joram												
+2 Kings	8	24			2 Chronicles	22	1			TRUE			Petersen-Ahaziah-SK												
+2 Kings	11	1			2 Chronicles	22	2			TRUE			Petersen-Athaliah												
+2 Kings	11	2			2 Chronicles	22	11			TRUE			Petersen-Joash SK												
+2 Kings	11	2			2 Chronicles	24	1			TRUE			Petersen-Joash SK												
+2 Chronicles	22	11			2 Chronicles	24	1			TRUE			Petersen-Joash SK												
+2 Kings	12	19			2 Chronicles	24	27			TRUE			Jelbert Thesis (unpublished)-Joash SK												
+2 Kings	13	12			2 Kings	13	9			TRUE			Jelbert Thesis (unpublished)-Joash NK/Jehoash												
+2 Kings	14	1			2 Chronicles	24	27			TRUE			Petersen-Amaziah												
+2 Kings	14	1			2 Kings	12	21			TRUE			Petersen-Amaziah												
+2 Chronicles	24	27			2 Kings	12	21			TRUE			Petersen-Amaziah												
+2 Kings	14	18			2 Chronicles	25	26			TRUE			Jelbert Thesis (unpublished)-Amaziah												
+2 Kings	15	1			2 Chronicles	26	1			TRUE			Petersen-Uzziah/Azariah												
+2 Kings	15	7			2 Chronicles	26	23			TRUE			Petersen-Jotham												
+2 Kings	15	36			2 Chronicles	27	7			TRUE			Jelbert Thesis (unpublished)-Jotham												
+2 Kings	16	2			2 Chronicles	27	9			TRUE			Petersen-Ahaz												
+2 Kings	16	2			Isaiah	7	1			TRUE			Petersen-Ahaz												
+2 Chronicles	27	9			Isaiah	7	1			TRUE			Petersen-Ahaz												
+2 Kings	16	20			2 Kings	18	1			TRUE			Petersen-Hezekiah												
+2 Kings	16	20			2 Chronicles	28	27			TRUE			Petersen-Hezekiah												
+2 Kings	16	20			Isaiah	36	1			TRUE			Petersen-Hezekiah												
+2 Kings	18	1			2 Chronicles	28	27			TRUE			Petersen-Hezekiah												
+2 Kings	18	1			Isaiah	36	1			TRUE			Petersen-Hezekiah												
+2 Chronicles	28	27			Isaiah	36	1			TRUE			Petersen-Hezekiah												
+2 Kings	20	20			2 Chronicles	32	32			TRUE			Jelbert Thesis (unpublished)-Hezekiah												
+2 Kings	20	21			2 Chronicles	33	1			TRUE			Petersen-Manasseh												
+2 Kings	20	21			Isaiah	9	21			TRUE			Petersen-Manasseh												
+2 Chronicles	33	1			Isaiah	9	21			TRUE			Petersen-Manasseh												
+2 Kings	21	17			2 Chronicles	33	18			TRUE			Jelbert Thesis (unpublished)-Manasseh												
+2 Kings	21	25			2 Kings	21	18			TRUE			Jelbert Thesis (unpublished)-Amon	Unmatched											
+2 Kings	21	25			2 Chronicles	33	20			TRUE			Petersen-Amon												
+2 Kings	21	18			2 Chronicles	33	20			TRUE			Petersen-Amon												
+2 Kings	21	24			2 Chronicles	33	25			TRUE			Petersen-Josiah												
+2 Kings	21	24			Zephaniah	1	1			TRUE			Petersen-Josiah												
+2 Chronicles	33	25			Zephaniah	1	1			TRUE			Petersen-Josiah												
+2 Kings	23	28			2 Chronicles	35	26			TRUE			Jelbert Thesis (unpublished)-Josiah												
+2 Kings	23	30			2 Chronicles	36	1			TRUE			Petersen-Jehoahaz												
+2 Kings	23	34			2 Chronicles	36	4			TRUE			Petersen-Jehoiakim												
+2 Kings	23	34			Jeremiah	1	3			TRUE			Petersen-Jehoiakim												
+2 Kings	23	34			Daniel	1	1			TRUE			Petersen-Jehoiakim												
+2 Chronicles	36	4			Jeremiah	1	3			TRUE			Petersen-Jehoiakim												
+2 Chronicles	36	4			Daniel	1	1			TRUE			Petersen-Jehoiakim												
+Jeremiah	1	3			Daniel	1	1			TRUE			Petersen-Jehoiakim												
+2 Kings	24	5			2 Chronicles	36	8			TRUE			Jelbert Thesis (unpublished)-Jehoiakim												
+2 Kings	24	6			2 Chronicles	36	9			TRUE			Petersen-Jehoiachin												
+2 Kings	24	6			Jeremiah	22	24			TRUE			Petersen-Jehoiachin												
+2 Chronicles	36	9			Jeremiah	22	24			TRUE			Petersen-Jehoiachin												
+2 Kings	24	17			2 Chronicles	36	10			TRUE			Petersen-Zedekiah/Mattaniah												
+2 Kings	24	17			Jeremiah	21	1			TRUE			Petersen-Zedekiah/Mattaniah												
+2 Chronicles	36	10			Jeremiah	21	1			TRUE			Petersen-Zedekiah/Mattaniah												
+2 Chronicles	28	5			Isaiah	7	7			TRUE			Aram inconsistency												
+Nehemiah	7	6	7	73	Ezra	2	1	2	70	TRUE			Related passage												
+1 Chronicles	3	19			Nehemiah	12	1			TRUE	Zerubbabel	Zerubbabel	Zerubbabel's parent												
+Ezra	1	1	1	3	2 Chronicles	36	22	36	23	TRUE			Jelbert Thesis (unpublished)												
+Exodus	30	12			2 Kings	12	4			FALSE			Reverse World English Bible												
+Isaiah	7	14			Matthew	1	23			FALSE			Reverse World English Bible												
+Micah	5	2			Matthew	2	6			FALSE			Reverse World English Bible												
+Hosea	11	1			Matthew	2	15			FALSE			Reverse World English Bible												
+Jeremiah	31	15			Matthew	2	18			FALSE			Reverse World English Bible												
+Isaiah	40	3			Matthew	3	3			FALSE			Reverse World English Bible												
+Deuteronomy	8	3			Matthew	4	4			FALSE			Reverse World English Bible												
+Psalms	91	12			Matthew	4	6			FALSE			Reverse World English Bible												
+Deuteronomy	6	16			Matthew	4	7			FALSE			Reverse World English Bible												
+Deuteronomy	6	13			Matthew	4	10			FALSE			Reverse World English Bible												
+Isaiah	9	2			Matthew	4	16			FALSE			Reverse World English Bible												
+Isaiah	57	15			Matthew	5	3			FALSE			Reverse World English Bible												
+Isaiah	66	2			Matthew	5	3			FALSE			Reverse World English Bible												
+Isaiah	61	2			Matthew	5	4			FALSE			Reverse World English Bible												
+Isaiah	66	13			Matthew	5	4			FALSE			Reverse World English Bible												
+Psalms	37	11			Matthew	5	5			FALSE			Reverse World English Bible												
+Exodus	20	13			Matthew	5	21			FALSE			Reverse World English Bible												
+Exodus	20	14			Matthew	5	27			FALSE			Reverse World English Bible												
+Deuteronomy	24	1			Matthew	5	31			FALSE			Reverse World English Bible												
+Numbers	30	2			Matthew	5	33			FALSE			Reverse World English Bible												
+Deuteronomy	23	21			Matthew	5	33			FALSE			Reverse World English Bible												
+Ecclesiastes	5	4			Matthew	5	33			FALSE			Reverse World English Bible												
+Exodus	21	24			Matthew	5	38			FALSE			Reverse World English Bible												
+Leviticus	24	20			Matthew	5	38			FALSE			Reverse World English Bible												
+Deuteronomy	19	21			Matthew	5	38			FALSE			Reverse World English Bible												
+Leviticus	19	18			Matthew	5	43			FALSE	neighbor		Reverse World English Bible												
+Isaiah	53	4			Matthew	8	17			FALSE			Reverse World English Bible												
+Hosea	6	6			Matthew	9	13			FALSE	sacrifice;		Reverse World English Bible												
+Micah	7	6			Matthew	10	36			FALSE			Reverse World English Bible												
+Isaiah	35	5			Matthew	11	5			FALSE			Reverse World English Bible												
+Isaiah	61	4			Matthew	11	5			FALSE			Reverse World English Bible												
+Malachi	3	1			Matthew	11	10			FALSE			Reverse World English Bible												
+1 Samuel	21	6			Matthew	12	3	12	4	FALSE			Reverse World English Bible												
+1 Samuel	21	6			Luke	6	3	6	4	TRUE			Parallel reference to Mt 12:3-4												
+1 Samuel	21	6			Mark	2	25	2	26	TRUE			Parallel reference to Mt 12:3-4												
+Hosea	6	6			Matthew	12	7			FALSE	sacrifice;		Reverse World English Bible												
+Isaiah	42	4			Matthew	12	21			FALSE			Reverse World English Bible												
+Isaiah	6	10			Matthew	13	15			FALSE			Reverse World English Bible												
+Psalms	78	2			Matthew	13	35			FALSE			Reverse World English Bible												
+Job	9	8			Matthew	14	25			FALSE			Reverse World English Bible												
+Exodus	20	12			Matthew	15	4			FALSE	"mother,"		Reverse World English Bible												
+Deuteronomy	5	16			Matthew	15	4			FALSE			Reverse World English Bible												
+Exodus	21	17			Matthew	15	4			FALSE			Reverse World English Bible												
+Leviticus	20	9			Matthew	15	4			FALSE	death		Reverse World English Bible												
+Isaiah	29	13			Matthew	15	9			FALSE			Reverse World English Bible												
+Deuteronomy	19	15			Matthew	18	16			FALSE			Reverse World English Bible												
+Genesis	1	27			Matthew	19	4			FALSE			Reverse World English Bible												
+Genesis	2	24			Matthew	19	5			FALSE			Reverse World English Bible												
+Exodus	20	16			Matthew	19	19			FALSE			Reverse World English Bible												
+Deuteronomy	5	20			Matthew	19	19			FALSE			Reverse World English Bible												
+Leviticus	19	18			Matthew	19	19			FALSE			Reverse World English Bible												
+Zechariah	9	9			Matthew	21	5			FALSE			Reverse World English Bible												
+Psalms	118	26			Matthew	21	9			FALSE			Reverse World English Bible												
+Isaiah	56	7			Matthew	21	13			FALSE			Reverse World English Bible												
+Jeremiah	7	11			Matthew	21	13			FALSE			Reverse World English Bible												
+Psalms	8	2			Matthew	21	16			FALSE			Reverse World English Bible												
+Psalms	118	23			Matthew	21	42			FALSE			Reverse World English Bible												
+Exodus	3	6			Matthew	22	32			FALSE	God of Jacob.”		Reverse World English Bible												
+Deuteronomy	6	5			Matthew	22	37			FALSE			Reverse World English Bible												
+Leviticus	19	18			Matthew	22	39			FALSE	yourself.		Reverse World English Bible												
+Psalms	110	1			Matthew	22	44			FALSE			Reverse World English Bible												
+Psalms	118	26			Matthew	23	39			FALSE			Reverse World English Bible												
+Daniel	9	27			Matthew	24	15			FALSE			Reverse World English Bible												
+Daniel	11	31			Matthew	24	15			FALSE			Reverse World English Bible												
+Daniel	12	11			Matthew	24	15			FALSE			Reverse World English Bible												
+Isaiah	13	10			Matthew	24	29			FALSE			Reverse World English Bible												
+Isaiah	34	4			Matthew	24	29			FALSE			Reverse World English Bible												
+Zechariah	13	7			Matthew	26	31			FALSE	scattered;		Reverse World English Bible												
+Zechariah	11	13			Matthew	27	10			FALSE			Reverse World English Bible												
+Jeremiah	19	13			Matthew	27	10			FALSE			Reverse World English Bible												
+Jeremiah	32	9			Matthew	27	10			FALSE			Reverse World English Bible												
+Psalms	22	1			Matthew	27	46			FALSE	forsaken me?		Reverse World English Bible												
+Malachi	3	1			Mark	1	2			FALSE			Reverse World English Bible												
+Isaiah	40	3			Mark	1	3			FALSE			Reverse World English Bible												
+Isaiah	6	10			Mark	4	12			FALSE			Reverse World English Bible												
+Job	9	8			Mark	6	48			FALSE			Reverse World English Bible												
+Isaiah	29	13			Mark	7	7			FALSE			Reverse World English Bible												
+Exodus	20	12			Mark	7	10			FALSE	"mother,"		Reverse World English Bible												
+Deuteronomy	5	16			Mark	7	10			FALSE			Reverse World English Bible												
+Exodus	21	17			Mark	7	10			FALSE			Reverse World English Bible												
+Leviticus	20	9			Mark	7	10			FALSE	put to death.		Reverse World English Bible												
+Isaiah	66	24			Mark	9	44			FALSE			Reverse World English Bible												
+Isaiah	66	24			Mark	9	48			FALSE			Reverse World English Bible												
+Genesis	1	27			Mark	10	6			FALSE			Reverse World English Bible												
+Genesis	2	24			Mark	10	8			FALSE			Reverse World English Bible												
+Exodus	20	16			Mark	10	19			FALSE			Reverse World English Bible												
+Deuteronomy	5	20			Mark	10	19			FALSE			Reverse World English Bible												
+Psalms	118	26			Mark	11	9			FALSE			Reverse World English Bible												
+Isaiah	56	7			Mark	11	17			FALSE			Reverse World English Bible												
+Jeremiah	7	11			Mark	11	17			FALSE			Reverse World English Bible												
+Psalms	118	23			Mark	12	11			FALSE			Reverse World English Bible												
+Exodus	3	6			Mark	12	26			FALSE	God of Jacob.”		Reverse World English Bible												
+Deuteronomy	6	5			Mark	12	30			FALSE			Reverse World English Bible												
+Leviticus	19	18			Mark	12	31			FALSE	yourself.		Reverse World English Bible												
+Psalms	110	1			Mark	12	36			FALSE			Reverse World English Bible												
+Daniel	9	17			Mark	13	14			FALSE			Reverse World English Bible												
+Daniel	11	31			Mark	13	14			FALSE			Reverse World English Bible												
+Daniel	12	11			Mark	13	14			FALSE			Reverse World English Bible												
+Isaiah	13	10			Mark	13	25			FALSE			Reverse World English Bible												
+Isaiah	34	4			Mark	13	25			FALSE			Reverse World English Bible												
+Zechariah	13	7			Mark	14	27			FALSE	scattered;		Reverse World English Bible												
+Psalms	22	1			Mark	15	34			FALSE	forsaken me?		Reverse World English Bible												
+Malachi	4	6			Luke	1	17			FALSE	"to the children,"		Reverse World English Bible												
+Exodus	13	12			Luke	2	23			FALSE			Reverse World English Bible												
+Leviticus	12	8			Luke	2	24			FALSE	two young pigeons:		Reverse World English Bible												
+Isaiah	40	5			Luke	3	6			FALSE			Reverse World English Bible												
+Deuteronomy	8	3			Luke	4	4			FALSE			Reverse World English Bible												
+Deuteronomy	6	13			Luke	4	8			FALSE			Reverse World English Bible												
+Psalms	91	12			Luke	4	11			FALSE			Reverse World English Bible												
+Deuteronomy	6	16			Luke	4	12			FALSE			Reverse World English Bible												
+Isaiah	61	2			Luke	4	19			FALSE			Reverse World English Bible												
+Malachi	3	1			Luke	7	27			FALSE			Reverse World English Bible												
+Isaiah	6	9			Luke	8	10			FALSE			Reverse World English Bible												
+Psalms	107	29			Luke	8	24			FALSE			Reverse World English Bible												
+Deuteronomy	6	5			Luke	10	27			FALSE			Reverse World English Bible												
+Leviticus	19	18			Luke	10	27			FALSE			Reverse World English Bible												
+Micah	7	6			Luke	12	53			FALSE	mother-in-law;		Reverse World English Bible												
+Psalms	118	26			Luke	13	35			FALSE			Reverse World English Bible												
+Exodus	20	16			Luke	18	20			FALSE			Reverse World English Bible												
+Deuteronomy	5	20			Luke	18	20			FALSE			Reverse World English Bible												
+Psalms	118	26			Luke	19	38			FALSE			Reverse World English Bible												
+Isaiah	56	7			Luke	19	46			FALSE			Reverse World English Bible												
+Jeremiah	7	11			Luke	19	46			FALSE			Reverse World English Bible												
+Psalms	118	22			Luke	20	17			FALSE			Reverse World English Bible												
+Exodus	3	6			Luke	20	37			FALSE	God of Jacob.”		Reverse World English Bible												
+Psalms	110	1			Luke	20	43			FALSE			Reverse World English Bible												
+Isaiah	53	12			Luke	22	37			FALSE			Reverse World English Bible												
+Hosea	10	8			Luke	23	30			FALSE			Reverse World English Bible												
+Isaiah	40	3			John	1	23			FALSE			Reverse World English Bible												
+Psalms	69	9			John	2	17			FALSE			Reverse World English Bible												
+Job	9	8			John	6	19			FALSE			Reverse World English Bible												
+Exodus	16	4			John	6	31			FALSE			Reverse World English Bible												
+Nehemiah	9	15			John	6	31			FALSE			Reverse World English Bible												
+Psalms	78	25			John	6	31			FALSE			Reverse World English Bible												
+Isaiah	54	13			John	6	45			FALSE			Reverse World English Bible												
+2 Samuel	7	12			John	7	42			FALSE			Reverse World English Bible												
+Micah	5	2			John	7	42			FALSE			Reverse World English Bible												
+Isaiah	9	1			John	7	52			FALSE			Reverse World English Bible												
+Matthew	4	16			John	7	52			FALSE			Reverse World English Bible												
+Leviticus	20	10			John	8	5			FALSE			Reverse World English Bible												
+Deuteronomy	22	22			John	8	5			FALSE			Reverse World English Bible												
+Isaiah	60	1			John	8	12			FALSE			Reverse World English Bible												
+Deuteronomy	17	6			John	8	17			FALSE			Reverse World English Bible												
+Deuteronomy	19	15			John	8	17			FALSE			Reverse World English Bible												
+Psalms	119	45			John	8	32			FALSE			Reverse World English Bible												
+Exodus	3	14			John	8	58			FALSE			Reverse World English Bible												
+Psalms	66	18			John	9	31			FALSE			Reverse World English Bible												
+Proverbs	15	29			John	9	31			FALSE			Reverse World English Bible												
+Proverbs	28	9			John	9	31			FALSE			Reverse World English Bible												
+Isaiah	40	11			John	10	11			FALSE			Reverse World English Bible												
+Ezekiel	34	22			John	10	11			FALSE			Reverse World English Bible												
+Isaiah	56	8			John	10	16			FALSE			Reverse World English Bible												
+Isaiah	53	8			John	10	17			FALSE			Reverse World English Bible												
+Exodus	4	11			John	10	21			FALSE			Reverse World English Bible												
+Psalms	82	6			John	10	34			FALSE			Reverse World English Bible												
+Psalms	118	26			John	12	13			FALSE			Reverse World English Bible												
+Zechariah	9	9			John	12	15			FALSE			Reverse World English Bible												
+Isaiah	9	7			John	12	34			FALSE			Reverse World English Bible												
+Daniel	2	44			John	12	34			FALSE			Reverse World English Bible												
+Isaiah	53	8			John	12	34			FALSE			Reverse World English Bible												
+Isaiah	53	1			John	12	38			FALSE			Reverse World English Bible												
+Isaiah	6	10			John	12	40			FALSE			Reverse World English Bible												
+Isaiah	6	1			John	12	41			FALSE			Reverse World English Bible												
+Psalms	41	9			John	13	18			FALSE			Reverse World English Bible												
+John	13	16			John	15	20			FALSE	"that his lord,"		Reverse World English Bible												
+Psalms	35	19			John	15	25			FALSE			Reverse World English Bible												
+Psalms	69	4			John	15	25			FALSE			Reverse World English Bible												
+Psalms	119	142			John	17	17			FALSE			Reverse World English Bible												
+John	6	39			John	18	9			FALSE			Reverse World English Bible												
+Psalms	22	18			John	19	24			FALSE			Reverse World English Bible												
+Exodus	12	46			John	19	36			FALSE			Reverse World English Bible												
+Numbers	9	12			John	19	36			FALSE			Reverse World English Bible												
+Psalms	34	20			John	19	36			FALSE			Reverse World English Bible												
+Zechariah	12	10			John	19	37			FALSE			Reverse World English Bible												
+Psalms	69	25			Acts	1	20			FALSE			Reverse World English Bible												
+Psalms	109	8			Acts	1	20			FALSE			Reverse World English Bible												
+Joel	2	32			Acts	2	21			FALSE			Reverse World English Bible												
+Psalms	16	11			Acts	2	28			FALSE			Reverse World English Bible												
+Psalms	110	1			Acts	2	35			FALSE			Reverse World English Bible												
+Deuteronomy	18	19			Acts	3	23			FALSE			Reverse World English Bible												
+Genesis	22	18			Acts	3	25			FALSE			Reverse World English Bible												
+Genesis	26	4			Acts	3	25			FALSE			Reverse World English Bible												
+Psalms	118	22			Acts	4	11			FALSE			Reverse World English Bible												
+Psalms	2	2			Acts	4	26			FALSE			Reverse World English Bible												
+Genesis	12	1			Acts	7	3			FALSE			Reverse World English Bible												
+Genesis	15	14			Acts	7	7			FALSE			Reverse World English Bible												
+Exodus	2	14			Acts	7	28			FALSE			Reverse World English Bible												
+Exodus	3	6			Acts	7	32			FALSE	God of Jacob.”		Reverse World English Bible												
+Exodus	3	10			Acts	7	34			FALSE			Reverse World English Bible												
+Deuteronomy	18	15			Acts	7	37			FALSE	like me.		Reverse World English Bible												
+Exodus	32	1			Acts	7	40			FALSE			Reverse World English Bible												
+Amos	5	27			Acts	7	43			FALSE			Reverse World English Bible												
+Isaiah	66	2			Acts	7	50			FALSE	"all these things,"		Reverse World English Bible												
+Isaiah	53	8			Acts	8	33			FALSE			Reverse World English Bible												
+Psalms	2	7			Acts	13	33			FALSE			Reverse World English Bible												
+Isaiah	55	3			Acts	13	34			FALSE			Reverse World English Bible												
+Psalms	16	10			Acts	13	35			FALSE			Reverse World English Bible												
+Habakkuk	1	5			Acts	13	41			FALSE			Reverse World English Bible												
+Isaiah	49	6			Acts	13	47			FALSE			Reverse World English Bible												
+Amos	9	12			Acts	15	17			FALSE			Reverse World English Bible												
+Exodus	22	28			Acts	23	5			FALSE			Reverse World English Bible												
+Isaiah	6	10			Acts	28	27			FALSE			Reverse World English Bible												
+Habakkuk	2	4			Romans	1	17			FALSE			Reverse World English Bible												
+Psalms	62	12			Romans	2	6			FALSE			Reverse World English Bible												
+Proverbs	24	12			Romans	2	6			FALSE			Reverse World English Bible												
+Isaiah	52	5			Romans	2	24			FALSE			Reverse World English Bible												
+Ezekiel	36	22			Romans	2	24			FALSE			Reverse World English Bible												
+Psalms	51	4			Romans	3	4			FALSE			Reverse World English Bible												
+Psalms	14	3			Romans	3	12			FALSE			Reverse World English Bible												
+Psalms	53	3			Romans	3	12			FALSE			Reverse World English Bible												
+Ecclesiastes	7	20			Romans	3	12			FALSE			Reverse World English Bible												
+Psalms	5	9			Romans	3	13			FALSE			Reverse World English Bible												
+Psalms	140	3			Romans	3	13			FALSE			Reverse World English Bible												
+Psalms	10	7			Romans	3	14			FALSE			Reverse World English Bible												
+Isaiah	59	8			Romans	3	17			FALSE			Reverse World English Bible												
+Psalms	36	1			Romans	3	18			FALSE			Reverse World English Bible												
+Genesis	15	6			Romans	4	3			FALSE			Reverse World English Bible												
+Psalms	32	2			Romans	4	8			FALSE			Reverse World English Bible												
+Genesis	17	5			Romans	4	17			FALSE			Reverse World English Bible												
+Genesis	15	5			Romans	4	18			FALSE			Reverse World English Bible												
+Genesis	15	6			Romans	4	22			FALSE			Reverse World English Bible												
+Exodus	20	17			Romans	7	7			FALSE			Reverse World English Bible												
+Deuteronomy	5	21			Romans	7	7			FALSE			Reverse World English Bible												
+Psalms	44	22			Romans	8	36			FALSE			Reverse World English Bible												
+Genesis	21	12			Romans	9	7			FALSE			Reverse World English Bible												
+Genesis	18	14			Romans	9	9			FALSE			Reverse World English Bible												
+Genesis	25	23			Romans	9	12			FALSE			Reverse World English Bible												
+Malachi	1	3			Romans	9	13			FALSE	"Esau I hated,"		Reverse World English Bible												
+Exodus	33	19			Romans	9	15			FALSE			Reverse World English Bible												
+Exodus	9	16			Romans	9	17			FALSE			Reverse World English Bible												
+Isaiah	29	16			Romans	9	20			FALSE			Reverse World English Bible												
+Isaiah	45	9			Romans	9	20			FALSE			Reverse World English Bible												
+Hosea	2	23			Romans	9	25			FALSE			Reverse World English Bible												
+Hosea	1	10			Romans	9	26			FALSE			Reverse World English Bible												
+Isaiah	10	23			Romans	9	28			FALSE			Reverse World English Bible												
+Isaiah	1	9			Romans	9	29			FALSE			Reverse World English Bible												
+Isaiah	8	14			Romans	9	33			FALSE			Reverse World English Bible												
+Isaiah	28	16			Romans	9	33			FALSE			Reverse World English Bible												
+Leviticus	18	5			Romans	10	5			FALSE			Reverse World English Bible												
+Deuteronomy	30	12			Romans	10	6			FALSE			Reverse World English Bible												
+Deuteronomy	30	13			Romans	10	7			FALSE			Reverse World English Bible												
+Deuteronomy	30	14			Romans	10	8			FALSE	"in your heart,"		Reverse World English Bible												
+Isaiah	28	16			Romans	10	11			FALSE			Reverse World English Bible												
+Joel	2	32			Romans	10	13			FALSE			Reverse World English Bible												
+Isaiah	52	7			Romans	10	15			FALSE			Reverse World English Bible												
+Isaiah	53	1			Romans	10	16			FALSE			Reverse World English Bible												
+Psalms	19	4			Romans	10	18			FALSE	of the world.		Reverse World English Bible												
+Deuteronomy	32	21			Romans	10	19			FALSE			Reverse World English Bible												
+Isaiah	65	1			Romans	10	20			FALSE			Reverse World English Bible												
+Isaiah	65	2			Romans	10	21			FALSE			Reverse World English Bible												
+1 Kings	19	14			Romans	11	3			FALSE			Reverse World English Bible												
+1 Kings	19	18			Romans	11	4			FALSE			Reverse World English Bible												
+Deuteronomy	29	4			Romans	11	8			FALSE			Reverse World English Bible												
+Isaiah	29	10			Romans	11	8			FALSE			Reverse World English Bible												
+Psalms	69	23			Romans	11	10			FALSE			Reverse World English Bible												
+Isaiah	59	21			Romans	11	27			FALSE			Reverse World English Bible												
+Isaiah	27	9			Romans	11	27			FALSE			Reverse World English Bible												
+Jeremiah	31	34			Romans	11	27			FALSE			Reverse World English Bible												
+Isaiah	40	13			Romans	11	34			FALSE			Reverse World English Bible												
+Job	41	11			Romans	11	35			FALSE			Reverse World English Bible												
+Deuteronomy	32	35			Romans	12	19			FALSE			Reverse World English Bible												
+Proverbs	25	22			Romans	12	20			FALSE	"on his head,"		Reverse World English Bible												
+Exodus	20	17			Romans	13	9			FALSE			Reverse World English Bible												
+Deuteronomy	5	21			Romans	13	9			FALSE			Reverse World English Bible												
+Leviticus	19	18			Romans	13	9			FALSE			Reverse World English Bible												
+Isaiah	45	23			Romans	14	11			FALSE			Reverse World English Bible												
+Psalms	69	9			Romans	15	3			FALSE			Reverse World English Bible												
+2 Samuel	22	50			Romans	15	9			FALSE			Reverse World English Bible												
+Psalms	18	49			Romans	15	9			FALSE			Reverse World English Bible												
+Deuteronomy	32	43			Romans	15	10			FALSE	"with his people,"		Reverse World English Bible												
+Psalms	117	1			Romans	15	11			FALSE			Reverse World English Bible												
+Isaiah	11	10			Romans	15	12			FALSE			Reverse World English Bible												
+Isaiah	52	15			Romans	15	21			FALSE			Reverse World English Bible												
+Isaiah	29	14			1 Corinthians	1	19			FALSE			Reverse World English Bible												
+Jeremiah	9	24			1 Corinthians	1	31			FALSE			Reverse World English Bible												
+Isaiah	64	4			1 Corinthians	2	9			FALSE			Reverse World English Bible												
+Isaiah	40	13			1 Corinthians	2	16			FALSE			Reverse World English Bible												
+Job	5	13			1 Corinthians	3	19			FALSE			Reverse World English Bible												
+Psalms	94	11			1 Corinthians	3	20			FALSE			Reverse World English Bible												
+Deuteronomy	17	7			1 Corinthians	5	13			FALSE			Reverse World English Bible												
+Deuteronomy	19	19			1 Corinthians	5	13			FALSE			Reverse World English Bible												
+Deuteronomy	21	21			1 Corinthians	5	13			FALSE			Reverse World English Bible												
+Deuteronomy	22	21			1 Corinthians	5	13			FALSE			Reverse World English Bible												
+Deuteronomy	24	7			1 Corinthians	5	13			FALSE			Reverse World English Bible												
+Genesis	2	24			1 Corinthians	6	16			FALSE			Reverse World English Bible												
+Deuteronomy	25	4			1 Corinthians	9	9			FALSE			Reverse World English Bible												
+Exodus	32	6			1 Corinthians	10	7			FALSE			Reverse World English Bible												
+Psalms	24	1			1 Corinthians	10	26			FALSE			Reverse World English Bible												
+Isaiah	28	12			1 Corinthians	14	21			FALSE			Reverse World English Bible												
+Deuteronomy	27	9			1 Corinthians	14	34			FALSE			Reverse World English Bible												
+Psalms	8	6			1 Corinthians	15	27			FALSE			Reverse World English Bible												
+Isaiah	22	13			1 Corinthians	15	32			FALSE			Reverse World English Bible												
+Genesis	2	7			1 Corinthians	15	45			FALSE			Reverse World English Bible												
+Isaiah	25	8			1 Corinthians	15	54			FALSE			Reverse World English Bible												
+Hosea	13	14			1 Corinthians	15	55			FALSE			Reverse World English Bible												
+Genesis	1	3			2 Corinthians	4	6			FALSE			Reverse World English Bible												
+Psalms	116	10			2 Corinthians	4	13			FALSE			Reverse World English Bible												
+Isaiah	49	8			2 Corinthians	6	2			FALSE			Reverse World English Bible												
+Leviticus	26	12			2 Corinthians	6	16			FALSE			Reverse World English Bible												
+Jeremiah	32	38			2 Corinthians	6	16			FALSE			Reverse World English Bible												
+Ezekiel	37	27			2 Corinthians	6	16			FALSE			Reverse World English Bible												
+Isaiah	52	11			2 Corinthians	6	17			FALSE			Reverse World English Bible												
+Ezekiel	20	41			2 Corinthians	6	17			FALSE			Reverse World English Bible												
+2 Samuel	7	14			2 Corinthians	6	18			FALSE			Reverse World English Bible												
+2 Samuel	7	8			2 Corinthians	6	18			FALSE			Reverse World English Bible												
+Exodus	16	18			2 Corinthians	8	15			FALSE	had no lack.		Reverse World English Bible												
+Psalms	112	9			2 Corinthians	9	9			FALSE			Reverse World English Bible												
+Jeremiah	9	24			2 Corinthians	10	17			FALSE			Reverse World English Bible												
+Deuteronomy	19	15			2 Corinthians	13	1			FALSE			Reverse World English Bible												
+Genesis	15	6			Galatians	3	6			FALSE			Reverse World English Bible												
+Genesis	12	3			Galatians	3	8			FALSE			Reverse World English Bible												
+Genesis	18	18			Galatians	3	8			FALSE			Reverse World English Bible												
+Genesis	22	18			Galatians	3	8			FALSE			Reverse World English Bible												
+Deuteronomy	27	26			Galatians	3	10			FALSE			Reverse World English Bible												
+Habakkuk	2	4			Galatians	3	11			FALSE			Reverse World English Bible												
+Leviticus	18	5			Galatians	3	12			FALSE			Reverse World English Bible												
+Deuteronomy	21	23			Galatians	3	13			FALSE			Reverse World English Bible												
+Genesis	12	7			Galatians	3	16			FALSE			Reverse World English Bible												
+Genesis	13	15			Galatians	3	16			FALSE			Reverse World English Bible												
+Genesis	24	7			Galatians	3	16			FALSE			Reverse World English Bible												
+Isaiah	54	1			Galatians	4	27			FALSE			Reverse World English Bible												
+Genesis	21	10			Galatians	4	30			FALSE			Reverse World English Bible												
+Leviticus	19	18			Galatians	5	14			FALSE	yourself.		Reverse World English Bible												
+Psalms	68	18			Ephesians	4	8			FALSE			Reverse World English Bible												
+Psalms	4	4			Ephesians	4	26			FALSE	sin.		Reverse World English Bible												
+Genesis	2	24			Ephesians	5	31			FALSE			Reverse World English Bible												
+Deuteronomy	5	16			Ephesians	6	3			FALSE			Reverse World English Bible												
+Deuteronomy	25	4			1 Timothy	5	18			FALSE			Reverse World English Bible												
+Luke	10	7			1 Timothy	5	18			FALSE			Reverse World English Bible												
+Leviticus	19	13			1 Timothy	5	18			FALSE			Reverse World English Bible												
+Numbers	16	5			2 Timothy	2	19			FALSE	"who are his,"		Reverse World English Bible												
+Psalms	2	7			Hebrews	1	5			FALSE			Reverse World English Bible												
+2 Samuel	7	14			Hebrews	1	5			FALSE			Reverse World English Bible												
+1 Chronicles	17	13			Hebrews	1	5			FALSE			Reverse World English Bible												
+Deuteronomy	32	43			Hebrews	1	6			FALSE			Reverse World English Bible												
+Psalms	104	4			Hebrews	1	7			FALSE			Reverse World English Bible												
+Psalms	45	7			Hebrews	1	9			FALSE			Reverse World English Bible												
+Psalms	102	27			Hebrews	1	12			FALSE			Reverse World English Bible												
+Psalms	110	1			Hebrews	1	13			FALSE			Reverse World English Bible												
+Psalms	8	6			Hebrews	2	8			FALSE			Reverse World English Bible												
+Psalms	22	22			Hebrews	2	12			FALSE			Reverse World English Bible												
+Isaiah	8	18			Hebrews	2	13			FALSE	has given me		Reverse World English Bible												
+Psalms	95	11			Hebrews	3	11			FALSE			Reverse World English Bible												
+Psalms	95	8			Hebrews	3	15			FALSE			Reverse World English Bible												
+Psalms	95	11			Hebrews	4	3			FALSE			Reverse World English Bible												
+Genesis	2	2			Hebrews	4	4			FALSE			Reverse World English Bible												
+Psalms	95	11			Hebrews	4	5			FALSE			Reverse World English Bible												
+Psalms	95	8			Hebrews	4	7			FALSE			Reverse World English Bible												
+Psalms	2	7			Hebrews	5	5			FALSE			Reverse World English Bible												
+Psalms	110	4			Hebrews	5	6			FALSE			Reverse World English Bible												
+Genesis	22	17			Hebrews	6	14			FALSE	on the seashore.		Reverse World English Bible												
+Psalms	110	4			Hebrews	7	17			FALSE			Reverse World English Bible												
+Psalms	110	4			Hebrews	7	21			FALSE			Reverse World English Bible												
+Exodus	25	40			Hebrews	8	5			FALSE			Reverse World English Bible												
+Jeremiah	31	34			Hebrews	8	12			FALSE			Reverse World English Bible												
+Exodus	24	8			Hebrews	9	20			FALSE			Reverse World English Bible												
+Psalms	40	8			Hebrews	10	7			FALSE			Reverse World English Bible												
+Jeremiah	31	33			Hebrews	10	16			FALSE			Reverse World English Bible												
+Jeremiah	31	34			Hebrews	10	17			FALSE			Reverse World English Bible												
+Deuteronomy	32	35			Hebrews	10	30			FALSE			Reverse World English Bible												
+Deuteronomy	32	36			Hebrews	10	30			FALSE			Reverse World English Bible												
+Psalms	135	14			Hebrews	10	30			FALSE	judge his people		Reverse World English Bible												
+Habakkuk	2	4			Hebrews	10	38			FALSE			Reverse World English Bible												
+Genesis	21	12			Hebrews	11	18			FALSE			Reverse World English Bible												
+Daniel	6	23			Hebrews	11	33			FALSE			Reverse World English Bible												
+Daniel	3	30			Hebrews	11	34			FALSE			Reverse World English Bible												
+1 Kings	19	3			Hebrews	11	34			FALSE			Reverse World English Bible												
+2 Kings	7	20			Hebrews	11	34			FALSE			Reverse World English Bible												
+1 Kings	17	23			Hebrews	11	35			FALSE			Reverse World English Bible												
+2 Kings	4	37			Hebrews	11	35			FALSE			Reverse World English Bible												
+2 Chronicles	24	21			Hebrews	11	37			FALSE			Reverse World English Bible												
+Jeremiah	26	23			Hebrews	11	37			FALSE	"with the sword,"		Reverse World English Bible												
+1 Kings	19	10			Hebrews	11	37			FALSE			Reverse World English Bible												
+Proverbs	3	12			Hebrews	12	6			FALSE			Reverse World English Bible												
+Isaiah	35	3			Hebrews	12	12			FALSE			Reverse World English Bible												
+Proverbs	4	26			Hebrews	12	13			FALSE			Reverse World English Bible												
+Exodus	19	13			Hebrews	12	20			FALSE			Reverse World English Bible												
+Deuteronomy	9	19			Hebrews	12	21			FALSE			Reverse World English Bible												
+Jeremiah	31	31			Hebrews	12	24			FALSE	a new covenant		Reverse World English Bible												
+Haggai	2	6			Hebrews	12	26			FALSE			Reverse World English Bible												
+Deuteronomy	4	24			Hebrews	12	29			FALSE			Reverse World English Bible												
+Deuteronomy	31	6			Hebrews	13	5			FALSE			Reverse World English Bible												
+Psalms	118	7			Hebrews	13	6			FALSE			Reverse World English Bible												
+Leviticus	16	27			Hebrews	13	11			FALSE			Reverse World English Bible												
+Psalms	50	23			Hebrews	13	15			FALSE			Reverse World English Bible												
+Leviticus	19	18			James	2	8			FALSE	yourself.		Reverse World English Bible												
+Exodus	20	14			James	2	11			FALSE			Reverse World English Bible												
+Deuteronomy	5	18			James	2	11			FALSE			Reverse World English Bible												
+Exodus	20	13			James	2	11			FALSE			Reverse World English Bible												
+Deuteronomy	5	17			James	2	11			FALSE			Reverse World English Bible												
+Genesis	15	6			James	2	23			FALSE			Reverse World English Bible												
+Proverbs	3	34			James	4	6			FALSE			Reverse World English Bible												
+Leviticus	11	45			1 Peter	1	16			FALSE			Reverse World English Bible												
+Isaiah	40	8			1 Peter	1	25			FALSE			Reverse World English Bible												
+Isaiah	28	16			1 Peter	2	6			FALSE			Reverse World English Bible												
+Psalms	118	22			1 Peter	2	7			FALSE			Reverse World English Bible												
+Isaiah	8	14			1 Peter	2	8			FALSE			Reverse World English Bible												
+Isaiah	53	9			1 Peter	2	22			FALSE			Reverse World English Bible												
+Psalms	34	16			1 Peter	3	12			FALSE	"who do evil,"		Reverse World English Bible												
+Isaiah	8	12			1 Peter	3	14			FALSE			Reverse World English Bible												
+Proverbs	11	31			1 Peter	4	18			FALSE			Reverse World English Bible												
+Proverbs	3	34			1 Peter	5	5			FALSE			Reverse World English Bible												
+Matthew	17	5			2 Peter	1	17			FALSE			Reverse World English Bible												
+Mark	9	7			2 Peter	1	17			FALSE			Reverse World English Bible												
+Luke	9	35			2 Peter	1	17			FALSE			Reverse World English Bible												
+Proverbs	26	11			2 Peter	2	22			FALSE			Reverse World English Bible												
+Exodus	19	6			Revelation	1	6			FALSE			Reverse World English Bible												
+Isaiah	61	6			Revelation	1	6			FALSE			Reverse World English Bible												
+Daniel	7	13			Revelation	1	13			FALSE	"son of man,"		Reverse World English Bible												
+Psalms	2	9			Revelation	2	27			FALSE			Reverse World English Bible												
+Daniel	7	13			Revelation	14	14			FALSE	"son of man,"		Reverse World English Bible												
+Psalms	2	9			Revelation	19	15			FALSE			Reverse World English Bible												
+Genesis	14	22			Exodus	6	3			TRUE	Yahweh		Is Yahweh known or not – Cary												
+Daniel	9	2			Jeremiah	25	11	25	12	TRUE			Carrier – Daniel fixes Jeremiah’s failed prophecy												
+Genesis	28	12			John	1	51			TRUE			Carrier – Angels ascending and descending between the heavens												
+Genesis	28	12			Ephesians	4	8	4	10	TRUE			Carrier – Angels ascending and descending between the heavens												
+John	1	51			Ephesians	4	8	4	10	TRUE			Carrier – Angels ascending and descending between the heavens		TRUE										
+Romans	8	34			1 John	2	1			TRUE			Carrier – Jesus is an intercessor		TRUE										
+Romans	8	34			Hebrews	7	25			TRUE			Carrier – Jesus is an intercessor		TRUE										
+1 John	2	1			Hebrews	7	25			TRUE			Carrier – Jesus is an intercessor		TRUE										
+Genesis	1	26			Genesis	2	7			TRUE	"our image,"	"ground,"	Carrier – Two Adams (heavenly and earthly)												
+1 Corinthians	15	49			Genesis	1	26			TRUE	heavenly.	"our image,"	Carrier – Two Adams (heavenly and earthly)												
+1 Corinthians	15	49			Genesis	2	7			TRUE	"dust,"	"ground,"	Carrier – Two Adams (heavenly and earthly)												
+Acts	15	7	15	11	Galatians	2	14	2	21	TRUE			Carrier - Luke writes Paul's speech as belonging to Peter		TRUE										
+Romans	1	3			Philippians	2	7			TRUE	born	being made	Genomenos - made or manufactured		TRUE										
+Matthew	5	37			James	5	12			TRUE			James passes these words of as his own; Perhaps Matthew put James's words into Jesus's mouth		TRUE										
+Jude	1	17			2 Peter	3	3			TRUE			James quotes 2 Peter (or both quote something earlier)		TRUE										
+Jude	1	11			Genesis	4	8			TRUE	Cain		James referenced Cain's sin												
+Jude	1	11			Numbers	22	34			TRUE	Balaam		James referenced Balaam's sin												
+Jude	1	11			Numbers	16	3			TRUE	Korah's rebellion		James referenced Korah's rebellion												
+2 Corinthians	12	7			2 Corinthians	11	6			FALSE	thorn in the flesh		Paul's thorn in the flesh is his lack of skill as a public speaker		TRUE										
+1 Corinthians	9	1			1 Corinthians	12	29			TRUE	apostle	apostles	Paul’s major statements on being an apostle		TRUE										
+1 Corinthians	9	1			2 Corinthians	12	12			TRUE	apostle	apostle	Paul’s major statements on being an apostle		TRUE										
+1 Corinthians	9	1			Galatians	1	1			TRUE	apostle	apostle	Paul’s major statements on being an apostle		TRUE										
+1 Corinthians	12	29			2 Corinthians	12	12			TRUE	apostles	apostle	Paul’s major statements on being an apostle		TRUE										
+1 Corinthians	12	29			Galatians	1	1			TRUE	apostles	apostle	Paul’s major statements on being an apostle		TRUE										
+2 Corinthians	12	12			Galatians	1	1			TRUE	apostle	apostle	Paul’s major statements on being an apostle		TRUE										
+John	19	28			Psalms	69	21			TRUE	Scripture		Jesus drinks wine												
+John	19	28	19	29	Matthew	27	48			TRUE			Jesus drinks wine/vinegar		TRUE										
+John	19	28	19	29	Mark	15	36			TRUE			Jesus drinks wine/vinegar		TRUE										
+John	19	28	19	29	Luke	23	36			TRUE			Jesus drinks wine/vinegar		TRUE										
+Matthew	27	48			Mark	15	36			TRUE			Jesus drinks wine/vinegar		TRUE										
+Matthew	27	48			Luke	23	36			TRUE			Jesus drinks wine/vinegar		TRUE										
+Mark	15	36			Luke	23	36			TRUE			Jesus drinks wine/vinegar		TRUE										
+Jude	1	18			2 Peter	3	3			TRUE			Mockers will come in the last days		TRUE										
+Matthew	13	11			Mark	4	11			TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	Luke	8	10			TRUE		parables	Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	1 Corinthians	2	7	2	10	TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	1 Corinthians	4	1			TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	Romans	14	24			TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	Ephesians	1	9			TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	Ephesians	3	3	3	5	TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	Colossians	1	26			TRUE			Secret knowledge / mysteries		TRUE										
+Matthew	13	11	0	0	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	Luke	8	10	0	0	TRUE		parables	Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	1 Corinthians	2	7	2	10	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	1 Corinthians	4	1	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	Romans	14	24	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	Ephesians	1	9	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	Ephesians	3	3	3	5	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	Colossians	1	26	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	4	11	0	0	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	1 Corinthians	2	7	2	10	TRUE	parables		Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	1 Corinthians	4	1	0	0	TRUE	parables		Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	Romans	14	24	0	0	TRUE	parables		Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	Ephesians	1	9	0	0	TRUE	parables		Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	Ephesians	3	3	3	5	TRUE	parables		Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	Colossians	1	26	0	0	TRUE	parables		Secret knowledge / mysteries		TRUE										
+Luke	8	10	0	0	2 Corinthians	4	3	4	4	TRUE	parables		Secret knowledge / mysteries		TRUE										
+1 Corinthians	2	7	2	10	1 Corinthians	4	1	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	2	7	2	10	Romans	14	24	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	2	7	2	10	Ephesians	1	9	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	2	7	2	10	Ephesians	3	3	3	5	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	2	7	2	10	Colossians	1	26	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	2	7	2	10	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	4	1	0	0	Romans	14	24	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	4	1	0	0	Ephesians	1	9	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	4	1	0	0	Ephesians	3	3	3	5	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	4	1	0	0	Colossians	1	26	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+1 Corinthians	4	1	0	0	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Romans	14	24	0	0	Ephesians	1	9	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Romans	14	24	0	0	Ephesians	3	3	3	5	TRUE			Secret knowledge / mysteries		TRUE										
+Romans	14	24	0	0	Colossians	1	26	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Romans	14	24	0	0	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Ephesians	1	9	0	0	Ephesians	3	3	3	5	TRUE			Secret knowledge / mysteries		TRUE										
+Ephesians	1	9	0	0	Colossians	1	26	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Ephesians	1	9	0	0	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Ephesians	3	3	3	5	Colossians	1	26	0	0	TRUE			Secret knowledge / mysteries		TRUE										
+Ephesians	3	3	3	5	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Colossians	1	26	0	0	2 Corinthians	4	3	4	4	TRUE			Secret knowledge / mysteries		TRUE										
+Mark	16	17			Acts	2	17			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	Acts	10	10			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	Acts	10	46			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	Acts	16	9			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	Acts	19	6			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	Acts	27	23			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	1 Corinthians	14	18			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	1 Corinthians	15	8			TRUE			Schizotypal religion		TRUE										
+Mark	16	17	0	0	Galatians	2	2			TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	Acts	10	10	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	Acts	10	46	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	Acts	16	9	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	Acts	19	6	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	Acts	27	23	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	1 Corinthians	14	18	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	2	17	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	Acts	10	46	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	Acts	16	9	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	Acts	19	6	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	Acts	27	23	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	1 Corinthians	14	18	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	10	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	46	0	0	Acts	16	9	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	46	0	0	Acts	19	6	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	46	0	0	Acts	27	23	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	46	0	0	1 Corinthians	14	18	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	46	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	10	46	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	16	9	0	0	Acts	19	6	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	16	9	0	0	Acts	27	23	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	16	9	0	0	1 Corinthians	14	18	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	16	9	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	16	9	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	19	6	0	0	Acts	27	23	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	19	6	0	0	1 Corinthians	14	18	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	19	6	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	19	6	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	27	23	0	0	1 Corinthians	14	18	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	27	23	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+Acts	27	23	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+1 Corinthians	14	18	0	0	1 Corinthians	15	8	0	0	TRUE			Schizotypal religion		TRUE										
+1 Corinthians	14	18	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+1 Corinthians	15	8	0	0	Galatians	2	2	0	0	TRUE			Schizotypal religion		TRUE										
+Romans	8	29			1 Corinthians	11	7			TRUE			Image of Jesus/God		TRUE										
+Romans	8	29	0	0	1 Corinthians	15	49			TRUE			Image of Jesus/God		TRUE										
+Romans	8	29	0	0	2 Corinthians	3	18			TRUE			Image of Jesus/God		TRUE										
+Romans	8	29	0	0	2 Corinthians	4	4			TRUE			Image of Jesus/God		TRUE										
+Romans	8	29	0	0	Colossians	1	15			TRUE			Image of Jesus/God		TRUE										
+Romans	8	29	0	0	Hebrews	1	3			TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	11	7	0	0	1 Corinthians	15	49	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	11	7	0	0	2 Corinthians	3	18	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	11	7	0	0	2 Corinthians	4	4	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	11	7	0	0	Colossians	1	15	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	11	7	0	0	Hebrews	1	3	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	15	49	0	0	2 Corinthians	3	18	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	15	49	0	0	2 Corinthians	4	4	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	15	49	0	0	Colossians	1	15	0	0	TRUE			Image of Jesus/God		TRUE										
+1 Corinthians	15	49	0	0	Hebrews	1	3	0	0	TRUE			Image of Jesus/God		TRUE										
+2 Corinthians	3	18	0	0	2 Corinthians	4	4	0	0	TRUE			Image of Jesus/God		TRUE										
+2 Corinthians	3	18	0	0	Colossians	1	15	0	0	TRUE			Image of Jesus/God		TRUE										
+2 Corinthians	3	18	0	0	Hebrews	1	3	0	0	TRUE			Image of Jesus/God		TRUE										
+2 Corinthians	4	4	0	0	Colossians	1	15	0	0	TRUE			Image of Jesus/God		TRUE										
+2 Corinthians	4	4	0	0	Hebrews	1	3	0	0	TRUE			Image of Jesus/God		TRUE										
+Colossians	1	15	0	0	Hebrews	1	3	0	0	TRUE			Image of Jesus/God		TRUE										
+Mark	15	24			Psalms	22	18			TRUE			Imagery from the OT used in the new												
+Mark	15	29	15	31	Psalms	22	7	22	8	TRUE			Imagery from the OT used in the new												
+Mark	15	34			Psalms	22	1			TRUE			Imagery from the OT used in the new												
+Mark	11	15	11	17	Zechariah	14	21			TRUE			Imagery from the OT used in the new												
+Mark	15	43			Genesis	50	4	50	5	TRUE			Imagery from the OT used in the new												
+Mark	15	45			Isaiah	53	9			TRUE		death	Imagery from the OT used in the new												
+Mark	15	28			Isaiah	53	9			TRUE		wicked	Imagery from the OT used in the new												
+Matthew	27	51	27	53	Zechariah	14	5			TRUE			Imagery from the OT used in the new												
+Acts	8	1			Galatians	1	22			TRUE	Jerusalem	Judea	Luke says Saul was in Jerusalem; Paul says he was unknown there		TRUE										
+Mark	15	25			John	19	16			TRUE			Date of the crucifixion		TRUE										
+Mark	15	25	0	0	Matthew	27	35			TRUE			Date of the crucifixion		TRUE										
+Mark	15	25	0	0	Luke	23	32			TRUE			Date of the crucifixion		TRUE										
+John	19	16			Matthew	27	35			TRUE			Date of the crucifixion		TRUE										
+John	19	16			Luke	23	32			TRUE			Date of the crucifixion		TRUE										
+Matthew	27	35			Luke	23	32			TRUE			Date of the crucifixion		TRUE										
+Luke	1	46	1	55	1 Samuel	2	1	2	10	TRUE			Mary’s song is a rework on Hannah’s												

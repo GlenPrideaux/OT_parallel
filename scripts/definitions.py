@@ -16,19 +16,24 @@ P_RE = re.compile(r"^\\p\s+(.*)$")        # \p ...
 # Footnote extraction (USFM)
 # ----------------------------
 FOOTNOTE_BLOCK_RE = re.compile(r"\\f\b.*?\\f\*", re.DOTALL)
-FR_RE = re.compile(r"\\fr\b\s*([^\\]+)")
+XREF_BLOCK_RE = re.compile(r"\\x\b.*?\\x\*\s?", re.DOTALL)
+FR_RE = re.compile(r"\\fr\b\s*([^ ]+)")
 FT_RE = re.compile(r"\\ft\b\s*([^\\]+)")
-FL_RE = re.compile(r"\\fl\b\s*([^\\ ]+)")
-FQ_RE = re.compile(r"\\fqa?\b\s*([^\\ ]+)")
+FL_RE = re.compile(r"\\fl\b\s*(.+?) \\")
+FQ_RE = re.compile(r"\\fqa?\b\s*(.+?) \\")
 # Some footnotes contain inline “character style” runs like \+wh ... \+wh*
 # These contain backslashes and will truncate naive \ft capture unless removed first.
 PLUS_MARK_RE = re.compile(r"\\\+[A-Za-z]+[* ]?")  # matches \+wh and \+wh* etc.
 X_MARK_RE = re.compile(r"\\x[A-Za-z]+[* ]?")  # matches \x and \xt, \x* etc.
 
 X_BLOCK_RE = re.compile(r"\\x\b.*?\\x\*")
+XO_RE = re.compile(r"\\xo\b\s*([^\\]+)")
+XT_RE = re.compile(r"\\xt\b\s*([^\\]+)")
 
 # Markers inserted into verse strings so the LaTeX generator can turn them into \footnote{...}
 FOOTNOTE_DELIM = "\u241EFOOTNOTE\u241E"  # ␞FOOTNOTE␞ (very unlikely in source)
+FOOTNOTE_REPEAT = "\u241EFOOTNOTEREPEAT\u241E"  # ␞FOOTNOTE␞ (very unlikely in source)
+XREF_DELIM = "\u241EXREF\u241E"
 
 ADD_OPEN = "\u241EADDOPEN\u241E"
 ADD_CLOSE = "\u241EADDCLOSE\u241E"
@@ -40,10 +45,10 @@ FL_OPEN = "\u241EFLOPEN\u241E"
 FL_CLOSE = "\u241EFLCLOSE\u241E"
 FQ_OPEN = "\u241EFQOPEN\u241E"
 FQ_CLOSE = "\u241EFQCLOSE\u241E"
+FX_OPEN = "\u241EFXOPEN\u241E"
+FX_CLOSE = "\u241EFXCLOSE\u241E"
 QS_OPEN = "\u241EQSOPEN\u241E"
 QS_CLOSE = "\u241EQSCLOSE\u241E"
-
-FOOTNOTE_DELIM = "\u241EFOOTNOTE\u241E"
 
 HEBREW_RE = re.compile(r'[\u0590-\u05FF]+')
 GREEK_RE = re.compile(r"[\u0370-\u03FF\u1F00-\u1FFF]+")

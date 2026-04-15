@@ -3,7 +3,7 @@ MAKEFLAGS += -rR --warn-undefined-variables
 SHELL = /bin/sh
 
 PYTHON := python3
-PY_FLAGS := -q
+PY_FLAGS := 
 
 DEPS_DIR := build/
 
@@ -54,7 +54,13 @@ build/index/% :
 build/eng-Brenton-updated_usfm/%.usfm: source/eng-Brenton_usfm/%.usfm $(UPDATE_BRENTON) $(SCRIPT_DEFINITIONS) $(BRENTON_DEPS) | $(RULES_REVIEW) build/eng-Brenton-updated_usfm
 	$(PYTHON) $(UPDATE_BRENTON) $< -o $@ --review $(RULES_REVIEW) -p -q $(PY_FLAGS)
 
+XREFS := build/xref.tsv
+
+$(XREFS): data/002xref.tsv scripts/00_build_web_xrefs.py
+	$(PYTHON) scripts/00_build_web_xrefs.py $(PY_FLAGS)
+
 .SECONDEXPANSION:
+
 
 build/json/Brenton/%.json: \
   $$(if $$(wildcard source/eng-Brenton-updated_usfm/$$*.usfm),\
@@ -62,10 +68,10 @@ build/json/Brenton/%.json: \
       build/eng-Brenton-updated_usfm/$$*.usfm) \
   $(PARSE_USFM) $(SCRIPT_DEFINITIONS) | build/json/Brenton
 	$(PYTHON) $(PARSE_USFM) $< -o $@ $(PY_FLAGS)
-build/json/WEB/%.json: source/eng-web_usfm/%.usfm $(PARSE_USFM) $(SCRIPT_DEFINITIONS) | build/json/WEB 
-	$(PYTHON) $(PARSE_USFM) $< -o $@ $(PY_FLAGS)
-build/json/WEBBE/%.json: source/eng-webbe_usfm/%.usfm $(PARSE_USFM) $(SCRIPT_DEFINITIONS) | build/json/WEBBE 
-	$(PYTHON) $(PARSE_USFM) $< -o $@ $(PY_FLAGS)
+build/json/WEB/%.json: source/eng-web_usfm/%.usfm $(PARSE_USFM) $(SCRIPT_DEFINITIONS) $(XREFS) | build/json/WEB 
+	$(PYTHON) $(PARSE_USFM) $< -o $@ -x $(XREFS) $(PY_FLAGS)
+build/json/WEBBE/%.json: source/eng-webbe_usfm/%.usfm $(PARSE_USFM) $(SCRIPT_DEFINITIONS) $(XREFS) | build/json/WEBBE 
+	$(PYTHON) $(PARSE_USFM) $< -o $@ -x $(XREFS) $(PY_FLAGS)
 build/json/Prideaux/%.json: source/eng-Prideaux_usfm/%.usfm $(PARSE_USFM) $(SCRIPT_DEFINITIONS) | build/json/Prideaux 
 	$(PYTHON) $(PARSE_USFM) $< -o $@ $(PY_FLAGS)
 
@@ -190,9 +196,9 @@ bible.pdf: $(BIBLE_DEPS) | build/tex
 bible_be.pdf: $(BIBLE_BE_DEPS) | build/tex
 	$(LATEXMK) -xelatex="xelatex %O '\def\usebritish{}\input{%S}'" -jobname=bible_be tex/bible.tex
 
-%_be.pdf: $$(shell $$(PYTHON) $$(GET_TEX_DEPS) tex/$$*.tex -b) | build/tex
+%_be.pdf: $$(shell $$(PYTHON) $$(GET_TEX_DEPS) tex/$$*.tex -b)  tex/xfootnotes.sty | build/tex
 	$(LATEXMK) -xelatex="xelatex %O '\def\usebritish{}\input{%S}'" -jobname=$*_be tex/$*.tex
-%.pdf: $$(shell $$(PYTHON) $$(GET_TEX_DEPS) tex/$$*.tex) | build/tex
+%.pdf: $$(shell $$(PYTHON) $$(GET_TEX_DEPS) tex/$$*.tex) tex/xfootnotes.sty | build/tex
 	$(LATEXMK) tex/$*.tex
 
 clean: 

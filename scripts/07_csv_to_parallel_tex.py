@@ -14,7 +14,7 @@ def inject_latex_footnotes(escaped_text: str) -> str:
     # escaped_text is already LaTeX-escaped
     parts = escaped_text.split(FOOTNOTE_DELIM)
     if len(parts) == 1:
-        return escaped_text
+        return inject_latex_xrefs(escaped_text)
 
     out = [parts[0]]
     # parts alternates: text, footnote, text, footnote, ...
@@ -22,6 +22,21 @@ def inject_latex_footnotes(escaped_text: str) -> str:
         fn = parts[i].strip()
         if fn:
             out.append(r"\footnote{" + fn + "}")
+        if i + 1 < len(parts):
+            out.append(parts[i + 1])
+    return inject_latex_xrefs("".join(out))
+def inject_latex_xrefs(escaped_text: str) -> str:
+    # escaped_text is already LaTeX-escaped
+    parts = escaped_text.split(XREF_DELIM)
+    if len(parts) == 1:
+        return escaped_text
+
+    out = [parts[0]]
+    # parts alternates: text, footnote, text, footnote, ...
+    for i in range(1, len(parts), 2):
+        fn = parts[i].strip()
+        if fn:
+            out.append(r"\xref{" + fn + "}")
         if i + 1 < len(parts):
             out.append(parts[i + 1])
     return "".join(out)
@@ -47,8 +62,11 @@ def render_markers(escaped_text: str) -> str:
             .replace(FL_CLOSE, "}")
             .replace(FQ_OPEN, r"\textbf{")
             .replace(FQ_CLOSE, "}")
+            .replace(FX_OPEN, r"{")
+            .replace(FX_CLOSE, "}")
             .replace(QS_OPEN, r"\hfill\textit{")
             .replace(QS_CLOSE, "}")
+            .replace(FOOTNOTE_REPEAT, r"\repeatfootnote ")
            )
 
 def render_structured_to_latex(escaped_text: str) -> str:
@@ -67,7 +85,6 @@ def render_structured_to_latex(escaped_text: str) -> str:
     
     while i < len(parts):
         token = parts[i]
-
         # Our style marker is a standalone token after splitting
         if token == "STYLE:HDG":
             pending_heading = True
@@ -75,7 +92,12 @@ def render_structured_to_latex(escaped_text: str) -> str:
             continue
 
         if token.startswith("Q:"):
-            indent = int(token[2:]) if token[2:].isdigit() else 1
+            if i>1:
+                out.append(r"\ensurepar{}")
+            indent = int(token[2:]) if token[2:].isdigit() else 0
+            if i+2 < len(parts) and parts[i+2] == "STYLE:PARA":
+                i += 2
+                out.append(PILCROW)
             if i + 1 < len(parts):
                 line = parts[i + 1].strip()
                 # If you ever tag a poem line as heading, you can decide what to do here.
@@ -120,8 +142,8 @@ def render_structured_to_latex(escaped_text: str) -> str:
 
     rendered = "".join(out).strip()
 
-    if r"\poemline" in rendered:
-        rendered = r"{\raggedright " + rendered + "}"
+#    if r"\poemline" in rendered:
+#        rendered = r"{\raggedright " + rendered + "}"
     return rendered
 
 
@@ -190,6 +212,9 @@ def main():
             mt_ref  = esc(r["mt_ref"])
             lxx_txt = esc(r["lxx_text"])
             mt_txt = esc(r["mt_text"])
+
+            if "XREF" in inject_latex_footnotes(render_markers(wrap_hebrew(lxx_txt))):
+                print(f"XREF seen in lxx {lxx_ref} after inject_latex_footnotes(render_markers(wrap_hebrew({lxx_txt})))")
             other_ref = r.get("other_ref","")
             if other_ref:
                 other_ref = esc(other_ref)

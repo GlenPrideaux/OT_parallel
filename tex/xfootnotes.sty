@@ -1,0 +1,543 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{xfootnotes}[2026/04/09 Experimental X footnotes]
+\usepackage{paracol}[=1.37]
+
+% TODO
+% 2. Sometimes a regular footnote, sometimes but not always the first,
+% is indented further than it should be so it doesn't line up with
+% those below it. Example Amos 2:8, Hosea 2:1. This doesn't seem to be
+% a new problem, though, since it does the same thing without this
+% file being included. Not sure if it's a paracol thing that I can
+% fix, or a LaTeX thing. More research needed.
+
+\makeatletter
+%\tracingoutput=1
+
+
+%% Debugging bits
+
+\overfullrule=5pt
+
+\newcommand{\showfootnotequeue}{%
+  \ifxfndebug
+  \begingroup
+  \setbox0\copy\footins % Copy the footnote box to check it
+  \ifdim\ht0>\z@
+    \typeout{Footnotes pending: \unvbox0} % Display the content if it exists
+  \else
+    \typeout{No footnotes in queue.}
+  \fi
+  \endgroup
+  \fi
+}
+\def\xfn@debugpos{%
+page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
+}
+\newif\ifxfndebug\xfndebugfalse
+\def\xfn@debugfootins#1{%
+  \ifxfndebug
+    \typeout{XNOTE: in \string#1\space at \xfn@debugpos}
+    \ifvoid\footins\typeout{::: footins is void }
+    \else\typeout{::: footins is NOT void}
+    \fi
+    \ifvoid\footinsX\typeout{::: footinsX is void}
+    \else\typeout{::: footinsX is NOT void}
+    \fi
+  \fi
+}
+\def\typeoutboxdims#1{%
+  \typeout{XNOTE \string#1 box: wd=\the\wd#1, ht=\the\ht#1,
+    dp=\the\dp#1}}
+
+%% Define a new type of insert for xref footnotes
+\newinsert\footinsX
+\skip\footinsX\skip\footins
+
+%% define footnoteX / xref
+
+\newcounter{xfootnote}
+\renewcommand\thexfootnote{\arabic{xfootnote}}
+\newskip\xreffootskip\xreffootskip=0.5\baselineskip
+
+\def\footnoteX#1{%
+  \refstepcounter{xfootnote}%
+  \protected@xdef\@thefnmark{\thexfootnote}%
+  \ifxfndebug\typeout{XNOTE: footnote \thexfootnote\space with text #1}\fi%
+  \@footnotemark%
+  \xfn@footnotetext{#1}%
+}
+
+%% Make it work. The input processing side
+
+% \xfn@footnotetext does normal processing, pretty much copied from
+% the paracol package, except that it inserts into \footinsX not \footins.
+\long\def\xfn@footnotetext#1{%
+  \insert\footinsX{\xfn@fntextbody{#1}\penalty\interlinepenalty}}
+
+% \xfn@fntextbody is again copied from the paracol package except that
+% it uses xfootnote as the counter not footnote
+\long\def\xfn@fntextbody#1{\setbox\@tempboxa\vbox{%
+    \reset@font\footnotesize%
+    \interlinepenalty\interfootnotelinepenalty%
+    \splittopskip\footnotesep%
+    \splitmaxdepth\dp\strutbox\floatingpenalty\@MM%
+    \hsize\ifpcol@scfnote\textwidth\else\columnwidth\fi
+    \def\@currentcounter{xfootnote}%
+    \protected@edef\@currentlabel{%
+       \csname p@footnote\endcsname\@thefnmark%
+    }%
+    \color@begingroup
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces#1\@finalstrut\strutbox}%
+    \par%
+    \color@endgroup}%
+  \@tempdima\ht\@tempboxa\advance\@tempdima\dp\@tempboxa%
+  \@tempdimb\textheight\advance\@tempdimb-\skip\footins%
+  \ifdim\@tempdima>\@tempdimb%
+    \setbox\@tempboxa\vbox to\@tempdimb{\unvbox\@tempboxa\vss}%
+    \PackageWarning{xfootnotes}{Too tall footnote}%
+  \fi%
+  \box\@tempboxa}
+
+% That's really there is to input processing. The challenge comes with
+% output processing. Both LaTeX and the paracol package are set up to
+% use one insert stream for footnotes, and in paracol we need to save
+% and restore the accumulated footnote insertions per column.
+%
+% I took a somewhat experimental approach to this initially, using
+% debugging techniques to identify which macros were being called when
+% and where it would be appropriate to hook in to enable our second
+% stream of footnotes. A number of macros were considered: 
+% \pcol@output is called frequently ... more than once per
+% \switchcolumn. This is no good for our primary output.
+% \output is called only once at the start of the file ... again, not useful
+% for a hook that needs to fire once per column per page.
+% \@output is not called at all, at least in processing my test file.
+%
+% \@makecol appears to be called once per page for each column
+% It also gets called again on the last page, perhaps as the
+% environment is ending, but after it has output the column
+% footnotes. This is promising.
+%
+% The approach taken was to combine the footnotes in \footinsX and
+% \footins into \footins just before the call to \@makecol and then
+% TeX could put them into place. This was initially successful but
+% left a number of other issues to be solved. Initially because
+% footnotes were not being saved and restored on a per column basis,
+% xrefs from column 2 got listed in column 1. The next step would be to work
+% out where paracol does that for footins and replicate it for
+% footinsX. 
+\let\xfn@@makecol\@makecol
+\def\@makecol{%
+  % \xfn@debugfootins\@makecol
+  \xfn@buildcombinedfootins%
+  \ifxfndebug\typeout{XNOTE \string\@colht\space = \the\@colht}\fi%
+  \xfn@@makecol%
+}
+
+% Once I understood how paracol was saving and restoring \footins it
+% wasn\t difficult to replicate for \footinsX
+% Saving happens in \pcol@savefootins which takes as an argument a cs
+% into which footins is saved (\pcol@currfoot for column footnotes,
+% which is all we care about.) It achieves this by getting a
+% 'register' from the freelist and moving \footins into there,
+% emptying it in the process. The associated \count, \dimen and \skip
+% are also copied, although as best I can tell the \setbox routine
+% would have taken care of this by itself.
+% This saving is called only from \pcol@output@switch
+\def\xfn@savefootinsX#1{%
+  \@next#1\@freelist{%
+    \global\setbox#1\box\footinsX%
+    \global\count#1\count\footinsX%
+    \global\dimen#1\dimen\footinsX%
+    \global\skip#1\skip\footinsX}{\def#1{\voidb@x}\pcol@ovf}}
+
+% Now the override to \pcol@output@switch to make it happen
+% This saves \footinsX and ensures that they don't go to the wrong
+% column but we haven't yet restored them so with just this they
+% disappear on a switchcolumn and only print if a page break
+% intervenes on the chunk they're in.
+% We prepend the code to save \footinsX into \xfn@currfootX then pass
+% control to the original macro
+\let\xfn@pcol@output@switch\pcol@output@switch
+\def\pcol@output@switch{%
+  \xfn@debugfootins\pcol@output@switch%
+  \def\xfn@currfootX{\voidb@x}%
+  \ifvoid\footinsX\else%
+    \ifpcol@scfnote\else% throw away the sc stuff, we only care about column-wise xrefs
+      \pcol@Log\pcol@output@switch{save}\footinsX%
+      \pcol@Fb%
+      \xfn@savefootinsX\xfn@currfootX%
+      \pcol@Fe{output@switch(colfnX)}%
+    \fi%
+  \fi%
+  \xfn@pcol@output@switch}
+
+% Now patch \pcol@setcurrcol and \pcol@getcurrcol to also save
+% \xfn@currfootX
+% These build/retrieve a data structure with 16 elements. To work
+% around TeX's 9 parameter limit, they group them like this:
+% { par1 par2 par3 par4 par5 par6 par7 par8 { par9 par10 par11 par12
+% par13 par14 par15 par16}}
+% Unpacking them sends \pcol@igetcurrcol these which sees the first 8
+% as separate paramaters, and the second 8 as a single grouped 9th
+% parameter. This in turn passes its 9th parameter to
+% \pcol@iigetcurrcol which unpacks the next 8.
+% To patch this to include \pcol@currfoot as one of the things
+% saved/restored we will add it to the second group of 8 which then
+% becomes a group of 9, and patch \pcol@iigetcurrcol to take a 9th
+% parameter.
+% We need to replace \pcol@setcurrcol rather than try to patch it
+\def\pcol@setcurrcol{{\let\@elt\relax%
+  \@tempcnta\if@nobreak\if@afterindent\@ne\else\tw@\fi\else\z@\fi%
+  \expandafter\xdef\csname pcol@col\number\pcol@currcol\endcsname{%
+    {\@currbox}%1
+    {\pcol@currfoot}%2
+    {\number\pcol@prevdepth}%3
+    {\@toplist}%4
+    {\@midlist}%5
+    {\@botlist}%6
+    {\@deferlist}%7
+    {\number\pcol@textfloatsep}%8
+    {{\number\@textfloatsheight}%9
+      {\number\@topnum}%10
+      {\number\@toproom}%11
+      {\number\@botnum}%12
+      {\number\@botroom}%13
+      {\number\@colnum}%14
+      {\number\@tempcnta}%15
+      {\the\everypar}%16
+      {\xfn@currfootX}% our addition becomes %17.
+    }}}}
+% There is also a no footnotes version that we patch to also clear \xfn@currfootX.
+\let\xfn@pcol@setcurrcolnf\pcol@setcurrcolnf
+\def\pcol@setcurrcolnf{\def\xfn@currfootX{\voidb@x}\xfn@pcol@setcurrcolnf}
+% For retrieval we need only change the second get macro
+% \pcol@iigetcurrcol which now takes nine parameters.
+\def\pcol@iigetcurrcol#1#2#3#4#5#6#7#8#9{%
+  \global\@textfloatsheight#1sp\relax%
+  \global\@topnum#2\relax\global\@toproom#3sp\relax%
+  \global\@botnum#4\relax\global\@botroom#5sp\relax%
+  \global\@colnum#6\relax%
+  \global\@afterindentfalse\@nobreaktrue%
+  \ifcase#7%
+    \@nobreakfalse\or%
+    \global\@afterindenttrue\else%
+    \relax%
+  \fi%
+  \global\everypar{#8}%
+  \def\xfn@currfootX{#9}}%
+
+% The above code just saves/restores \xfn@currfootX. We still need to
+% re-insert it into \footinsX. This is done in \pcol@getcurrfoot for \footins.
+% We can patch this to also do the same for \footinsX
+% Actually patching it is a bit problematic since at times we need to
+% restore footins and footinsX separately. Instead we'll make a
+% parallel version for footinsX
+% Parameter #1 is either \copy to be non-destructive to
+% \pcol@currfoot(X) or \box to move and empty it.
+\def\pcol@getcurrfootX#1{%
+  \ifvoid\xfn@currfootX\global\setbox\footinsX\box\voidb@x%
+  \else%
+    \global\setbox\footinsX#1\xfn@currfootX%
+    \global\count\footinsX\count\xfn@currfootX%
+    \global\dimen\footinsX\dimen\xfn@currfootX%
+    \global\skip\footinsX\skip\xfn@currfootX%
+  \fi}
+
+
+% This now has xrefs appearing in the correct columns.
+% Still at issue: a footnote after a page split a chunk disappears and
+% there are issues with spacing with footnotes at the end of
+% environment overlapping text. The disappearance might be to do with
+% deferred footnotes that we don't yet do anything with.
+% Let's address spacing first. There are several places where
+% \pcol@currfoot affects spacing. Let's see how we can make them also
+% consider \xfn@currfootX.
+
+\def\pcol@measurecolumn{%
+  \pcol@getcurrcol%
+  \@tempswafalse%
+  \dimen@\z@ \pcol@addflhd\@toplist\pcol@textfloatsep%
+  \global\skip\@currbox\dimen@%
+  \advance\dimen@\ht\@currbox \advance\dimen@\dp\@currbox \dimen@ii\dimen@
+  % at this point dimen@=dimen@ii=bottom of @currbox
+  \pcol@ifempty\@currbox%
+   {\global\pcol@prevdepth\maxdimen\pcol@setcurrcol}%
+   {\@tempswatrue}%
+  \pcol@measureupdate\@tempdima\dimen@ii\@tempdimc\pcol@prevdepth%
+  \ifvoid\pcol@currfoot \dimen@\z@%
+  \else%
+    \dimen@\ht\pcol@currfoot \advance\dimen@\dp\pcol@currfoot%
+    \advance\dimen@ \skip\pcol@currfoot%
+    \@tempswatrue%
+  \fi%
+  % at this point dimen@ is height + depth + skip of non-empty
+  % pcol@currfoot or zero if pcol@currfoot is empty
+  \ifvoid\xfn@currfootX\else%
+    \advance\dimen@\ht\xfn@currfootX \advance\dimen@\dp\xfn@currfootX%
+    \advance\dimen@ \skip\xfn@currfootX%
+    % add height + depth + skip of non-void xfn@currfootX
+    \ifvoid\pcol@currfoot\else
+      \advance\dimen@-\skip\pcol@currfoot
+      \advance\dimen@\xreffootskip\fi%
+      % if both currfoot are non-void, replace the pcol@currfoot skip
+      % with \xreffootskip in the calculations
+    \@tempswatrue%
+  \fi%
+  % dimen@ is now total height of footnotes and their skip
+  \pcol@addflhd\@botlist\maxdimen%
+  \ifdim\dimen@>\@tempdimb\@tempdimb\dimen@\fi%
+  \advance\dimen@\dimen@ii%
+  % dimen@ii was the total height of everything above footnotes so
+  % dimen@ is now total height of everything including footnotes.
+  \if@tempswa\ifdim\dimen@>\@pageht%
+    \@pageht\dimen@ \@tempcntb\pcol@currcol%
+  \fi\fi%
+  % Lowest non-empty items  
+  \dimen@ii\pcol@prevdepth%
+  \ifpcol@bfbottom%
+    \ifvoid\xfn@currfootX\else \dimen@ii\dp\xfn@currfootX\fi% footx is only lowest if foot is empty
+    \ifvoid\pcol@currfoot\else \dimen@ii\dp\pcol@currfoot \fi  
+    \ifx\@botlist\@empty\else\dimen@ii\z@\advance\dimen@\textfloatsep\fi%
+  \else%
+    \ifx\@botlist\@empty\else\dimen@ii\z@\advance\dimen@\textfloatsep\fi%
+    \ifvoid\xfn@currfootX\else \dimen@ii\dp\xfn@currfootX\fi% footx is only lowest if foot is empty
+    \ifvoid\pcol@currfoot\else \dimen@ii\dp\pcol@currfoot \fi  
+  \fi%
+  \pcol@measureupdate\pcol@colht\dimen@\@pagedp\dimen@ii%
+  \ifx\@deferlist\@empty\else\pcol@dfloatstrue\fi%
+  \advance\pcol@currcol\@ne}
+
+% Possibly also here in \pcol@makeflushedpage. Let's examine it: No,
+% the only thing here relates to \pcol@footins which is about
+% page-based footnotes and we don't care about them
+
+% Here in \pcol@imakeflushedpage? Yes, I think so.
+\def\pcol@imakeflushedpage#1#2#3{\global\setbox#3\vbox{%
+  \ifpcol@paired\else\ifnum#1=\z@\else\advance\c@page\@ne\fi\fi%
+  \ifvoid\pcol@footins\else\ifpcol@lastpage\else%
+    \def\pcol@bg@footnoteheight{%
+      \@elt{\ht\pcol@footins}\@elt{\dp\pcol@footins}}%
+    \pcol@bg@paintbox{Nn}%
+  \fi\fi%
+  \unvbox#3\nointerlineskip%
+  \ifpcol@lastpage\pcol@buildcolseprule\@colht#1#2\z@%
+  \else\pcol@buildcolseprule\@colht#1#2\@maxdepth%
+  \fi%
+  \unvbox\@tempboxa%
+  \hb@xt@\textwidth{%
+    \@tempcntb#1\@whilenum\@tempcntb<#2\do{%
+      \pcol@swapcolumn\@tempcntb\pcol@currcol#1#2\relax%
+      \pcol@getcurrcol%
+      \setbox\@cclv\box\@currbox%
+      \ifvoid\pcol@currfoot\else%footnotes have been shipped out;
+                                %release registers to the freelist.
+        \pcol@Fb%
+        \@cons\@freelist\pcol@currfoot%
+        \pcol@Fe{imakeflushedpage(colfn)}%
+      \fi%
+      \pcol@getcurrfoot\box%empty \footins from the now empty pcol@currfoot
+      \ifvoid\xfn@currfootX\else%ditto for currfootX
+        \pcol@Fb%
+        \@cons\@freelist\xfn@currfootX%
+        \pcol@Fe{imakeflushedpage(colfn)}%
+      \fi%
+      \pcol@getcurrfootX\box%
+      \@tempswafalse%
+      \begingroup%
+        \ifdim\@toproom=\maxdimen%
+          \let\topfigrule\relax\ifdim\@colht=\@pageht\@tempswatrue\fi%
+        \fi%
+        \if@tempswa%
+          \pcol@Logstart{\pcol@makeflushedpage(1)}%
+          \setbox\@outputbox\pcol@makefcolpage%
+          \pcol@Logend{\pcol@makeflushedpage(1)}%
+        \else%
+          \pcol@Logstart{\pcol@makeflushedpage(2)}%
+          \ifpcol@lastpage\pcol@@makecol\z@\else\pcol@@makecol\@maxdepth\fi%
+          \pcol@Logend{\pcol@makeflushedpage(2)}%
+        \fi%
+        \pcol@@hfil\hb@xt@\columnwidth{\box\@outputbox\hss}%
+      \endgroup%
+      \edef\pcol@@hfil{\noexpand\pcol@hfil{\pcol@colsepid}}%
+      \pcol@setcurrcolnf%
+     \advance\@tempcntb\@ne}}}}
+
+% AND here, too
+% De-allocate \xfn@currfootX. This happens for \pcol@currfoot in \pcol@flushcolumn.
+% We replace it with a version that does \xfn@currfootX too.
+
+\def\pcol@flushcolumn{%
+  \pcol@getcurrcol%
+  \ifnum\count\@currbox<\pcol@toppage%
+    \ifpcol@lastpage\pcol@lastpagesavetrue\else\pcol@lastpagesavefalse\fi%
+    \pcol@lastpagefalse%
+    \pcol@page\count\@currbox%
+    \setbox\@cclv\vbox{\unvbox\@currbox\vfil}%
+    \ifvoid\pcol@currfoot\else%
+      \pcol@Fb%
+      \@cons\@freelist\pcol@currfoot%
+      \pcol@Fe{flushcolumn(colfn)}%
+    \fi%
+    \pcol@getcurrfoot\box%
+    \ifvoid\xfn@currfootX\else%
+      \pcol@Fb%
+      \@cons\@freelist\xfn@currfootX%
+      \pcol@Fe{flushcolumn(colfnX)}%
+    \fi%
+    \pcol@getcurrfootX\box%
+    \pcol@getcurrpage%
+    \ifvoid\pcol@footins%
+      \ifdim\ht\@cclv>\@colht%
+        \setbox\@cclv\vbox{\boxmaxdepth\@maxdepth\unvbox\@cclv\unskip}%
+      \fi%
+    \else%
+      \pcol@shrinkcolbyfn\@colht\pcol@footins\relax%
+      \setbox\@cclv\vbox{\pcol@unvbox@cclv\pcol@footins}%
+    \fi%
+    \pcol@Logstart{\pcol@flushcolumn(\number\c@page:\number\pcol@currcol)}%
+    \ifdim\@toproom=\maxdimen%
+      \setbox\@outputbox\pcol@makefcolpage\global\@toproom\z@%
+    \else%
+      \pcol@@makecol\@maxdepth%
+    \fi%
+    \pcol@Logend\pcol@flushcolumn%
+    \global\setbox\@currbox\box\@outputbox%
+    \expandafter\@cons\csname pcol@shipped\number\pcol@currcol\endcsname%
+      \@currbox%
+    \advance\pcol@page\@ne%
+    \ifx\@deferlist\@empty\else%
+      \@whilenum\pcol@page<\pcol@toppage\do{%
+        \pcol@getcurrpage%
+        \ifvoid\pcol@footins\else%
+          \pcol@shrinkcolbyfn\@colht\pcol@footins\relax%
+        \fi%
+        \@makefcolumn\@deferlist%
+        \if@fcolmade%
+          \pcol@Fb%
+          \@next\@currbox\@freelist{\global\setbox\@currbox\box\@outputbox}%
+            \pcol@ovf%
+          \pcol@Fe{flushcolumn(fcol)}%
+          \expandafter\@cons%
+            \csname pcol@shipped\number\pcol@currcol\endcsname\@currbox%
+        \fi%
+       \advance\pcol@page\@ne}%
+    \fi%
+    \ifpcol@lastpagesave\pcol@lastpagetrue\fi%
+    \pcol@Fb%
+    \@next\@currbox\@freelist{\global\setbox\@currbox\vbox{}}\pcol@ovf%
+    \pcol@Fe{flushcolumn(col)}%
+    \pcol@getcurrpinfo\@tempcnta{\global\@colht}\@tempskipa%
+    \@pageht\@colht%
+    \ifvoid\pcol@footins\else\pcol@shrinkcolbyfn\@colht\pcol@footins\relax\fi%
+    \global\@colroom\@colht\pcol@floatplacement%
+    \ifx\@deferlist\@empty\else%
+      \ifpcol@clear%
+        \pcol@makefcolumn\global\@colroom\@colht%
+      \else%
+        \pcol@trynextcolumn%
+    \fi\fi%
+    \pcol@setcurrcolnf%
+    \global\count\@currbox\pcol@toppage%
+    \advance\@pageht-\@colht\advance\@pageht\@colroom%
+    \global\dimen\@currbox\@pageht%
+  \fi%\ifnum\count\@currbox<\pcol@toppage%
+  \advance\pcol@currcol\@ne}%
+%
+% pcol@restartcolumn
+\def\pcol@restartcolumn{%
+  \global\pcol@currcol\pcol@nextcol%
+  \pcol@getcurrcol%
+  \global\pcol@page\count\@currbox%
+  \global\@colroom\dimen\@currbox%
+  \pcol@Fb%
+  \@cons\@freelist\@currbox%
+  \pcol@Fe{restartcolumn(col)}%
+  \pcol@getcurrpage%
+  \ifpcol@scfnote%
+    \edef\pcol@currfoot{\pcol@footins}%
+    \ifnum\pcol@page=\pcol@toppage%
+      \@tempdima\@colht\@tempdimb\z@%
+      \pcol@putbackmvl%
+      \if@nobreak\nobreak\else\addpenalty\interlinepenalty\fi%
+      \ifvoid\pcol@footins\else%
+        \pcol@Fb%
+        \pcol@getcurrfoot\box\@cons\@freelist\pcol@currfoot%
+        \pcol@Fe{restartcolumn(pagefn)}%
+        \pcol@Log\pcol@restartcolumn{insert}\footins%
+        \pcol@shrinkcolbyfn\@colht\footins\@tempdimb%
+        \insert\footins{\unvbox\footins}%
+      \fi%
+      \pcol@deferredfootins\pcol@restartcolumn%
+      \@colht\@tempdima%
+    \else%
+      \ifvoid\pcol@footins\else%
+        \pcol@getcurrfoot\copy%
+        \pcol@Log\pcol@restartcolumn{insdmy}\footins%
+        \insert\footins{\unvbox\footins}%
+      \fi%
+      \pcol@putbackmvl%
+      \if@nobreak\nobreak\else\addpenalty\interlinepenalty\fi%
+    \fi%
+  \else%
+    \pcol@putbackmvl%
+    \ifvoid\pcol@currfoot\else%
+      \pcol@Fb%
+      \pcol@getcurrfoot\box\@cons\@freelist\pcol@currfoot%
+      \pcol@Fe{restartcolumn(colfn)}%
+      \pcol@Log\pcol@restartcolumn{insert}\footins%
+      \insert\footins{\unvbox\footins}%
+    \fi%
+    \ifvoid\xfn@currfootX\else%
+      \pcol@Fb%
+      \pcol@getcurrfootX\box\@cons\@freelist\xfn@currfootX%
+      \pcol@Fe{restartcolumn(colfn)}%
+      \pcol@Log\pcol@restartcolumn{insert}\footinsX%
+      \insert\footinsX{\unvbox\footinsX}%
+    \fi%
+    \if@nobreak\nobreak\else\addpenalty\interlinepenalty\fi%
+  \fi}%
+%
+%
+% \pcol@startcolumn saves \pcol@footins to \pcol@currfoot so we'll%
+% need to patch that to do the same for our X variants, but I will%
+% need to understand the relationship between \footins and%
+% \pcol@footins%
+% Ok, as I read the manual, \pcol@footins is only used for page-based%
+% footnotes, not per column footnotes. That means no X version is%
+% needed, and no patch to \pcol@startcolumn%
+%
+% Patch \pcol@fnlayout@c to ensure xfootnote is also a local counter%
+% (not global)%
+\let\xfn@pcol@fnlayout@c\pcol@fnlayout@c%
+\def\pcol@fnlayout@c{\xfn@pcol@fnlayout@c%
+  \localcounter{xfootnote}}%
+%
+%
+%% Combine the contents of \footinsX and \footins with a half%
+%% baselineskip gap between them if they are not both void
+\def\xfn@buildcombinedfootins{%
+  \newif\ifxfn@anyfoots\xfn@anyfootstrue%
+  \ifvoid\footins\ifvoid\footinsX\xfn@anyfootsfalse\fi\fi%
+  \xfn@debugfootins\xfn@buildcombinedfootins%
+  \ifxfn@anyfoots%
+    \setbox\footins\vbox{%
+      \ifvoid\footinsX\else\unvbox\footinsX%
+        \ifvoid\footins\else\vskip\xreffootskip\fi%
+      \fi%
+      \ifvoid\footins\else\unvbox\footins\fi%
+    }%
+  \fi%
+}%
+
+
+%% to turn this mechanism off and just use \footnote for every \footnoteX, just uncomment this line:
+%\def\footnoteX#1{\footnote{#1}}
+\let\xref\footnoteX
+
+
+\makeatother
+
+
+
