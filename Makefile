@@ -35,7 +35,7 @@ MAKE_INDEX := scripts/04_make_index.py
 BUILD_INDEX := build/index
 INDEX_CSV := index.csv
 MAKE_MASTER_INDEX := scripts/05_make_master_index.py
-LATEXMK := latexmk -cd -g -xelatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
+LATEXMK := max_print_line=1000 latexmk -cd -g -xelatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
 BUILD_PARALLEL_CSV := scripts/06_build_parallel_csv.py
 CSV_TO_TEX := scripts/07_csv_to_parallel_tex.py
 CSV_US := build/csv/US

@@ -1,3 +1,14 @@
+\ifdefined\sourcedir\else
+  \def\local{}
+  \input{preamble.tex}
+  \begin{document}
+  \def\propertitle{The Books of Poetry }
+  \frontmatter
+  \input{title.tex}
+  \input{copyright.tex}
+  \input{intro.tex}
+  \mainmatter
+\fi
 \input{\sourcedir/019-Job_parallel.tex}
 {
 \renewcommand{\ChapterHeading}[1]{%
@@ -26,3 +37,6 @@ as verse 0.
 \input{\sourcedir/021-Proverbs_parallel.tex}
 \input{\sourcedir/022-Ecclesiastes_parallel.tex}
 \input{\sourcedir/023-Song_of_Solomon_parallel.tex}
+\ifdefined\local
+  \end{document}
+\fi

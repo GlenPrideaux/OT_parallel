@@ -9,10 +9,11 @@
 % a new problem, though, since it does the same thing without this
 % file being included. Not sure if it's a paracol thing that I can
 % fix, or a LaTeX thing. More research needed.
+% Update: I think this is related to poetry indent. When the footnote
+% comes from an indented line, it is also indented.
 
 \makeatletter
 %\tracingoutput=1
-
 
 %% Debugging bits
 
@@ -48,6 +49,35 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 \def\typeoutboxdims#1{%
   \typeout{XNOTE \string#1 box: wd=\the\wd#1, ht=\the\ht#1,
     dp=\the\dp#1}}
+
+
+%% Patch paracol's failure to reset paragraph shape for footnotes
+\long\def\pcol@fntextbody#1{\setbox\@tempboxa\vbox{%
+    \reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize \ifpcol@scfnote \textwidth \else \columnwidth \fi
+    \@parboxrestore% Missing in paracol
+    \def\@currentcounter{footnote}%
+    \protected@edef\@currentlabel{%
+       \csname p@footnote\endcsname\@thefnmark
+    }%
+    \color@begingroup
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces#1\@finalstrut\strutbox}%
+    \par
+    \color@endgroup}%
+  \@tempdima\ht\@tempboxa \advance\@tempdima\dp\@tempboxa
+  \@tempdimb\textheight \advance\@tempdimb-\skip\footins
+  \ifdim\@tempdima>\@tempdimb
+    \setbox\@tempboxa\vbox to\@tempdimb{\unvbox\@tempboxa\vss}%
+    \PackageWarning{paracol}{Too tall footnote}%
+  \fi
+  \box\@tempboxa}
+
+
+
 
 %% Define a new type of insert for xref footnotes
 \newinsert\footinsX
@@ -129,9 +159,15 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 % footinsX. 
 \let\xfn@@makecol\@makecol
 \def\@makecol{%
-  % \xfn@debugfootins\@makecol
+  \xfn@debugfootins\@makecol
+  \ifxfndebug\typeout{XNOTE prior to combining footnotes.\space\xfn@debugpos}
+    \typeout{*** \string\@colht\space = \the\@colht\space\xfn@debugpos}
+    \typeout{*** footins skip=\the\skip\footins, ht=\the\ht\footins, dp=\the\dp\footins\space\xfn@debugpos}
+    \typeout{*** footinsX skip=\the\skip\footinsX, ht=\the\ht\footinsX, dp=\the\dp\footinsX\space\xfn@debugpos}
+    \typeout{*** footnotesep=\the\footnotesep\space\xfn@debugpos}
+    \typeout{*** xreffootskip=\the\xreffootskip\space\xfn@debugpos}
+    \typeout{*** text box ht=\the\ht\@cclv, dp=\the\dp\@cclv\space\xfn@debugpos}\fi%
   \xfn@buildcombinedfootins%
-  \ifxfndebug\typeout{XNOTE \string\@colht\space = \the\@colht}\fi%
   \xfn@@makecol%
 }
 
@@ -161,7 +197,7 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 % control to the original macro
 \let\xfn@pcol@output@switch\pcol@output@switch
 \def\pcol@output@switch{%
-  \xfn@debugfootins\pcol@output@switch%
+%  \xfn@debugfootins\pcol@output@switch%
   \def\xfn@currfootX{\voidb@x}%
   \ifvoid\footinsX\else%
     \ifpcol@scfnote\else% throw away the sc stuff, we only care about column-wise xrefs
@@ -276,13 +312,12 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
   % pcol@currfoot or zero if pcol@currfoot is empty
   \ifvoid\xfn@currfootX\else%
     \advance\dimen@\ht\xfn@currfootX \advance\dimen@\dp\xfn@currfootX%
-    \advance\dimen@ \skip\xfn@currfootX%
-    % add height + depth + skip of non-void xfn@currfootX
-    \ifvoid\pcol@currfoot\else
-      \advance\dimen@-\skip\pcol@currfoot
+    % add height + depth of non-void xfn@currfootX
+    \ifvoid\pcol@currfoot\advance\dimen@\skip\xfn@currfootX\else
+    % if pcol@currfoot was void, add skip now (otherwise it's
+    % already been added)
       \advance\dimen@\xreffootskip\fi%
-      % if both currfoot are non-void, replace the pcol@currfoot skip
-      % with \xreffootskip in the calculations
+      % if both currfoot are non-void, add \xreffootskip in the calculations
     \@tempswatrue%
   \fi%
   % dimen@ is now total height of footnotes and their skip

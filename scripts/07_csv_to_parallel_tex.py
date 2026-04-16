@@ -66,7 +66,6 @@ def render_markers(escaped_text: str) -> str:
             .replace(FX_CLOSE, "}")
             .replace(QS_OPEN, r"\hfill\textit{")
             .replace(QS_CLOSE, "}")
-            .replace(FOOTNOTE_REPEAT, r"\repeatfootnote ")
            )
 
 def render_structured_to_latex(escaped_text: str) -> str:

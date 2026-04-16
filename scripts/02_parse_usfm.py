@@ -21,12 +21,15 @@ from pathlib import Path
 
 from definitions import *
 
+debug = False
 quiet = False
 
 YAWEH_FN=[
     re.compile(re.escape(r'\f + \fr ')+r'\d+:\d+ '+re.escape(r'\ft When rendered in ALL CAPITAL LETTERS, “LORD” or “GOD” is the translation of God’s Proper Name (Hebrew “\+wh יהוה\+wh*”, usually pronounced Yahweh).\f*')),
     re.compile(re.escape(r'\f + \fr ')+r'\d+:\d+ '+re.escape(r'\ft LORD or GOD in all caps is from the Hebrew יהוה Yahweh except when otherwise noted as being from the short form יה Yah.\f*')),
+    re.compile(re.escape(r'\f + \fr ')+r'\d+:\d+ '+re.escape(r'\ft LORD or GOD in all caps is from the Hebrew')+r'.+'+re.escape(r'\f*')),
     ]
+# I suspect there's an issue with the Hebrew not being correctly identified by the RE in the second one, so I've put a wildcard match in there.
 
 # ----------------------------
 # Paths
@@ -37,7 +40,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 quiet = 0
 
-def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[tuple[str, str], tuple[str, set[str]]]) -> list[str, dict[tuple[str, str], tuple[str, set[str]]]]:
+def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[tuple[str, str], tuple[str, set[str], str]]) -> list[str, dict[tuple[str, str], tuple[str, set[str], str]]]:
     """
     Return text with USFM footnote blocks replaced inline by FOOTNOTE_DELIM markers.
 
@@ -54,20 +57,39 @@ def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[t
     """
 
     def repl(match):
+        global debug
+        if debug:
+            print(f"In repl with match={match}")
         def verse_key(v: str):
-            import re
             m = re.match(r"(\d+)([a-z]?)", v)
             num = int(m.group(1))
             suffix = m.group(2)
             return (num, suffix)
         block = match.group(0)
+        if debug:
+            print(f"block={{{block}}}")
         # Remove the Yaweh footnotes
+
         for fn in YAWEH_FN:
-            block = fn.sub("", block)
+            old_block = block
+            block, n = fn.subn("", block)
+            if n>0:
+                if debug:
+                    print(f"Scratched {fn} from '{old_block}'->'{block}'")
+                return block
+        if "all caps" in block:
+            print(f"ERROR: block missed skipping Yaweh footnote: {block}")
         # remove problematic \fl ... we don't check but should only be in footnotes
-        block = FL_RE.sub(f"{FL_OPEN}\\1{FL_CLOSE} \\\\", block)
-        block = FQ_RE.sub(f"{FQ_OPEN}\\1{FQ_CLOSE} \\\\", block)
-        block = XT_RE.sub(f"{FX_OPEN}\\1{FX_CLOSE}", block)
+        old_block = block
+        block,n = FL_RE.subn(f"{FL_OPEN}\\1{FL_CLOSE} \\\\", block)
+        if n>0 and debug:
+            print(f"...detected \\fl: {{{old_block}}}->{{{block}}}")
+        block,n = FQ_RE.subn(f"{FQ_OPEN}\\1{FQ_CLOSE} \\\\", block)
+        if n>0 and debug:
+            print(f"...detected \\fq: {{{old_block}}}->{{{block}}}")
+        block,n = XT_RE.subn(f"{FX_OPEN}\\1{FX_CLOSE}", block)
+        if n>0 and debug:
+            print(f"...detected \\xt: {{{old_block}}}->{{{block}}}")
 
         # Remove inline character-style markers (e.g., \+wh ... \+wh*, \xt, etc. )
         block = PLUS_MARK_RE.sub("", block)
@@ -80,41 +102,47 @@ def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[t
         preft = preft.replace(r"\f*","").strip()
         fts = [preft] + [m.group(1).strip() for m in FT_RE.finditer(block)]
         ft = " ".join(fts).strip()
-
+        
         if not ft:
             # Delete empty footnote blocks
             return " "
-
+        if debug:
+            print(f"Found footnote in {chapter}:{verse} fr={{{fr}}}, ft={{{ft}}}")
         if (ft, chapter) in footnotes:
-            ref, verselist = footnotes[(ft, chapter)]
+            ref, verselist, firstverse = footnotes[(ft, chapter)]
             verselist.add(verse)
             ref = f"{chapter}:" + ", ".join(sorted(verselist, key=verse_key))
-            footnotes[(ft, chapter)] = [f"{ref} ", verselist]
+            footnotes[(ft, chapter)] = [f"{ref}. ", verselist, firstverse]
             if not quiet:
                 print(f"Merging footnotes in chapter {chapter} verse(s) {sorted(verselist, key=verse_key)}")
             full = 0
         else:
-            footnotes[(ft, chapter)] = [f"{fr} ", {verse}]
+            footnotes[(ft, chapter)] = [f"{fr} ", {verse}, verse]
             full = 1
         # Inline footnote marker at the exact position
-        return f"{FOOTNOTE_DELIM}BEGIN{chapter}{FOOTNOTE_DELIM}{ft}{FOOTNOTE_DELIM}{full}END{FOOTNOTE_DELIM}"
+        return f"{FOOTNOTE_DELIM}BEGIN{chapter}:{verse}{FOOTNOTE_DELIM}{ft}{FOOTNOTE_DELIM}{full}END{FOOTNOTE_DELIM}"
 
     return FOOTNOTE_BLOCK_RE.sub(repl, raw), footnotes
 
 def insert_footnotes(verses: dict, footnotes: dict) -> dict:
     def build_from_groups(m):
-        full = m.group(3)
+        chapter = m.group(1)
+        verse = m.group(2)
+        ft = m.group(3)
+        full = m.group(4)
+        note = footnotes[(ft, chapter)]
         if full == "1":
-            chapter = m.group(1)
-            ft = m.group(2)
-            note = footnotes[(ft, chapter)]
             footnote = FOOTNOTE_DELIM + note[0]+ft + FOOTNOTE_DELIM
         else:
-            footnote = FOOTNOTE_REPEAT
+            if verse == note[2]:
+                footnote = FOOTNOTE_DELIM + f"{chapter}:{verse} See previous note." + FOOTNOTE_DELIM
+            else:
+                footnote = FOOTNOTE_DELIM + f"{chapter}:{verse} See previous note (v.{note[2]})" + FOOTNOTE_DELIM
+                
         return footnote
 
     def process(s):
-        pat = re.compile(FOOTNOTE_DELIM + r"BEGIN(\d+)" + FOOTNOTE_DELIM + r"(.+?)" + FOOTNOTE_DELIM + r"([01])END" + FOOTNOTE_DELIM)
+        pat = re.compile(FOOTNOTE_DELIM + r"BEGIN(\d+):(\d+[a-z]?)" + FOOTNOTE_DELIM + r"(.+?)" + FOOTNOTE_DELIM + r"([01])END" + FOOTNOTE_DELIM)
         result = []
         last = 0
 
@@ -291,9 +319,14 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
         text = " ".join(chunks).strip()
         if not xrefs is None:
             key = f"{longbook} {current_v}"
+            if debug:
+                print(key)
             if key in xrefs:
                 ref_list = xrefs[key]
-                text=f"{text[:3]}{XREF_DELIM}{current_v}: {ref_list}{XREF_DELIM}{text[3:]}"
+                sp = text.find(STRUCT_DELIM,1)+1
+                text=f"{text[:sp]}{XREF_DELIM}{current_v}: {ref_list}{XREF_DELIM}{text[sp:]}"
+                if debug:
+                    print(text)
 
         verses[current_v] = text
         chunks = []
@@ -456,7 +489,7 @@ def default_output_name(input_path: Path) -> Path:
 # Main
 # ----------------------------
 def main():
-    global quiet
+    global quiet, debug
     parser = argparse.ArgumentParser(
         description="Parse a USFM file and write as a JSON file."
     )
@@ -471,14 +504,19 @@ def main():
         default=None,
         help="insert cross references from file"
     )
-    global quiet
     parser.add_argument(
         "-q", "--quiet",
+        action="store_true"
+        )
+    parser.add_argument(
+        "--debug",
         action="store_true"
         )
     args = parser.parse_args()
     if args.quiet:
         quiet = True
+    if args.debug:
+        debug = True
 
     xrefs=None
     if args.xrefs:
@@ -488,7 +526,8 @@ def main():
             reader = csv.DictReader(f, delimiter="\t")
             for row in reader:
                 xrefs[row['ref']]=row['xrefs']
-        
+        if not quiet:
+            print(f"Read {len(xrefs)} xrefs from {args.xrefs}")
     usfm_path = Path(args.input)
     book, verses = parse_usfm_file(usfm_path, xrefs)
 
