@@ -3,7 +3,13 @@ MAKEFLAGS += -rR --warn-undefined-variables
 SHELL = /bin/sh
 
 PYTHON := python3
-PY_FLAGS := 
+PY_FLAGS :=
+ifeq ($(QUIET),1)
+PY_FLAGS += --quiet
+PROGRESS :=
+else
+PROGRESS := --progress
+endif
 
 DEPS_DIR := build/
 
@@ -36,6 +42,10 @@ BUILD_INDEX := build/index
 INDEX_CSV := index.csv
 MAKE_MASTER_INDEX := scripts/05_make_master_index.py
 LATEXMK := max_print_line=1000 latexmk -cd -g -xelatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
+ifeq ($(QUIET),1)
+LATEXMK := max_print_line=1000 latexmk -silent -cd -g -xelatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
+endif
+
 BUILD_PARALLEL_CSV := scripts/06_build_parallel_csv.py
 CSV_TO_TEX := scripts/07_csv_to_parallel_tex.py
 CSV_US := build/csv/US
@@ -52,7 +62,7 @@ build/index/% :
 	mkdir -p $@
 
 build/eng-Brenton-updated_usfm/%.usfm: source/eng-Brenton_usfm/%.usfm $(UPDATE_BRENTON) $(SCRIPT_DEFINITIONS) $(BRENTON_DEPS) | $(RULES_REVIEW) build/eng-Brenton-updated_usfm
-	$(PYTHON) $(UPDATE_BRENTON) $< -o $@ --review $(RULES_REVIEW) -p -q $(PY_FLAGS)
+	$(PYTHON) $(UPDATE_BRENTON) $< -o $@ --review $(RULES_REVIEW) $(PROGRESS) $(PY_FLAGS)
 
 XREFS := build/xref.tsv
 
@@ -145,10 +155,10 @@ listbooks:
 
 $(CSV_US)/%_parallel.csv: $$(call web_file,$$*) $$(call brenton_file,$$*) $$(call prideaux_file,$$*) $$(call mapping_path,$$*) \
 	$(BUILD_PARALLEL_CSV) $(SCRIPT_DEFINITIONS) | $(CSV_US)
-	$(PYTHON) $(BUILD_PARALLEL_CSV) "$(call book_name,$(subst _parallel.csv,,$@))" -q -o $@ -W $(call web_file,$*) -B $(call brenton_file,$*) -P "$(call prideaux_file,$*)" -M $(call mapping_path,$*)
+	$(PYTHON) $(BUILD_PARALLEL_CSV) "$(call book_name,$(subst _parallel.csv,,$@))" $(PY_FLAGS) -o $@ -W $(call web_file,$*) -B $(call brenton_file,$*) -P "$(call prideaux_file,$*)" -M $(call mapping_path,$*)
 $(CSV_BE)/%_parallel_be.csv: $$(call webbe_file,$$*) $$(call brenton_file,$$*) $$(call prideaux_file,$$*) $$(call mapping_path,$$*) \
 	$(BUILD_PARALLEL_CSV) $(SCRIPT_DEFINITIONS) | $(CSV_BE)
-	$(PYTHON) $(BUILD_PARALLEL_CSV) "$(call book_name,$(subst _parallel_be.csv,,$@))" --output $@ -b -W $(call webbe_file,$*) -B $(call brenton_file,$*) -P "$(call prideaux_file,$*)" -M $(call mapping_path,$*)
+	$(PYTHON) $(BUILD_PARALLEL_CSV) "$(call book_name,$(subst _parallel_be.csv,,$@))" $(PY_FLAGS) --output $@ -b -W $(call webbe_file,$*) -B $(call brenton_file,$*) -P "$(call prideaux_file,$*)" -M $(call mapping_path,$*)
 
 PARALLEL_CSVS := $(foreach book,$(OT),$(CSV_US)/$(book)_parallel.csv)
 PARALLEL_BE_CSVS := $(foreach book,$(OT),$(CSV_BE)/$(book)_parallel_be.csv)

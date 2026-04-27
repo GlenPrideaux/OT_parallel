@@ -83,6 +83,10 @@
 \newcommand{\ensurepar}{
 \ifhmode\unskip\par\fi
 }
+
+\newcommand{\firstwordofparagraph}[1]{\textbf{\textsc{#1}}}
+\newcommand{\pilcrowmark}{\small\textparagraph\thinspace}
+
 \newcommand{\poemindent}[1]{\hspace*{#1em}}
 % Start a new line iff we're currently mid-paragraph,
 % then typeset one poetry line.
@@ -95,12 +99,15 @@
     \leftskip=#1em%
    \noindent#2\par}%
 }
-
+\newif\iffirstchapter
+\newcommand{\bookintrotext}{}
 \newcommand{\BookHeading}[1]{%
   \cleardoublepage
   \chapter*{#1}
   \addcontentsline{toc}{chapter}{#1}
   \fancyhead[LE]{#1}
+  \global\firstchaptertrue
+  \bookintrotext
 }
 \newcommand{\ChapterHeading}[1]{%
   \vspace{1.5em}%
@@ -111,23 +118,16 @@
   \vspace{0.75em}
   \fancyhead[RO]{Chapter #1}
 }
-\newcommand{\columnAHead}{%
-    \hspace*{-0.5\verselabelwidth}%
-    \small (WEB)\par
+\newcommand{\columnHead}[1]{%
+  \hspace*{-0.5\verselabelwidth}%
+  \small (#1)\par
   \setcounter{footnote}{0}
-%  \setcounter{xfootnote}{0}
-}
-\newcommand{\columnBHead}{%
-    \hspace*{-0.5\verselabelwidth}%
-    \small (LXX)\par
-  \setcounter{footnote}{0}
-%  \setcounter{xfootnote}{0}
-}
-
-\newcommand{\columnCHead}{%
-    \hspace*{-0.5\verselabelwidth}%
-    \small (AT)\par
-}
+%  \typeout{*** XFN *** reset check: col=#1\space firstchapter=\iffirstchapter TRUE\else FALSE\fi, xfootnote before=\arabic{xfootnote}}
+  \iffirstchapter\setcounter{xfootnote}{0}\fi
+}  
+\newcommand{\columnAHead}{\columnHead{WEB}}
+\newcommand{\columnBHead}{\columnHead{LXX}}
+\newcommand{\columnCHead}{\columnHead{AT}}
 
 \newcommand{\ColumnHeadings}[1][2]{
   \columnAHead\switchcolumn[1]\columnBHead
@@ -135,6 +135,7 @@
   \switchcolumn[2]\columnCHead
   \fi
   \switchcolumn[0]*
+  \global\firstchapterfalse
 }
 \newcommand{\DescriptiveHeading}[1]{%
 {\raggedright\par\vspace{-0.3\baselineskip}{\fontsize{9.5}{11.5}\selectfont\textbf{#1}}\par\vspace{0.6\baselineskip}}

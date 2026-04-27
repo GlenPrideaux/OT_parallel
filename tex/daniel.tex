@@ -1,12 +1,7 @@
 % need to replace this when I've done the work for Daniel
 {
-\renewcommand{\BookHeading}[1]{%
-  \cleardoublepage
-  \chapter*{#1}
-  \addcontentsline{toc}{chapter}{#1}
-  \fancyhead[LE]{#1}
-\textit{
-The Septuagint (LXX) version of Daniel is not the earliest Greek form
+\renewcommand{\bookintrotext}{%
+\textit{The Septuagint (LXX) version of Daniel is not the earliest Greek form
   of the book; rather, it is largely a later revision that replaced an
   older Greek translation known as the Old Greek (OG). The OG version
   of Book of Daniel differs noticeably in wording, order, and
@@ -17,14 +12,9 @@ The Septuagint (LXX) version of Daniel is not the earliest Greek form
   tradition by the Theodotionic/LXX form, though the OG survives in
   some manuscripts and is important for textual criticism. In this
   edition an AI-generated translation of the Old Greek appears in the
-  third column labelled (OG).
+  third column labelled (OG).}
 }
-}
-\renewcommand{\columnCHead}{%
-    \hspace*{-0.5\verselabelwidth}%
-    \small (OG)\par
-}
-
+\renewcommand{\columnCHead}{\columnHead{OG}}
 
 \input{\sourcedir/028-Daniel_parallel}
 }

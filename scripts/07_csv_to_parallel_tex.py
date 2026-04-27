@@ -68,6 +68,69 @@ def render_markers(escaped_text: str) -> str:
             .replace(QS_CLOSE, "}")
            )
 
+WORD_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9'-]*")
+
+def skip_braced(text: str, i: int) -> int:
+    """Given text[i] == '{', return index just after matching '}'."""
+    depth = 0
+    while i < len(text):
+        if text[i] == "{":
+            depth += 1
+        elif text[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return i + 1
+        i += 1
+    return i  # unmatched brace: fall off end
+
+def find_first_plain_word(text: str):
+    i = 0
+    n = len(text)
+
+    while i < n:
+        ch = text[i]
+
+        # skip whitespace
+        if ch.isspace():
+            i += 1
+            continue
+
+        # skip LaTeX command, possibly with braced argument(s)
+        if ch == "\\":
+            i += 1
+            # consume command name
+            while i < n and (text[i].isalpha() or text[i] == "@"):
+                i += 1
+            # consume optional star
+            if i < n and text[i] == "*":
+                i += 1
+            # skip spaces after command
+            while i < n and text[i].isspace():
+                i += 1
+            # skip one or more braced arguments
+            while i < n and text[i] == "{":
+                i = skip_braced(text, i)
+                while i < n and text[i].isspace():
+                    i += 1
+            continue
+
+        # found first plain word
+        m = WORD_RE.match(text, i)
+        if m:
+            return m.group(), m.start(), m.end()
+
+        # otherwise move on
+        i += 1
+
+    return None
+
+def mark_first_plain_word(text: str) -> str:
+    found = find_first_plain_word(text)
+    if not found:
+        return text
+    word, start, end = found
+    return text[:start] + r"\firstwordofparagraph{" + word + "}" + text[end:]
+
 def render_structured_to_latex(escaped_text: str) -> str:
     if STRUCT_DELIM not in escaped_text:
         return escaped_text
@@ -80,7 +143,8 @@ def render_structured_to_latex(escaped_text: str) -> str:
     out = []
     i = 0
     pending_heading = False
-    PILCROW = r"{\small\textparagraph\thinspace}"
+    PILCROW = r"{\pilcrowmark}"
+    new_par = False
     
     while i < len(parts):
         token = parts[i]
@@ -97,6 +161,7 @@ def render_structured_to_latex(escaped_text: str) -> str:
             if i+2 < len(parts) and parts[i+2] == "STYLE:PARA":
                 i += 2
                 out.append(PILCROW)
+                new_par = True
             if i + 1 < len(parts):
                 line = parts[i + 1].strip()
                 # If you ever tag a poem line as heading, you can decide what to do here.
@@ -112,6 +177,7 @@ def render_structured_to_latex(escaped_text: str) -> str:
                     out.append(r"\par" + PILCROW)
                 else:
                     out.append(PILCROW)
+                new_par = True
                 
             if i + 1 < len(parts):
                 seg = parts[i + 1].strip()
@@ -123,6 +189,10 @@ def render_structured_to_latex(escaped_text: str) -> str:
                         out.append(render_heading_verse(seg) + " ")
                         pending_heading = False
                     else:
+                        if new_par:
+                            # print(f"Para start: {{{seg}}}")
+                            new_par = False
+                            seg = mark_first_plain_word(seg)
                         out.append(seg + " ")
                 i += 2
             else:
@@ -135,6 +205,11 @@ def render_structured_to_latex(escaped_text: str) -> str:
                     out.append(render_heading_verse(token) + " ")
                     pending_heading = False
                 else:
+                    # doesn't seem to get to here at all
+                    if new_par:
+                        print(f"Para start: {{{token}}}")
+                        new_par = False
+                        token = mark_first_plain_word(token)
                     out.append(token.strip() + " ")
 
             i += 1

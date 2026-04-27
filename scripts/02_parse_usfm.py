@@ -55,9 +55,10 @@ def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[t
     - If \\fr exists, trust it, otherwise create it from chater and verse
     - Removes \\+xx / \\+xx* inline markers inside the footnote so \\ft capture isn't truncated
     """
-
+    global quiet
     def repl(match):
         global debug
+        global quiet
         if debug:
             print(f"In repl with match={match}")
         def verse_key(v: str):
@@ -533,7 +534,7 @@ def main():
 
     out_path = Path(args.output) if args.output else default_output_name(usfm_path)    
     out_path.write_text(json.dumps(verses, ensure_ascii=False, indent=2), encoding="utf-8")
-    if not quiet:
+    if not args.quiet:
         print(f"Wrote {out_path} ({len(verses)} verses) from {usfm_path}")
 
 if __name__ == "__main__":

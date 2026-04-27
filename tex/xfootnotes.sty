@@ -2,16 +2,6 @@
 \ProvidesPackage{xfootnotes}[2026/04/09 Experimental X footnotes]
 \usepackage{paracol}[=1.37]
 
-% TODO
-% 2. Sometimes a regular footnote, sometimes but not always the first,
-% is indented further than it should be so it doesn't line up with
-% those below it. Example Amos 2:8, Hosea 2:1. This doesn't seem to be
-% a new problem, though, since it does the same thing without this
-% file being included. Not sure if it's a paracol thing that I can
-% fix, or a LaTeX thing. More research needed.
-% Update: I think this is related to poetry indent. When the footnote
-% comes from an indented line, it is also indented.
-
 \makeatletter
 %\tracingoutput=1
 
@@ -49,6 +39,12 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 \def\typeoutboxdims#1{%
   \typeout{XNOTE \string#1 box: wd=\the\wd#1, ht=\the\ht#1,
     dp=\the\dp#1}}
+
+%% Even column bottoms (even when some columns have footnotes and others don't
+\newif\ifevencolumnbottoms
+\evencolumnbottomstrue
+% global dimension for max footnote height
+\newdimen\xfn@maxfootht
 
 
 %% Patch paracol's failure to reset paragraph shape for footnotes
@@ -283,11 +279,7 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 
 
 % This now has xrefs appearing in the correct columns.
-% Still at issue: a footnote after a page split a chunk disappears and
-% there are issues with spacing with footnotes at the end of
-% environment overlapping text. The disappearance might be to do with
-% deferred footnotes that we don't yet do anything with.
-% Let's address spacing first. There are several places where
+% Let's address spacing next. There are several places where
 % \pcol@currfoot affects spacing. Let's see how we can make them also
 % consider \xfn@currfootX.
 
