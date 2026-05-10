@@ -19,6 +19,7 @@ don't,cause
 don't,see
 don't,hear
 didn't,saw,see
+doesn't,sees,see
 didn't,understood,understand
 don't,go
 didn't,knew,know
@@ -118,3 +119,10 @@ didn't,walked,walk
 didn't,inclined,incline
 didn't,rent,tear
 don't,suppose
+didn't,inclined,incline
+don't,defile
+didn't,cast
+don't,keep
+didn't,continued,continue
+don't,feed
+didn't,fed,feed

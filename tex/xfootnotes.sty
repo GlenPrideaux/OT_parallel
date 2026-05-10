@@ -42,8 +42,8 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 
 %% Even column bottoms (even when some columns have footnotes and others don't
 \newif\ifevencolumnbottoms
-\evencolumnbottomstrue
-% global dimension for max footnote height
+\evencolumnbottomsfalse
+% global dimension for max footnote height at end of environment
 \newdimen\xfn@maxfootht
 
 
@@ -165,6 +165,11 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
     \typeout{*** text box ht=\the\ht\@cclv, dp=\the\dp\@cclv\space\xfn@debugpos}\fi%
   \xfn@buildcombinedfootins%
   \xfn@@makecol%
+%  \setbox\@outputbox\vbox{%
+%    {\color{green}\hrule height 0.4pt}%
+%    \unvbox\@outputbox%
+%    {\color{red}\hrule height 0.4pt}%
+%  }%
 }
 
 % Once I understood how paracol was saving and restoring \footins it
@@ -283,6 +288,74 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
 % \pcol@currfoot affects spacing. Let's see how we can make them also
 % consider \xfn@currfootX.
 
+\def\xfn@measurefootspace{%
+  \dimen@\z@
+  \ifvoid\pcol@currfoot\else
+    \advance\dimen@\ht\pcol@currfoot
+    \advance\dimen@\dp\pcol@currfoot
+    \advance\dimen@\skip\pcol@currfoot
+  \fi
+  \ifvoid\xfn@currfootX\else
+    \advance\dimen@\ht\xfn@currfootX
+    \advance\dimen@\dp\xfn@currfootX
+    \ifvoid\pcol@currfoot
+      \advance\dimen@\skip\xfn@currfootX
+    \else
+      \advance\dimen@\xreffootskip
+    \fi
+  \fi
+}
+
+\def\xfn@measurecolumnfootnotes{%
+  \pcol@getcurrcol
+  \xfn@measurefootspace
+  \ifdim\dimen@>\xfn@maxfootht
+    \global\xfn@maxfootht\dimen@
+  \fi
+  \advance\pcol@currcol\@ne
+}
+
+
+\def\pcol@sync{%
+  \pcol@currcol\z@ \@whilenum\pcol@currcol<\pcol@ncol\do\pcol@flushcolumn
+  \pcol@outputcolumns\@ne
+  \pcol@getcurrpinfo{\global\c@page}{\global\@colht}{\global\topskip}%
+  \@tempdima-\maxdimen \@tempdimb-\maxdimen \pcol@colht-\maxdimen
+  \@pageht-\maxdimen \@tempdimc\maxdimen \@pagedp\maxdimen \@tempcntb\z@
+  \pcol@dfloatsfalse
+  \pcol@currcol\z@ \@whilenum\pcol@currcol<\pcol@ncol\do\pcol@measurecolumn
+  \@tempswatrue \global\pcol@flushfalse
+  \ifpcol@clear
+    \ifpcol@lastpage \@tempdimb\pcol@colht \else \@tempdimb\@pageht \fi
+    \ifpcol@sync \@tempswafalse \fi
+  \else
+    \ifdim\@tempdima<\z@      \@tempswafalse
+    \else\ifdim\@tempdimb<\z@ \@tempdimb\@tempdima
+    \else                     \advance\@tempdimb\@tempdima
+    \fi\fi
+  \fi
+  \ifpcol@scfnote\ifvoid\pcol@footins\else
+    \ifdim\@tempdimb<\z@ \@tempdimb\z@ \fi
+    \advance\@tempdimb\ht\pcol@footins \advance\@tempdimb\dp\pcol@footins
+    \advance\@tempdimb\skip\pcol@footins
+  \fi\fi
+  \dimen@\@tempdimb
+  \ifpcol@clear\else \ifdim\dimen@<\z@\else
+    \ifdim\@tempdimc=\maxdimen\else \ifdim\@tempdimc<\z@\else
+      \advance\dimen@-\@tempdimc
+    \fi\fi
+    \advance\dimen@\pcol@@ensurevspace
+    \ifdim\dimen@<\@tempdimb \dimen@\@tempdimb \fi
+  \fi\fi
+  \ifdim\dimen@>\@colht
+    \global\pcol@flushtrue \@tempswafalse \pcol@nextcol\@tempcntb
+  \fi
+  \ifdim\@tempdimb<\z@\else \if@tempswa
+    \pcol@currcol\z@ \@whilenum\pcol@currcol<\pcol@ncol\do\pcol@synccolumn
+  \fi\fi}
+
+
+
 \def\pcol@measurecolumn{%
   \pcol@getcurrcol%
   \@tempswafalse%
@@ -294,22 +367,11 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
    {\global\pcol@prevdepth\maxdimen\pcol@setcurrcol}%
    {\@tempswatrue}%
   \pcol@measureupdate\@tempdima\dimen@ii\@tempdimc\pcol@prevdepth%
-  \ifvoid\pcol@currfoot \dimen@\z@%
-  \else%
-    \dimen@\ht\pcol@currfoot \advance\dimen@\dp\pcol@currfoot%
-    \advance\dimen@ \skip\pcol@currfoot%
+  \xfn@measurefootspace%
+  \ifvoid\pcol@currfoot\else%
     \@tempswatrue%
   \fi%
-  % at this point dimen@ is height + depth + skip of non-empty
-  % pcol@currfoot or zero if pcol@currfoot is empty
   \ifvoid\xfn@currfootX\else%
-    \advance\dimen@\ht\xfn@currfootX \advance\dimen@\dp\xfn@currfootX%
-    % add height + depth of non-void xfn@currfootX
-    \ifvoid\pcol@currfoot\advance\dimen@\skip\xfn@currfootX\else
-    % if pcol@currfoot was void, add skip now (otherwise it's
-    % already been added)
-      \advance\dimen@\xreffootskip\fi%
-      % if both currfoot are non-void, add \xreffootskip in the calculations
     \@tempswatrue%
   \fi%
   % dimen@ is now total height of footnotes and their skip

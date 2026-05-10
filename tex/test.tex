@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{paracol}
+\usepackage{lipsum}
+\usepackage{xfootnotes}
+
+\renewcommand\thefootnote{\alph{footnote}}
+\tracingoutput=1
+%\tracingmacros=1
+%\tracingcommands=1
+\makeatletter
+%\pcol@LogLevel222
+\makeatother
+
+\begin{document}
+\lipsum[1]
+
+\begin{paracol}{2}
+In the beginning\xref{Gen 1:1; John 1:1.}
+was the Word
+
+Another line
+with a note\footnote{Compare the LXX wording.}
+\switchcolumn
+How about another column?%\footnote{Why not?}
+
+15 Shall the axe glorify itself without him that hews with it? or shall the saw lift up itself without him that uses it, as if one should lift a rod or staff? but it shall not be so;\footnote{That was lipsum 1}\xref{some cross ref}
+\switchcolumn*
+\lipsum[2]\footnote{ordinary footnote}
+
+The facing column is empty.
+\switchcolumn
+\switchcolumn*
+This text is to generate a chunk without any footnotes.
+\switchcolumn
+This text is to generate a chunk without any footnotes.
+\switchcolumn*
+This text is to generate a second\xref{second} and third\xref{third}
+cross-reference in the first column.
+\switchcolumn
+This text is also without any footnotes. Go to a new page.
+\lipsum[3]
+\switchcolumn*
+In the beginning was the Word
+
+Another line
+with no note
+\switchcolumn
+How about another column?%\footnote{Why not?}
+
+15 Shall the axe glorify itself without him that hews with it? or shall the saw lift up itself without him that uses it, as if one should lift a rod or staff? but it shall not be so;\footnote{That was lipsum 1}\xref{some cross ref}
+\switchcolumn*
+A page without footnotes.
+
+\lipsum[5]
+
+\lipsum[4]\xref{That was lipsum4 and it should have taken this to the
+  next page.}
+\switchcolumn
+Nothing much here.
+\switchcolumn*
+And just an ordinary xref footnote here.\xref{xref footnote in col 1}
+\end{paracol}
+
+\end{document}

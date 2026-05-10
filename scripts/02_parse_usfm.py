@@ -23,6 +23,7 @@ from definitions import *
 
 debug = False
 quiet = False
+contractions = False
 
 YAWEH_FN=[
     re.compile(re.escape(r'\f + \fr ')+r'\d+:\d+ '+re.escape(r'\ft When rendered in ALL CAPITAL LETTERS, “LORD” or “GOD” is the translation of God’s Proper Name (Hebrew “\+wh יהוה\+wh*”, usually pronounced Yahweh).\f*')),
@@ -211,6 +212,8 @@ def normalise_line(line: str) -> str:
     IMPORTANT: Footnotes should already be extracted before calling this.
     """
 
+    global contractions
+    
     # Normalise non-breaking spaces
     line = line.replace("\u00A0", " ")
     line = W_BLOCK_RE.sub(r"\1", line)
@@ -224,7 +227,12 @@ def normalise_line(line: str) -> str:
     line = line.replace("\\qs ", QS_OPEN)
     
     line = line.replace(LRM_UNICODE, "")
-    
+
+    if not contractions:
+        line = re.compile(r"\bdon't\b").sub(r"do not", line)
+        line = re.compile(r"\bdidn't\b").sub(r"did not", line)
+        line = re.compile(r"\bdoesn't\b").sub(r"does not", line)
+        
     # Remove pipe attributes (Strong’s/lemma/etc.)
     line = PIPE_ATTR_RE.sub("", line)
 
@@ -490,7 +498,7 @@ def default_output_name(input_path: Path) -> Path:
 # Main
 # ----------------------------
 def main():
-    global quiet, debug
+    global quiet, debug, contractions
     parser = argparse.ArgumentParser(
         description="Parse a USFM file and write as a JSON file."
     )
@@ -513,12 +521,17 @@ def main():
         "--debug",
         action="store_true"
         )
+    parser.add_argument(
+        "-c", "--contractions",
+        action="store_true"
+        )
     args = parser.parse_args()
     if args.quiet:
         quiet = True
     if args.debug:
         debug = True
-
+    if args.contractions:
+        contractions = True
     xrefs=None
     if args.xrefs:
         xrefs={}
