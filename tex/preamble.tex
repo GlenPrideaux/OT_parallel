@@ -2,8 +2,8 @@
 
 \usepackage[margin=18mm]{geometry}
 \usepackage{paracol}
-\usepackage{microtype}
-\usepackage[hidelinks, linktoc=all, colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[verbose=false]{microtype}
+\usepackage[hidelinks, linktoc=all, colorlinks=true, linkcolor=blue, hyperfootnotes=false]{hyperref}
 \usepackage{needspace}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
@@ -111,14 +111,15 @@
   \global\firstchaptertrue
   \bookintrotext
 }
+\newcommand{\literalchapter}{Chapter}
 \newcommand{\ChapterHeading}[1]{%
   \vspace{1.5em}%
   \Needspace{7\baselineskip}%
   \begin{center}
-    \large\bfseries Chapter #1\par
+    \large\bfseries \literalchapter\space #1\par
   \end{center}
   \vspace{0.75em}
-  \fancyhead[RO]{Chapter #1}
+  \fancyhead[RO]{\literalchapter\space #1}
 }
 \newcommand{\columnHead}[1]{%
   \hspace*{-0.5\verselabelwidth}%
@@ -142,8 +143,9 @@
 \newcommand{\DescriptiveHeading}[1]{%
 {\raggedright\par\vspace{-0.3\baselineskip}{\fontsize{9.5}{11.5}\selectfont\textbf{#1}}\par\vspace{0.6\baselineskip}}
 }
-\usepackage{fontspec}
+\usepackage[no-math]{fontspec}
 \usepackage{polyglossia}
+%\usepackage[english]{babel}
 \setmainfont{Libertinus Serif} % missing character
 \setmainfont{TeX Gyre Pagella} % best overall, I think. Good x height
    % makes it appear bigger and more readable
@@ -201,3 +203,21 @@
 \typeout{USEBRITISH DEFINED: \ifdefined\usebritish YES\else NO\fi}
 \typeout{SOURCEDIR = [\sourcedir]}
 
+\hyphenation{
+  Chal-de-ans
+  Chal-de-an
+  Bel-shaz-zar
+  Bel-te-shaz-zar
+  An-a-ni-as
+  Shad-rach
+  Mish-a-el
+  Me-shach
+  A-za-ri-ah
+  A-bed-ne-go
+  Neb-u-chad-nez-zar
+  Han-a-ni-ah
+  Dan-iel
+  cov-e-nant
+  bles-sed
+}
+\showhyphens{covenant blessed showing}

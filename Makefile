@@ -41,9 +41,9 @@ MAKE_INDEX := scripts/04_make_index.py
 BUILD_INDEX := build/index
 INDEX_CSV := index.csv
 MAKE_MASTER_INDEX := scripts/05_make_master_index.py
-LATEXMK := max_print_line=1000 latexmk -cd -g -xelatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
+LATEXMK := max_print_line=1000 latexmk -cd -g -lualatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
 ifeq ($(QUIET),1)
-LATEXMK := max_print_line=1000 latexmk -silent -cd -g -xelatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
+LATEXMK := max_print_line=1000 latexmk -silent -cd -g -lualatex -interaction=nonstopmode -halt-on-error -auxdir=../build/tex/ -outdir=..
 endif
 
 BUILD_PARALLEL_CSV := scripts/06_build_parallel_csv.py
@@ -204,10 +204,10 @@ BIBLE_BE_DEPS := $(shell $(PYTHON) $(GET_TEX_DEPS) tex/bible.tex -b)
 bible.pdf: $(BIBLE_DEPS) | build/tex
 	$(LATEXMK) tex/bible.tex
 bible_be.pdf: $(BIBLE_BE_DEPS) | build/tex
-	$(LATEXMK) -xelatex="xelatex %O '\def\usebritish{}\input{%S}'" -jobname=bible_be tex/bible.tex
+	$(LATEXMK) -lualatex="lualatex %O '\def\usebritish{}\input{%S}'" -jobname=bible_be tex/bible.tex
 
 %_be.pdf: $$(shell $$(PYTHON) $$(GET_TEX_DEPS) tex/$$*.tex -b)  tex/xfootnotes.sty | build/tex
-	$(LATEXMK) -xelatex="xelatex %O '\def\usebritish{}\input{%S}'" -jobname=$*_be tex/$*.tex
+	$(LATEXMK) -lualatex="lualatex %O '\def\usebritish{}\input{%S}'" -jobname=$*_be tex/$*.tex
 %.pdf: $$(shell $$(PYTHON) $$(GET_TEX_DEPS) tex/$$*.tex) tex/xfootnotes.sty | build/tex
 	$(LATEXMK) tex/$*.tex
 

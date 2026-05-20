@@ -108,6 +108,7 @@ page=\number\c@page, col=\number\pcol@currcol\space -> \number\pcol@nextcol
     \splittopskip\footnotesep%
     \splitmaxdepth\dp\strutbox\floatingpenalty\@MM%
     \hsize\ifpcol@scfnote\textwidth\else\columnwidth\fi
+    \@parboxrestore
     \def\@currentcounter{xfootnote}%
     \protected@edef\@currentlabel{%
        \csname p@footnote\endcsname\@thefnmark%
