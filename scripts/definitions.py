@@ -6,6 +6,7 @@ import re
 C_RE = re.compile(r"^\\c\s+([0-9A-F]+)\s*$")
 V_RE = re.compile(r"^\\v\s+(\d+)([a-z]?)\s+(.*)$")
 D_RE = re.compile(r"^\\d\s+(.*)$")
+B_RE = re.compile(r"\\b\b")
 
 # Poetry / paragraph markers (often appear on their own lines)
 Q_RE = re.compile(r"^\\q(\d*)\s+(.*)$")   # \q, \q1, \q2 ...
@@ -48,12 +49,14 @@ FX_OPEN = "\u241EFXOPEN\u241E"
 FX_CLOSE = "\u241EFXCLOSE\u241E"
 QS_OPEN = "\u241EQSOPEN\u241E"
 QS_CLOSE = "\u241EQSCLOSE\u241E"
+BREAK = "\u241EBREAK\u241E"
 
 HEBREW_RE = re.compile(r'[\u0590-\u05FF]+')
 GREEK_RE = re.compile(r"[\u0370-\u03FF\u1F00-\u1FFF]+")
 
 STRUCT_DELIM = "\u241E"
 STYLE_HDG = f"{STRUCT_DELIM}STYLE:HDG{STRUCT_DELIM}"
+STYLE_HDG_MID = f"{STRUCT_DELIM}STYLE:HDG:MID{STRUCT_DELIM}"
 STYLE_PARA = f"{STRUCT_DELIM}STYLE:PARA{STRUCT_DELIM}"
 
 RANGE_RE = re.compile(r"^([0-9A-F]+:\d+[a-z]*)\s*-\s*([0-9A-F]+:\d+[a-z]*)$")

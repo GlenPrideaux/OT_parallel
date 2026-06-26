@@ -66,6 +66,7 @@ def render_markers(escaped_text: str) -> str:
             .replace(FX_CLOSE, "}")
             .replace(QS_OPEN, r"\hfill\textit{")
             .replace(QS_CLOSE, "}")
+            .replace(BREAK, r"\Bskip{}")
            )
 
 WORD_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9'-]*")
@@ -138,19 +139,27 @@ def render_structured_to_latex(escaped_text: str) -> str:
     def render_heading_verse(text: str) -> str:
         # Space above + bold, but still stays in the column (not spanning both)
         return r"\DescriptiveHeading{" + text.strip() + r"}"
+    def render_mid_heading_verse(text: str) -> str:
+        # Space above + bold, but still stays in the column (not spanning both)
+        return r"\DescriptiveHeading[1]{" + text.strip() + r"}"
 
     parts = escaped_text.split(STRUCT_DELIM)
     out = []
     i = 0
     pending_heading = False
+    pending_mid_heading = False
     PILCROW = r"{\pilcrowmark}"
     new_par = False
     
     while i < len(parts):
         token = parts[i]
         # Our style marker is a standalone token after splitting
-        if token == "STYLE:HDG":
+        if token == "STYLE:HDG" or token == "Q:-1":
             pending_heading = True
+            i += 1
+            continue
+        if token == "STYLE:HDG:MID": 
+            pending_mid_heading = True
             i += 1
             continue
 
@@ -188,6 +197,9 @@ def render_structured_to_latex(escaped_text: str) -> str:
                     if pending_heading:
                         out.append(render_heading_verse(seg) + " ")
                         pending_heading = False
+                    elif pending_mid_heading:
+                        out.append(render_mid_heading_verse(seg) + " ")
+                        pending_heading = False
                     else:
                         if new_par:
                             # print(f"Para start: {{{seg}}}")
@@ -203,6 +215,9 @@ def render_structured_to_latex(escaped_text: str) -> str:
             if token.strip():
                 if pending_heading:
                     out.append(render_heading_verse(token) + " ")
+                    pending_heading = False
+                elif pending_mid_heading:
+                    out.append(render_mid_heading_verse(token) + " ")
                     pending_heading = False
                 else:
                     # doesn't seem to get to here at all

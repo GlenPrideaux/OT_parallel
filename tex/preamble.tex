@@ -114,7 +114,7 @@
 \newcommand{\literalchapter}{Chapter}
 \newcommand{\ChapterHeading}[1]{%
   \vspace{1.5em}%
-  \Needspace{7\baselineskip}%
+  \Needspace{9\baselineskip}%
   \begin{center}
     \large\bfseries \literalchapter\space #1\par
   \end{center}
@@ -140,9 +140,16 @@
   \switchcolumn[0]*
   \global\firstchapterfalse
 }
-\newcommand{\DescriptiveHeading}[1]{%
-{\raggedright\par\vspace{-0.3\baselineskip}{\fontsize{9.5}{11.5}\selectfont\textbf{#1}}\par\vspace{0.6\baselineskip}}
+\newcommand{\DescriptiveHeading}[2][0]{%
+  \ifnum#1=0\else\vspace{#1\baselineskip}\fi
+  {\par\centering\vspace{-0.3\baselineskip}{%
+%      \fontsize{9.5}{11.5}\selectfont%
+      \textsf{#2}}\par\vspace{0.6\baselineskip}\Needspace{3\baselineskip}%
+  }
 }
+\newcommand{\Bskip}{
+  \par\vspace{2.0\baselineskip}
+  }
 \usepackage[no-math]{fontspec}
 \usepackage{polyglossia}
 %\usepackage[english]{babel}

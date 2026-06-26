@@ -57,6 +57,7 @@ def extract_usfm_footnotes(raw: str, chapter: str, verse: str, footnotes: dict[t
     - Removes \\+xx / \\+xx* inline markers inside the footnote so \\ft capture isn't truncated
     """
     global quiet
+    global debug
     def repl(match):
         global debug
         global quiet
@@ -132,6 +133,8 @@ def insert_footnotes(verses: dict, footnotes: dict) -> dict:
         verse = m.group(2)
         ft = m.group(3)
         full = m.group(4)
+        if debug:
+            print(f"ft={{{ft}}}\nchapter={{{chapter}}}")
         note = footnotes[(ft, chapter)]
         if full == "1":
             footnote = FOOTNOTE_DELIM + note[0]+ft + FOOTNOTE_DELIM
@@ -232,6 +235,7 @@ def normalise_line(line: str) -> str:
         line = re.compile(r"\bdon't\b").sub(r"do not", line)
         line = re.compile(r"\bdidn't\b").sub(r"did not", line)
         line = re.compile(r"\bdoesn't\b").sub(r"does not", line)
+        line = re.compile(r"\bisn't\b").sub(r"is not", line)
         
     # Remove pipe attributes (Strong’s/lemma/etc.)
     line = PIPE_ATTR_RE.sub("", line)
@@ -356,6 +360,7 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                 continue
 
             s = line.strip()
+            s = B_RE.sub(BREAK, s)
             # Chapter marker
             m = C_RE.match(s)
             if m:
@@ -378,6 +383,15 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                 t = normalise_line(raw_text)
                 if t:
                     t = STYLE_HDG + t
+                    chunks.append(encode_chunk("p", 0, t))
+                continue
+            elif m: # \d but not verse zero
+                raw_text, footnotes = extract_usfm_footnotes(m.group(1), chapter, verse_only, footnotes)
+                raw_text = extract_usfm_xrefs(raw_text)
+                t = normalise_line(raw_text)
+                if t:
+                    t = STYLE_HDG_MID + t
+                    after_d = False
                     chunks.append(encode_chunk("p", 0, t))
                 continue
 
@@ -420,9 +434,9 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                 # If it follows \p, treat as a paragraph starter
                 if after_p:
                     is_para = True
-                    after_p = False  # consumed the \d context
+                    after_p = False  # consumed the \p context
                 else:
-                    after_p = False  # \d context only applies to the immediate next verse
+                    after_p = False  # \p context only applies to the immediate next verse
                 if after_q:
                     is_poet = True
                 after_q = False
