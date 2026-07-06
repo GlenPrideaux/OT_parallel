@@ -26,7 +26,7 @@ verse number in English Bibles. In this edition these headings appear
 as verse 0. It is also worth noting that the Greek translated in these
 headings as ``Of David'' is in the dative case that would normally be
 translated ``To David'' or perhaps ``For David'', but this is
-transparently a rendition of the Hebrew לְדָוִד that, while also being
+transparently a rendition of the Hebrew \texthebrew{לְדָוִד} that, while also being
 open to these alternative translations, reflects the normal Hebrew
 possessive, ``Of David'' and so this traditional translation has been
 retained.  } }
@@ -34,7 +34,17 @@ retained.  } }
 }
 \input{\sourcedir/021-Proverbs_parallel.tex}
 \input{\sourcedir/022-Ecclesiastes_parallel.tex}
-\input{\sourcedir/023-Song_of_Solomon_parallel.tex}
+{
+\renewcommand{\bookintrotext}{%
+\textit{The Song of Songs is written as a poetic dialogue, but the original Hebrew text does not identify its speakers. The speaker headings in the World English Bible column are editorial aids and are not part of the biblical text itself.}
+\par
+\quad\textit{In many places, changes of speaker can be recognised in Hebrew through grammatical features such as gender, number, and forms of address, distinctions that are often less clear in English translation. These headings are intended to reflect those shifts and assist the reader in following the movement of the poem.}\par
+\vspace{6pt}
+\textbf{Note:}
+\textit{The word rendered as “beloved” in the LXX column translates the Greek word \textgreek{ἀδελφιδός}, a diminutive derived from “brother”. It is used throughout the Song as a term of affection between lovers, but it is difficult to convey that nuance in English. Although the Hebrew uses its word for “beloved”, the Septuagint translators consistently render it with this distinctive Greek expression.}
+}
+\input{\sourcedir/023-Song_of_Solomon_parallel.tex} 
+}
 \ifdefined\local
   \end{document}
 \fi

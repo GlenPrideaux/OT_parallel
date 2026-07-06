@@ -220,6 +220,13 @@ def normalise_line(line: str) -> str:
     # Normalise non-breaking spaces
     line = line.replace("\u00A0", " ")
     line = W_BLOCK_RE.sub(r"\1", line)
+
+    # delete any empty pairings
+    line = line.replace(r"\add\add*","")
+    line = line.replace(r"\sc\sc*","")
+    line = line.replace(r"\sup\sup*","")
+    line = line.replace(r"\qs\qs*","")
+
     line = line.replace("\\add*", ADD_CLOSE)
     line = line.replace("\\add ", ADD_OPEN)
     line = line.replace("\\sc*", SC_CLOSE)
@@ -228,6 +235,7 @@ def normalise_line(line: str) -> str:
     line = line.replace("\\sup ", SUP_OPEN)
     line = line.replace("\\qs*", QS_CLOSE)
     line = line.replace("\\qs ", QS_OPEN)
+
     
     line = line.replace(LRM_UNICODE, "")
 
@@ -317,6 +325,7 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
     footnotes : dict[tuple[str, str], tuple[str, set[str]]] = {} # key: [text of the fn excluding the ref part., chapter]
     verses = {}  # key: "CH:V" -> encoded verse text with FOOTNOTE_DELIM markers
 
+    speaker = None
     current_v = None
     chunks = []    # list of encoded chunks (poetry/prose)
     after_d = False
@@ -395,6 +404,16 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                     chunks.append(encode_chunk("p", 0, t))
                 continue
 
+# somewhere in here we need to take into account \sp speaker codes
+# These should be attached to whatever printable text comes AFTER
+# so that if it comes before the first verse, it attaches to the
+# first verse, etc. This is a bit similar to how \p results in
+# a pilcrow on the next line that follows if it is on a line
+# by itself.
+            m = SP_RE.match(s)
+            if m:
+                speaker=m.group(1)
+                continue
             if s == r"\d":
                 # we don't need to store \d itself for our purposes; just remember it
                 after_d = True
@@ -448,10 +467,12 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                         t = STYLE_HDG + t
                     if is_para:
                         t = STYLE_PARA + t
-                    if is_poet:
-                        chunks.append(encode_chunk("q", 0, t)) # verse level poetry has to be first level.
-                    else:
-                        chunks.append(encode_chunk("p", 0, t))
+                    chunk =  encode_chunk("q", 0, t) if is_poet else encode_chunk("p", 0, t)
+                    if speaker is not None:
+#                        print("Adding speaker "+speaker+" to line:"+t)
+                        chunk = STYLE_SPEAKER + speaker + chunk
+                        speaker = None
+                    chunks.append(chunk)
                 continue
             
             # Continuation lines: may contain poetry markers or prose continuation
@@ -465,7 +486,12 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                     raw_text = extract_usfm_xrefs(raw_text)
                     t = normalise_line(raw_text)
                     if t:
-                        chunks.append(encode_chunk("q", level-1, t))
+                        chunk = encode_chunk("q", level-1, t)
+                        if speaker is not None:
+#                            print("Adding speaker "+speaker+" to line:"+t)
+                            chunk = STYLE_SPEAKER + speaker + chunk
+                            speaker = None
+                        chunks.append(chunk)
                     continue
 
                 # Poetry paragraph (flush-left)
@@ -476,7 +502,12 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                     raw_text = extract_usfm_xrefs(raw_text)
                     t = normalise_line(raw_text)
                     if t:
-                        chunks.append(encode_chunk("q", 1, t))
+                        chunk = encode_chunk("q", 1, t)
+                        if speaker is not None:
+#                            print("Adding speaker "+speaker+" to line:"+t)
+                            chunk = STYLE_SPEAKER + speaker + chunk
+                            speaker = None
+                        chunks.append(chunk)
                     continue
 
                 # Prose paragraph marker
@@ -487,7 +518,12 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                     raw_text = extract_usfm_xrefs(raw_text)
                     t = normalise_line(raw_text)
                     if t:
-                        chunks.append(encode_chunk("p", 0, t))
+                        chunk = encode_chunk("p", 0, t)
+                        if speaker is not None:
+#                            print("Adding speaker "+speaker+" to line:"+t)
+                            chunk = STYLE_SPEAKER + speaker + chunk
+                            speaker = None
+                        chunks.append(chunk)
                     continue
 
                 # Default continuation line (treat as prose continuation)
@@ -496,7 +532,12 @@ def parse_usfm_file(path: Path, xrefs: dict[str, str]):
                 raw_text = extract_usfm_xrefs(raw_text)
                 t = normalise_line(raw_text)
                 if t:
-                    chunks.append(encode_chunk("p", 0, t))
+                        chunk = encode_chunk("p", 0, t)
+                        if speaker is not None:
+#                           print("Adding speaker "+speaker+" to line:"+t)
+                            chunk = STYLE_SPEAKER + speaker + chunk
+                            speaker = None
+                        chunks.append(chunk)
 
     flush_current()
     verses = insert_footnotes(verses, footnotes)

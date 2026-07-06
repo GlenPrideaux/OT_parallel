@@ -7,6 +7,7 @@ C_RE = re.compile(r"^\\c\s+([0-9A-F]+)\s*$")
 V_RE = re.compile(r"^\\v\s+(\d+)([a-z]?)\s+(.*)$")
 D_RE = re.compile(r"^\\d\s+(.*)$")
 B_RE = re.compile(r"\\b\b")
+SP_RE = re.compile(r"\\sp\s+(.+)$")
 
 # Poetry / paragraph markers (often appear on their own lines)
 Q_RE = re.compile(r"^\\q(\d*)\s+(.*)$")   # \q, \q1, \q2 ...
@@ -58,6 +59,7 @@ STRUCT_DELIM = "\u241E"
 STYLE_HDG = f"{STRUCT_DELIM}STYLE:HDG{STRUCT_DELIM}"
 STYLE_HDG_MID = f"{STRUCT_DELIM}STYLE:HDG:MID{STRUCT_DELIM}"
 STYLE_PARA = f"{STRUCT_DELIM}STYLE:PARA{STRUCT_DELIM}"
+STYLE_SPEAKER = f"{STRUCT_DELIM}SP{STRUCT_DELIM}"
 
 RANGE_RE = re.compile(r"^([0-9A-F]+:\d+[a-z]*)\s*-\s*([0-9A-F]+:\d+[a-z]*)$")
 REF_RE = re.compile(r'^([0-9A-F]+):(\d+)([a-z]*)$', re.IGNORECASE)

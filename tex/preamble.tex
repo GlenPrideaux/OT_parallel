@@ -15,6 +15,8 @@
 %\xfndebugtrue
 
 \microtypesetup{nopatch=footnote}
+\usepackage{silence}
+\WarningFilter{microtype}{Unknown slot number of character}
 
 \pagestyle{fancy}
 
@@ -55,15 +57,33 @@
     {\textsuperscript{\scriptsize\textcolor{gray}{#1}}}%
   \fi
 }
+
+\usepackage{xcolor}
+
+\ExplSyntaxOn
+
 \newcommand{\smartverse}[2]{%
-\noindent%
-\if\relax\detokenize{#2}\relax
-\emptyverselabel{#1}
-\else
-\verselabel{#1}
-\fi
-\,#2\par
+  \str_if_eq:eeTF {\str_head:n {#1}} {*}
+    {%
+      \textcolor{gray}{%
+        \smartverse_print:nn {\str_tail:n {#1}} {#2}%
+      }%
+    }
+    {%
+      \smartverse_print:nn {#1} {#2}%
+    }%
 }
+
+\cs_new_protected:Npn \smartverse_print:nn #1 #2
+{
+  \noindent
+  \tl_if_blank:nTF {#2}
+    {\emptyverselabel{#1}}
+    {\verselabel{#1}}
+  \,#2\par
+}
+
+\ExplSyntaxOff
 
 \newcommand{\VersePair}[4]{%
   \smartverse{#1}{#2}
@@ -147,25 +167,36 @@
       \textsf{#2}}\par\vspace{0.6\baselineskip}\Needspace{3\baselineskip}%
   }
 }
-\newcommand{\Bskip}{
+\newcommand{\speaker}[1]{%
+  \leavevmode
+  \cleaders\hbox{\raisebox{0.5ex}{\rule{0.5em}{0.1pt}}}\hskip 0pt plus 1fill
+  \quad\textsc{#1}\quad
+  \cleaders\hbox{\raisebox{0.5ex}{\rule{0.5em}{0.1pt}}}\hskip 0pt plus 1fill
+  \kern0pt\par
+}\newcommand{\Bskip}{
   \par\vspace{2.0\baselineskip}
   }
 \usepackage[no-math]{fontspec}
 \usepackage{polyglossia}
 %\usepackage[english]{babel}
 \setmainfont{Libertinus Serif} % missing character
-\setmainfont{TeX Gyre Pagella} % best overall, I think. Good x height
+\setmainfont[
+  LetterSpace=-1
+]{TeX Gyre Pagella} % best overall, I think. Good x height
    % makes it appear bigger and more readable
 %\setmainfont{Junicode} % x height too small
 %\setmainfont{EB Garamond} % x height too small; no sc variant
 
 % tighten spacing a bit
-\addfontfeatures{LetterSpace=-1}
+%\addfontfeatures{LetterSpace=-1}
 \linespread{0.98}
 
 \setmainlanguage{english}
 \setotherlanguage{hebrew}
 \newfontfamily\hebrewfont[
+  Script=Hebrew,
+  Renderer=HarfBuzz,
+  Scale=MatchLowercase,
   BoldFont       = {Ezra SIL},
   ItalicFont     = {Ezra SIL},
   BoldItalicFont = {Ezra SIL}

@@ -100,6 +100,12 @@ def get_text(mt_dict, mt_ref: str) -> str:
 def sort_key(ref: str):
     return ref_to_tuple(ref)
 
+# If a ref begins with * it has been displaced.
+def is_displaced(ref):
+    if ref.startswith("*"):
+        return "*", ref[1:]
+    return "", ref
+
 # We offload to the makefile the specification of files so we no longer need to use the index file.
 # This enables us to only rebuild the brenton updated files and json files that are actually needed rather
 # than always building everything. 
@@ -192,31 +198,31 @@ def main():
                 if not quiet:
                     print("SUBS_LXX detected")
             ch = r["ch"]
-            my_ref = r.get("my_ref","").strip()
-            lxx_ref = r.get("lxx_ref","").strip()
-            mt_ref  = (r.get("mt_ref") or "").strip()
+            my_star,my_ref = is_displaced(r.get("my_ref","").strip())
+            lxx_star,lxx_ref = is_displaced(r.get("lxx_ref","").strip())
+            mt_star,mt_ref  = is_displaced((r.get("mt_ref") or "").strip())
             lxx_txt = apply_spelling_map(get_text(lxx_dict,lxx_ref), spelling_map)
             mt_txt  = get_text(mt_dict, mt_ref)
             if OTHER is None:
                 rows.append({
                     "ch": ch,
-                    "my_ref": lxx_ref,
-                    "lxx_ref": my_ref if subs_ref else lxx_ref,
+                    "my_ref": lxx_star+lxx_ref,
+                    "lxx_ref": my_star+my_ref if subs_ref else lxx_star+lxx_ref,
                     "lxx_text": lxx_txt,
-                    "mt_ref": mt_ref,
+                    "mt_ref": mt_star+mt_ref,
                     "mt_text": mt_txt,
                 })
             else:
-                other_ref = (r.get("other_ref") or "").strip()
+                other_star,other_ref = is_displaced((r.get("other_ref") or "").strip())
                 other_txt = apply_spelling_map(get_text(other_dict,other_ref), spelling_map)
                 rows.append({
                     "ch": ch,
-                    "my_ref": lxx_ref,
-                    "lxx_ref": my_ref if subs_ref else lxx_ref,
+                    "my_ref": lxx_star+lxx_ref,
+                    "lxx_ref": my_star+my_ref if subs_ref else lxx_star+lxx_ref,
                     "lxx_text": lxx_txt,
-                    "mt_ref": mt_ref,
+                    "mt_ref": mt_star+mt_ref,
                     "mt_text": mt_txt,
-                    "other_ref": other_ref,
+                    "other_ref": other_star+other_ref,
                     "other_text": other_txt
                 })
 

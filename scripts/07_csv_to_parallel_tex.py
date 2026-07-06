@@ -179,6 +179,9 @@ def render_structured_to_latex(escaped_text: str) -> str:
             else:
                 i += 1
 
+        elif token == "SP":
+            out.append(r"\speaker{"+parts[i+1]+r"}")
+            i += 2
         elif token == "P":
             if i+2 < len(parts) and parts[i+2] == "STYLE:PARA":
                 i += 2
